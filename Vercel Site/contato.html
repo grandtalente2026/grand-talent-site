@@ -94,8 +94,16 @@
   <p>Conte um pouco sobre a operação e o desafio de liderança que você está enfrentando. A resposta chega em até 24h.</p>
 </section>
 
-<div class="contact-wrap">
-  <form action="https://formspree.io/f/xwvgleqn" method="POST">
+<div id="success-message" style="display:none;padding:0 6vw 130px;">
+  <div style="background:var(--ink-bg);color:#fff;padding:60px 50px;text-align:center;">
+    <div class="eyebrow" style="justify-content:center;color:var(--gold-bright);">Mensagem enviada</div>
+    <h2 style="color:#fff;font-size:clamp(24px,3vw,36px);font-weight:300;margin:20px auto 16px;max-width:520px;">Obrigado pelo contato. A resposta chega no seu e-mail em até 24h úteis.</h2>
+    <p style="color:var(--stone-on-dark);font-size:14px;">Enquanto isso, fique à vontade pra explorar a <a href="metodologia.html" style="color:var(--gold-bright);text-decoration:underline;">metodologia</a> ou os <a href="insights.html" style="color:var(--gold-bright);text-decoration:underline;">insights</a>.</p>
+  </div>
+</div>
+
+<div class="contact-wrap" id="contact-wrap">
+  <form id="contact-form" action="https://formspree.io/f/xwvgleqn" method="POST">
     <div class="row2">
       <div class="field">
         <label for="nome">Nome completo</label>
@@ -129,8 +137,20 @@
       </div>
       <div class="field">
         <label for="telefone">Telefone / WhatsApp</label>
-        <input type="tel" id="telefone" name="telefone" placeholder="+55 11 91234-5678 ou +351 912 345 678">
-        <div style="font-size:11.5px;color:var(--stone);margin-top:6px;">Inclua o código do país (ex: +55 para Brasil, +351 para Portugal)</div>
+        <div style="display:flex;gap:8px;">
+          <select id="ddi" name="ddi" style="width:auto;min-width:92px;flex-shrink:0;">
+            <option value="+55" selected>🇧🇷 +55</option>
+            <option value="+351">🇵🇹 +351</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+34">🇪🇸 +34</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+33">🇫🇷 +33</option>
+            <option value="outro">Outro</option>
+          </select>
+          <input type="tel" id="telefone" name="telefone" placeholder="11 91234-5678" style="flex-grow:1;">
+        </div>
+        <div style="font-size:11.5px;color:var(--stone);margin-top:6px;">Código do país pré-selecionado para Brasil — troque se necessário</div>
       </div>
     </div>
     <div class="field">
@@ -191,6 +211,34 @@
   <div>Grand Talent Consulting © 2026</div>
   <div>Brasil · Portugal</div>
 </footer>
+
+<script>
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const submitBtn = form.querySelector('.submit-btn');
+  submitBtn.textContent = 'Enviando...';
+  submitBtn.disabled = true;
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      document.getElementById('contact-wrap').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    } else {
+      submitBtn.textContent = 'Erro ao enviar — tente novamente';
+      submitBtn.disabled = false;
+    }
+  } catch (err) {
+    submitBtn.textContent = 'Erro ao enviar — tente novamente';
+    submitBtn.disabled = false;
+  }
+});
+</script>
 
 </body>
 </html>
