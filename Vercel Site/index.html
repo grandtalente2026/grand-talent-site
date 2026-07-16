@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1;
+    --paper-2:#F1EBDD;
+    --panel:#FFFFFF;
+    --ink:#1C1913;
+    --stone:#6B6355;
+    --gold:#9C7A2E;
+    --gold-deep:#7A5F22;
+    --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913;
+    --ink-bg-2:#252017;
+    --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98;
+    --line-on-dark:rgba(255,255,255,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px 6vw;
+    background:rgba(250,247,241,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  nav.scrolled{border-color:var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;letter-spacing:0.01em;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .navlinks a:hover{color:var(--gold-deep);}
+
+  .hero{min-height:96vh;display:flex;flex-direction:column;justify-content:center;padding:0 6vw;position:relative;}
+  .hero-inner{max-width:900px;padding-top:90px;}
+  .hero h1{font-size:clamp(36px,5.8vw,72px);line-height:1.08;margin:22px 0 26px;font-weight:300;}
+  .hero h1 em{font-style:normal;color:var(--gold-deep);font-weight:500;}
+  .hero p.lede{max-width:580px;font-size:17px;line-height:1.7;color:var(--stone);margin-bottom:20px;}
+  .diff-line{
+    max-width:600px;font-size:14.5px;color:var(--ink);
+    border-left:2px solid var(--gold);padding-left:16px;margin-bottom:40px;line-height:1.6;
+  }
+  .cta-row{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
+  .btn-primary{background:var(--ink);color:var(--paper);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;transition:background .25s ease;}
+  .btn-primary:hover{background:var(--gold-deep);}
+  .btn-ghost{font-size:13px;color:var(--stone);border-bottom:1px solid var(--line);padding-bottom:2px;}
+  .btn-ghost:hover{color:var(--gold-deep);border-color:var(--gold);}
+
+  .vector-wrap{position:absolute;right:6vw;bottom:10vh;width:min(36vw,400px);opacity:0.95;}
+  .vector-wrap svg{width:100%;height:auto;overflow:visible;}
+  .vpath{stroke:var(--gold);stroke-width:1.4;fill:none;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.2s cubic-bezier(.65,0,.35,1) .4s forwards;}
+  .vdot{fill:var(--gold-deep);opacity:0;animation:appear .5s ease 2.4s forwards;}
+  .vlabel{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:var(--stone);letter-spacing:0.04em;opacity:0;animation:appear .5s ease 2.6s forwards;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes appear{to{opacity:1;}}
+  @media(max-width:860px){.vector-wrap{display:none;}}
+
+  .manifesto{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
+  .manifesto .eyebrow{color:var(--gold-bright);}
+  .manifesto .eyebrow::before{background:var(--gold-bright);}
+  .manifesto-inner{max-width:760px;margin:0 auto;}
+  .manifesto h2{font-size:clamp(24px,3vw,38px);line-height:1.38;font-weight:300;margin-top:18px;color:#FFFFFF;}
+  .manifesto h2 strong{color:var(--gold-bright);font-weight:500;}
+  .manifesto .attribution{margin-top:32px;font-size:13px;color:var(--stone-on-dark);font-family:'IBM Plex Mono',monospace;}
+
+  .method{padding:120px 6vw;}
+  .method-head{max-width:640px;margin-bottom:70px;}
+  .method-head h2{font-size:clamp(26px,3.4vw,42px);font-weight:300;margin-top:18px;}
+  .pillars{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:860px){.pillars{grid-template-columns:repeat(3,1fr);}}
+  .pillar{background:var(--panel);padding:42px 32px;}
+  .pillar .num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-deep);letter-spacing:0.05em;}
+  .pillar h3{font-size:23px;margin:16px 0 12px;font-weight:400;}
+  .pillar p{font-size:14.5px;line-height:1.65;color:var(--stone);}
+
+  /* SEGMENTS */
+  .segments{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
+  .segments .eyebrow{color:var(--gold-bright);}
+  .segments .eyebrow::before{background:var(--gold-bright);}
+  .segments h2{color:#FFFFFF;}
+  .seg-groups{display:grid;grid-template-columns:1fr;gap:60px;margin-top:60px;}
+  @media(min-width:860px){.seg-groups{grid-template-columns:repeat(3,1fr);}}
+  .seg-group .glabel{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line-on-dark);}
+  .seg-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
+  .seg-item svg{flex-shrink:0;width:22px;height:22px;stroke:var(--gold-bright);margin-top:2px;}
+  .seg-item span{font-size:14.5px;color:#FFFFFF;line-height:1.5;}
+
+  .about{padding:120px 6vw;display:grid;grid-template-columns:1fr;gap:56px;}
+  @media(min-width:860px){.about{grid-template-columns:0.9fr 1.1fr;align-items:start;}}
+  .about h2{font-size:clamp(24px,3vw,36px);font-weight:300;margin-top:18px;max-width:420px;}
+  .about-body p{font-size:15.5px;line-height:1.85;color:var(--stone);margin-bottom:20px;max-width:560px;}
+  .about-body strong{color:var(--ink);font-weight:500;}
+  .credentials{display:flex;flex-wrap:wrap;margin-top:34px;border-top:1px solid var(--line);}
+  .cred{padding:20px 28px 0 0;margin-right:26px;}
+  .cred .val{font-family:'Fraunces',serif;font-size:24px;color:var(--gold-deep);}
+  .cred .lbl{font-size:11.5px;color:var(--stone);margin-top:4px;max-width:160px;line-height:1.4;}
+
+  .packages{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
+  .packages .eyebrow{color:var(--gold-bright);}
+  .packages .eyebrow::before{background:var(--gold-bright);}
+  .packages h2{color:#FFFFFF;}
+  .pack-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:60px;}
+  @media(min-width:860px){.pack-grid{grid-template-columns:repeat(3,1fr);}}
+  .pack{background:var(--ink-bg-2);border:1px solid var(--line-on-dark);padding:38px 28px;display:flex;flex-direction:column;transition:border-color .3s ease, transform .3s ease;}
+  .pack:hover{border-color:var(--gold-bright);transform:translateY(-3px);}
+  .pack.feat{border-color:var(--gold-bright);}
+  .pack .tier{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:var(--gold-bright);text-transform:uppercase;}
+  .pack h3{font-size:25px;margin:14px 0 14px;font-weight:400;color:#FFFFFF;}
+  .pack p{font-size:14px;color:var(--stone-on-dark);line-height:1.7;flex-grow:1;margin-bottom:22px;}
+  .pack .link{font-size:12.5px;color:var(--gold-bright);border-top:1px solid var(--line-on-dark);padding-top:16px;}
+
+  /* INSIGHTS */
+  .insights{padding:120px 6vw;}
+  .insight-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:60px;}
+  @media(min-width:860px){.insight-grid{grid-template-columns:repeat(3,1fr);}}
+  .insight-card{border:1px solid var(--line);padding:30px;background:var(--panel);}
+  .insight-card .itag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold-deep);letter-spacing:0.08em;text-transform:uppercase;}
+  .insight-card h3{font-size:19px;margin:14px 0 12px;font-weight:400;line-height:1.35;}
+  .insight-card p{font-size:13.5px;color:var(--stone);line-height:1.6;}
+  .insight-note{margin-top:36px;font-size:13px;color:var(--stone);font-style:italic;}
+
+  .contact{padding:140px 6vw 90px;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .contact .eyebrow{color:var(--gold-bright);justify-content:center;}
+  .contact .eyebrow::before{background:var(--gold-bright);}
+  .contact h2{font-size:clamp(28px,4vw,50px);font-weight:300;max-width:760px;margin:20px auto 40px;line-height:1.28;color:#FFFFFF;}
+  .contact .btn-primary{background:var(--gold-bright);color:var(--ink-bg);}
+  .contact .btn-primary:hover{background:#FFFFFF;}
+  footer{padding:32px 6vw;border-top:1px solid var(--line-on-dark);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone-on-dark);flex-wrap:wrap;gap:12px;background:var(--ink-bg);}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">Grand<span>Talent</span> Consulting</div>
+  <div class="navlinks">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="#setores">Setores</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+    <a href="#" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Área do Cliente</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Liderança humanizada &amp; diagnóstico organizacional</div>
+    <h1>Sua empresa fala bem de você<br>quando ninguém <em>está olhando</em>.</h1>
+    <p class="lede">Diagnosticamos, medimos e desenvolvemos a liderança que sustenta a reputação da sua empresa por dentro — antes que o mercado a avalie por fora.</p>
+    <div class="diff-line">Diferente de consultorias generalistas de RH, trabalhamos exclusivamente com operações industriais e logísticas — porque liderar chão de fábrica exige método diferente de liderar escritório.</div>
+    <div class="cta-row">
+      <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+      <a href="#metodologia" class="btn-ghost">Conhecer a metodologia</a>
+    </div>
+    <div style="margin-top:16px;font-size:12px;color:var(--stone);font-family:'IBM Plex Mono',monospace;">Conversa de 30 min, sem compromisso · resposta em até 24h</div>
+  </div>
+  <div class="vector-wrap">
+    <svg viewBox="0 0 380 220">
+      <path class="vpath" d="M10,190 C 80,180 120,160 150,120 C 180,80 220,60 260,45 C 300,30 330,20 365,12" />
+      <circle class="vdot" cx="365" cy="12" r="4"/>
+      <text class="vlabel" x="300" y="180">IBEP-4.0 · engajamento 12 meses</text>
+    </svg>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <div class="eyebrow">Uma pergunta antes de tudo</div>
+    <h2>Se um colaborador contasse hoje, sem filtro, como é trabalhar na sua empresa — <strong>o que ele diria</strong>? A maioria dos diretores de RH nunca ouviu essa resposta de verdade. Não porque falta pesquisa de clima. Porque falta método para transformar o que se ouve em algo que se mede, se acompanha e se corrige.</h2>
+    <div class="attribution">— É esse o vazio que o Grand Talent Consulting foi construído para preencher.</div>
+  </div>
+</section>
+
+<section class="method" id="metodologia">
+  <div class="method-head">
+    <div class="eyebrow">Metodologia proprietária</div>
+    <h2>Três instrumentos. Uma reputação construída de dentro pra fora.</h2>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="num">01 — Diagnóstico</div>
+      <h3>IBEP-4.0</h3>
+      <p>Mede engajamento real em seis dimensões, com rigor estatístico validado academicamente — não uma pesquisa de clima genérica.</p>
+    </div>
+    <div class="pillar">
+      <div class="num">02 — Desenvolvimento</div>
+      <h3>PLH-4.0</h3>
+      <p>Protocolo de liderança humanizada: acompanhamento mensal estruturado, que transforma dado em comportamento de liderança no chão de fábrica.</p>
+    </div>
+    <div class="pillar">
+      <div class="num">03 — Talento</div>
+      <h3>ITC-4.0</h3>
+      <p>Mapeia perfis colaborativos reais do seu time — quem executa, quem conecta, quem sustenta — para alocar liderança onde ela rende mais.</p>
+    </div>
+  </div>
+  <div style="margin-top:36px;">
+    <a href="metodologia.html" class="btn-ghost">Ver a metodologia completa (com CAP-4.0) →</a>
+  </div>
+</section>
+
+<section class="segments" id="setores">
+  <div class="method-head" style="margin-bottom:0;">
+    <div class="eyebrow">Onde atuamos</div>
+    <h2>Setores que exigem liderança de chão de fábrica, não de escritório.</h2>
+  </div>
+  <div class="seg-groups">
+    <div class="seg-group">
+      <div class="glabel">Manufatura &amp; Indústria</div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l5 3v-3l5 3v-3l5 3v7"/><path d="M4 10V7l3-3 3 3"/></svg>
+        <span>Fábricas e linhas de produção</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        <span>Montagem industrial (automotivo, eletrônicos, bens de consumo)</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Metalurgia e siderurgia</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 20V9"/></svg>
+        <span>Indústria têxtil e calçadista</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 4-2 5-2 9h16c0-4-2-5-2-9Z"/><path d="M9 21h6"/></svg>
+        <span>Alimentos e bebidas (produção)</span>
+      </div>
+    </div>
+    <div class="seg-group">
+      <div class="glabel">Logística</div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l4 4v4h-8V8Z"/><circle cx="5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        <span>Transporte e frotas</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg>
+        <span>Armazenagem e centros de distribuição</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c2-4 6-4 8 0M12 21c2-4 6-4 8 0"/><path d="M4 17c0-6 4-9 8-9s8 3 8 9"/></svg>
+        <span>Operações portuárias e cadeia de suprimentos</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13M11 6l6 6-6 6"/></svg>
+        <span>Última milha / distribuição</span>
+      </div>
+    </div>
+    <div class="seg-group">
+      <div class="glabel">Áreas de expansão</div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+        <span>Construção civil (canteiro de obras)</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 3 4 6 4 9a4 4 0 0 1-8 0c0-3 1-6 4-9Z"/><path d="M12 15v7"/></svg>
+        <span>Agroindústria (produção e processamento)</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 11-13h-8l1-7Z"/></svg>
+        <span>Energia e utilities (operações de campo)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div>
+    <div class="eyebrow">Quem assina o método</div>
+    <h2>Trinta anos de chão de fábrica. Uma pós-graduação para nomear o que já era prática.</h2>
+  </div>
+  <div class="about-body">
+    <p>O Grand Talent Consulting nasce de uma trajetória de 30 anos em ambientes industriais — incluindo passagem pela Mercedes-Benz do Brasil e pela Volkswagen do Brasil, em logística, qualidade, segurança e liderança — combinada a uma pós-graduação em <strong>Comunicação Estratégica para Marca e Reputação</strong> (PUCRS, TCC nota 10), que teve a própria Mercedes-Benz como estudo de caso.</p>
+    <p>Essa combinação é rara: <strong>quem já parou uma linha de montagem</strong> por um erro entende, na prática, por que segurança psicológica não é teoria de livro — é o que decide se alguém avisa a tempo ou esconde o problema até ele ficar caro.</p>
+    <p>Antes da indústria, veio o jornalismo — rádio, TV, apresentação, por mais de 10 anos. O tempo formou <strong>o faro para separar sinal de ruído</strong>, a habilidade de ouvir o que não foi dito e perguntar o que ninguém quis perguntar primeiro. É esse faro, não um questionário padrão, que sustenta cada diagnóstico aplicado.</p>
+    <p>Radicado em Portugal, com raízes brasileiras, o trabalho acontece hoje <strong>com os dois mercados vividos de dentro</strong> — não estudados de fora. Cultura organizacional, ritmo de decisão e expectativa de liderança mudam do Brasil para Portugal; poucos consultores atravessam essa fronteira com experiência real dos dois lados.</p>
+    <div class="credentials">
+      <div class="cred"><div class="val">30</div><div class="lbl">anos de experiência industrial e de liderança operacional</div></div>
+      <div class="cred"><div class="val">10/10</div><div class="lbl">nota na tese de pós-graduação (PUCRS)</div></div>
+      <div class="cred"><div class="val">Clifton 34</div><div class="lbl">especialista em CliftonStrengths</div></div>
+      <div class="cred"><div class="val">BR · PT</div><div class="lbl">jornalismo, rádio e TV, com vivência nos dois mercados</div></div>
+    </div>
+    <div style="margin-top:32px;">
+      <a href="sobre.html" class="btn-ghost">Ver trajetória completa →</a>
+    </div>
+  </div>
+</section>
+
+<section class="method" style="padding-top:0;">
+  <div style="max-width:640px;">
+    <div class="eyebrow">Caso de referência</div>
+    <h2 style="font-size:clamp(24px,3vw,34px);font-weight:300;margin-top:18px;">Mercedes-Benz do Brasil — estudo de caso acadêmico</h2>
+    <p style="font-size:15px;line-height:1.8;color:var(--stone);margin-top:18px;">A metodologia por trás do Grand Talent Consulting foi testada e validada academicamente (PUCRS, nota 10/10) usando a Mercedes-Benz do Brasil como estudo de caso de reputação corporativa. É a base sobre a qual o IBEP-4.0 e o PLH-4.0 foram construídos — o primeiro piloto comercial completo está em fase de prospecção.</p>
+  </div>
+</section>
+
+<section class="packages" id="pacotes">
+  <div class="method-head" style="margin-bottom:0;">
+    <div class="eyebrow">Como trabalhamos</div>
+    <h2>Três formas de começar.</h2>
+  </div>
+  <div class="pack-grid">
+    <div class="pack">
+      <div class="tier">Starter</div>
+      <h3>Diagnóstico</h3>
+      <p>Aplicação do IBEP-4.0 numa unidade ou área piloto. O primeiro retrato real do engajamento — com dados, não com impressões.</p>
+      <div class="link">Ideal para o primeiro contato →</div>
+    </div>
+    <div class="pack feat">
+      <div class="tier">Professional</div>
+      <h3>Diagnóstico + Desenvolvimento</h3>
+      <p>IBEP-4.0 aplicado, seguido de ciclo PLH-4.0 de acompanhamento mensal com as lideranças identificadas como ponto de alavancagem.</p>
+      <div class="link">O mais escolhido em ciclo piloto →</div>
+    </div>
+    <div class="pack">
+      <div class="tier">Enterprise</div>
+      <h3>Sistema completo</h3>
+      <p>Os três instrumentos integrados, com dashboard executivo, ciclos recorrentes e reporte direto à diretoria.</p>
+      <div class="link">Para operações de grande porte →</div>
+    </div>
+  </div>
+  <div style="margin-top:36px;text-align:center;">
+    <a href="pacotes.html" class="btn-ghost">Ver comparativo completo e serviços avulsos →</a>
+  </div>
+</section>
+
+<section class="insights" id="insights">
+  <div class="method-head">
+    <div class="eyebrow">Ponto de vista</div>
+    <h2>Insights sobre liderança, reputação e o chão de fábrica.</h2>
+  </div>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="itag">Reputação</div>
+      <h3>Por que reputação se constrói de dentro pra fora</h3>
+      <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre engajamento e imagem corporativa.</p>
+    </div>
+    <div class="insight-card">
+      <div class="itag">Liderança</div>
+      <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
+      <p>Segurança psicológica não é discurso motivacional — é o que decide se alguém avisa a tempo.</p>
+    </div>
+    <div class="insight-card">
+      <div class="itag">Talento</div>
+      <h3>CliftonStrengths no chão de fábrica</h3>
+      <p>Como identificar quem executa, quem conecta e quem sustenta — antes de promover a pessoa errada.</p>
+    </div>
+  </div>
+  <div class="insight-note">Espaço reservado para os artigos e análises já em produção — a publicar na próxima fase.</div>
+  <div style="margin-top:24px;">
+    <a href="insights.html" class="btn-ghost">Ver todos os insights (6 em produção) →</a>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="eyebrow" style="justify-content:center;">Comece pela pergunta certa</div>
+  <h2>O que a sua liderança está construindo — reputação, ou apenas resultado do mês?</h2>
+  <a href="contato.html" class="btn-primary">Agendar uma conversa</a>
+  <div style="margin-top:18px;font-size:12px;color:var(--stone-on-dark);font-family:'IBM Plex Mono',monospace;">30 minutos · sem compromisso · resposta em até 24h</div>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+</script>
+
+</body>
+</html>

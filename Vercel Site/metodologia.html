@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologia — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1;
+    --paper-2:#F1EBDD;
+    --panel:#FFFFFF;
+    --ink:#1C1913;
+    --stone:#6B6355;
+    --gold:#9C7A2E;
+    --gold-deep:#7A5F22;
+    --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913;
+    --ink-bg-2:#252017;
+    --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98;
+    --line-on-dark:rgba(255,255,255,0.14);
+    /* cores das 4 ferramentas — sistema já estabelecido no Manual Operacional */
+    --ibep:#1F4D3D;
+    --ibep-tint:#E7EFEA;
+    --plh:#3E5C76;
+    --plh-tint:#E9EEF2;
+    --itc:#B8862E;
+    --itc-tint:#F5EDDA;
+    --cap:#6B3F63;
+    --cap-tint:#F0E6EF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  section{padding:100px 6vw;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;letter-spacing:0.01em;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .navlinks a.active{color:var(--gold-deep);}
+
+  .page-hero{padding-top:180px;padding-bottom:80px;}
+  .page-hero h1{font-size:clamp(36px,5.6vw,68px);line-height:1.08;font-weight:300;margin:20px 0 26px;max-width:820px;}
+  .page-hero p{font-size:17px;line-height:1.75;color:var(--stone);max-width:600px;}
+
+  /* CYCLE STRIP */
+  .cycle{padding:0 6vw 100px;}
+  .cycle-strip{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:860px){.cycle-strip{grid-template-columns:repeat(4,1fr);}}
+  .cstep{background:var(--panel);padding:28px 24px;position:relative;}
+  .cstep .cnum{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);}
+  .cstep .ctag{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;padding:4px 10px;border-radius:2px;}
+  .cstep h4{font-size:18px;font-weight:400;margin-top:14px;}
+  .cstep p{font-size:12.5px;color:var(--stone);margin-top:8px;line-height:1.5;}
+  .cstep .arrow{position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--stone);display:none;z-index:2;}
+  @media(min-width:860px){.cstep .arrow{display:block;}}
+  .cstep:last-child .arrow{display:none;}
+
+  /* INSTRUMENT SECTIONS */
+  .instrument{border-top:1px solid var(--line);}
+  .instr-grid{display:grid;grid-template-columns:1fr;gap:50px;}
+  @media(min-width:900px){.instr-grid{grid-template-columns:0.85fr 1.15fr;}}
+  .instr-head .code{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.08em;padding:6px 12px;display:inline-block;border-radius:2px;margin-bottom:20px;}
+  .instr-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:300;margin-bottom:16px;}
+  .instr-head .full-name{font-size:14px;color:var(--stone);margin-bottom:24px;}
+  .instr-head p.desc{font-size:15.5px;line-height:1.8;color:var(--stone);max-width:420px;}
+  .instr-body{display:flex;flex-direction:column;gap:36px;}
+  .dim-block h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:18px;}
+  .dim-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;}
+  @media(min-width:600px){.dim-list{grid-template-columns:1fr 1fr 1fr;}}
+  .dim-item{font-size:13.5px;padding:12px 14px;border-left:2px solid var(--line);line-height:1.4;}
+  .output-box{border:1px solid var(--line);padding:24px;background:var(--panel);}
+  .output-box .olabel{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+  .output-box p{font-size:14px;color:var(--stone);line-height:1.65;}
+  .tier-tag{font-size:12px;color:var(--stone);margin-top:8px;font-family:'IBM Plex Mono',monospace;}
+
+  /* color variants */
+  .ibep .code{background:var(--ibep-tint);color:var(--ibep);}
+  .ibep .accent{color:var(--ibep);}
+  .ibep .dim-item{border-color:var(--ibep);}
+  .plh .code{background:var(--plh-tint);color:var(--plh);}
+  .plh .accent{color:var(--plh);}
+  .plh .dim-item{border-color:var(--plh);}
+  .itc .code{background:var(--itc-tint);color:var(--itc);}
+  .itc .accent{color:var(--itc);}
+  .itc .dim-item{border-color:var(--itc);}
+  .cap .code{background:var(--cap-tint);color:var(--cap);}
+  .cap .accent{color:var(--cap);}
+  .cap .dim-item{border-color:var(--cap);}
+
+  .instrument{padding:90px 6vw;}
+  .instrument:nth-child(even){background:var(--paper-2);}
+
+  .closing{padding:130px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .closing .eyebrow{justify-content:center;color:var(--gold-bright);}
+  .closing .eyebrow::before{background:var(--gold-bright);}
+  .closing h2{font-size:clamp(28px,4vw,46px);font-weight:300;max-width:760px;margin:20px auto 36px;line-height:1.3;color:#FFFFFF;}
+  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
+  .btn-primary:hover{background:#FFFFFF;}
+
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="index.html#setores">Setores</a>
+    <a href="metodologia.html" class="active">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">A metodologia</div>
+  <h1>Quatro instrumentos. Um único ciclo: medir, desenvolver, mapear e sustentar liderança.</h1>
+  <p>Cada instrumento resolve uma etapa específica — e juntos formam um sistema, não uma coleção de ferramentas soltas. Nenhum deles substitui pesquisa de clima genérica: cada um foi desenhado e validado academicamente para o ambiente industrial e logístico.</p>
+</section>
+
+<section class="cycle">
+  <div class="cycle-strip">
+    <div class="cstep" style="border-top:3px solid var(--ibep);">
+      <div class="cnum">01</div>
+      <div class="ctag" style="background:var(--ibep-tint);color:var(--ibep);">Diagnóstico</div>
+      <h4>IBEP-4.0</h4>
+      <p>Mede engajamento real em 6 dimensões</p>
+      <div class="arrow">→</div>
+    </div>
+    <div class="cstep" style="border-top:3px solid var(--plh);">
+      <div class="cnum">02</div>
+      <div class="ctag" style="background:var(--plh-tint);color:var(--plh);">Desenvolvimento</div>
+      <h4>PLH-4.0</h4>
+      <p>Forma liderança humanizada, mês a mês</p>
+      <div class="arrow">→</div>
+    </div>
+    <div class="cstep" style="border-top:3px solid var(--itc);">
+      <div class="cnum">03</div>
+      <div class="ctag" style="background:var(--itc-tint);color:var(--itc);">Talento</div>
+      <h4>ITC-4.0</h4>
+      <p>Mapeia perfis reais de colaboração</p>
+      <div class="arrow">→</div>
+    </div>
+    <div class="cstep" style="border-top:3px solid var(--cap);">
+      <div class="cnum">04</div>
+      <div class="ctag" style="background:var(--cap-tint);color:var(--cap);">Sustentação</div>
+      <h4>CAP-4.0</h4>
+      <p>Consolida conexão e influência da liderança</p>
+    </div>
+  </div>
+</section>
+
+<!-- IBEP-4.0 -->
+<section class="instrument ibep">
+  <div class="instr-grid">
+    <div class="instr-head">
+      <div class="code">01 — IBEP-4.0</div>
+      <h2>Diagnóstico de engajamento</h2>
+      <div class="full-name">Índice de Bem-Estar e Engajamento Profissional</div>
+      <p class="desc">O ponto de partida de todo trabalho. Mede, com rigor estatístico, o que realmente está acontecendo dentro da operação — não o que o organograma presume.</p>
+      <div class="tier-tag accent">Incluído em: Starter · Professional · Enterprise</div>
+    </div>
+    <div class="instr-body">
+      <div class="dim-block">
+        <h4>As 6 dimensões medidas</h4>
+        <div class="dim-list">
+          <div class="dim-item">Segurança psicológica</div>
+          <div class="dim-item">Clareza de propósito</div>
+          <div class="dim-item">Qualidade da liderança direta</div>
+          <div class="dim-item">Reconhecimento</div>
+          <div class="dim-item">Condições de trabalho</div>
+          <div class="dim-item">Pertencimento</div>
+        </div>
+      </div>
+      <div class="output-box">
+        <div class="olabel">Entregável</div>
+        <p>Relatório executivo com índice geral (GrandMean das 6 dimensões), comparativo por área/turno, e os 3 pontos de maior alavancagem para intervenção imediata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLH-4.0 -->
+<section class="instrument plh">
+  <div class="instr-grid">
+    <div class="instr-head">
+      <div class="code">02 — PLH-4.0</div>
+      <h2>Protocolo de liderança humanizada</h2>
+      <div class="full-name">Programa de desenvolvimento contínuo</div>
+      <p class="desc">O diagnóstico aponta onde intervir. O PLH-4.0 é onde a mudança de comportamento realmente acontece — com as lideranças de linha, não só com a diretoria.</p>
+      <div class="tier-tag accent">Incluído em: Professional · Enterprise</div>
+    </div>
+    <div class="instr-body">
+      <div class="dim-block">
+        <h4>Estrutura do ciclo</h4>
+        <div class="dim-list">
+          <div class="dim-item">Diagnóstico individual de liderança</div>
+          <div class="dim-item">Encontros mensais estruturados</div>
+          <div class="dim-item">Ferramentas práticas de PNL e escuta ativa</div>
+          <div class="dim-item">Casos reais da própria operação</div>
+          <div class="dim-item">Acompanhamento de indicadores comportamentais</div>
+          <div class="dim-item">Reavaliação a cada ciclo (90 dias)</div>
+        </div>
+      </div>
+      <div class="output-box">
+        <div class="olabel">Entregável</div>
+        <p>Plano de desenvolvimento individual por líder, com metas de 90 dias e comparação de evolução entre ciclos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ITC-4.0 -->
+<section class="instrument itc">
+  <div class="instr-grid">
+    <div class="instr-head">
+      <div class="code">03 — ITC-4.0</div>
+      <h2>Inteligência de talentos colaborativos</h2>
+      <div class="full-name">Mapeamento de perfis reais de equipe</div>
+      <p class="desc">Nem todo bom técnico é um bom líder de equipe, e nem toda liderança nata está no cargo certo. O ITC-4.0 revela o perfil real de cada colaborador — não o que o currículo diz.</p>
+      <div class="tier-tag accent">Incluído em: Professional · Enterprise · disponível avulso</div>
+    </div>
+    <div class="instr-body">
+      <div class="dim-block">
+        <h4>Os 6 perfis mapeados</h4>
+        <div class="dim-list">
+          <div class="dim-item">Executor</div>
+          <div class="dim-item">Conector</div>
+          <div class="dim-item">Guardião</div>
+          <div class="dim-item">Catalisador</div>
+          <div class="dim-item">Construtor</div>
+          <div class="dim-item">Âncora</div>
+        </div>
+      </div>
+      <div class="output-box">
+        <div class="olabel">Entregável</div>
+        <p>Dossiê individual de perfil, mapa de composição de equipe, e recomendações de alocação/sucessão baseadas em dados, não em percepção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAP-4.0 -->
+<section class="instrument cap">
+  <div class="instr-grid">
+    <div class="instr-head">
+      <div class="code">04 — CAP-4.0</div>
+      <h2>Conexão &amp; influência da liderança</h2>
+      <div class="full-name">Módulo de sustentação e consolidação</div>
+      <p class="desc">O passo final: garantir que o que foi diagnosticado e desenvolvido não se perca depois que a consultoria sai de cena. Dois módulos, aplicáveis juntos ou isolados.</p>
+      <div class="tier-tag accent">Incluído em: Enterprise · disponível como serviço isolado</div>
+    </div>
+    <div class="instr-body">
+      <div class="dim-block">
+        <h4>Os dois módulos</h4>
+        <div class="dim-list" style="grid-template-columns:1fr;">
+          <div class="dim-item"><strong>Conexão</strong> — fortalece os vínculos horizontais entre líderes de diferentes áreas, reduzindo silos operacionais.</div>
+          <div class="dim-item"><strong>Influência</strong> — desenvolve a capacidade de cada líder sustentar mudança de comportamento no time, sem depender de autoridade formal.</div>
+        </div>
+      </div>
+      <div class="output-box">
+        <div class="olabel">Entregável</div>
+        <p>Plano de sustentação de 12 meses, com checkpoints trimestrais e transferência de autonomia gradual para o time interno de RH.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:90px 6vw;border-top:1px solid var(--line);">
+  <div class="instr-grid">
+    <div class="instr-head">
+      <div class="code" style="background:#EDEAE2;color:var(--stone);">Complementar</div>
+      <h2>CliftonStrengths</h2>
+      <div class="full-name">Especialização em CliftonStrengths 34 — aplicada individualmente às lideranças</div>
+      <p class="desc">Diferente do ITC-4.0 (que mapeia o time inteiro), o CliftonStrengths é usado em profundidade com cada líder — identificando os talentos dominantes que moldam seu estilo de liderar, decidir e se comunicar.</p>
+    </div>
+    <div class="instr-body">
+      <div class="output-box">
+        <div class="olabel">Como se conecta ao sistema</div>
+        <p>Aplicado dentro do PLH-4.0 para os líderes em desenvolvimento, e como etapa opcional de aprofundamento no Enterprise. Gera o dossiê individual de liderança com plano de 90 dias baseado nos temas CliftonStrengths — executor, influenciador, construtor de relacionamento ou pensador estratégico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="eyebrow">Pronto pra ver isso aplicado à sua operação?</div>
+  <h2>O primeiro passo é sempre o mesmo: medir o que hoje só se percebe.</h2>
+  <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+
+</body>
+</html>

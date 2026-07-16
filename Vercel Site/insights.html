@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14);
+    --ibep:#1F4D3D; --plh:#3E5C76; --itc:#B8862E; --cap:#6B3F63;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  section{padding:100px 6vw;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .navlinks a.active{color:var(--gold-deep);}
+
+  .page-hero{padding-top:180px;padding-bottom:50px;}
+  .page-hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.15;font-weight:300;margin:20px 0 22px;max-width:760px;}
+  .page-hero p{font-size:17px;line-height:1.75;color:var(--stone);max-width:600px;}
+
+  /* FILTERS */
+  .filters{padding:0 6vw 50px;display:flex;gap:10px;flex-wrap:wrap;}
+  .ftag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--stone);cursor:default;}
+  .ftag.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  /* ARTICLES */
+  .articles{padding:0 6vw 120px;}
+  .art-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:760px){.art-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1100px){.art-grid{grid-template-columns:repeat(3,1fr);}}
+  .art-card{background:var(--panel);padding:34px 28px;display:flex;flex-direction:column;min-height:280px;}
+  .art-card .atag{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px;}
+  .art-card .atag .dot{width:7px;height:7px;border-radius:50%;}
+  .art-card h3{font-size:20px;font-weight:400;line-height:1.3;margin-bottom:14px;}
+  .art-card p{font-size:13.5px;color:var(--stone);line-height:1.65;flex-grow:1;}
+  .art-card .status{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:11.5px;font-family:'IBM Plex Mono',monospace;color:var(--stone);display:flex;justify-content:space-between;align-items:center;}
+  .status .badge{padding:3px 9px;border-radius:10px;font-size:10px;}
+  .badge.producao{background:var(--paper-2);color:var(--stone);}
+  .badge.publicado{background:var(--gold-deep);color:#fff;}
+
+  .subscribe{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .subscribe .eyebrow{justify-content:center;color:var(--gold-bright);}
+  .subscribe .eyebrow::before{background:var(--gold-bright);}
+  .subscribe h2{color:#fff;font-size:clamp(26px,3.6vw,42px);font-weight:300;max-width:640px;margin:20px auto 30px;line-height:1.3;}
+  .subscribe p{color:var(--stone-on-dark);font-size:14px;max-width:480px;margin:0 auto 34px;line-height:1.6;}
+  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
+  .btn-primary:hover{background:#FFFFFF;}
+
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html" class="active">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">Ponto de vista</div>
+  <h1>Liderança, reputação e o que o chão de fábrica ensina antes dos livros.</h1>
+  <p>Análises curtas, embasadas e sem discurso motivacional — conectando pesquisa acadêmica a decisões reais de liderança industrial.</p>
+</section>
+
+<div class="filters">
+  <div class="ftag active">Todos</div>
+  <div class="ftag">Reputação</div>
+  <div class="ftag">Liderança</div>
+  <div class="ftag">Talento</div>
+  <div class="ftag">Comunicação</div>
+</div>
+
+<section class="articles">
+  <div class="art-grid">
+
+    <div class="art-card">
+      <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
+      <h3>Por que reputação se constrói de dentro pra fora</h3>
+      <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre a relação entre engajamento interno e imagem corporativa — e por que pesquisa de clima sozinha não basta.</p>
+      <div class="status"><span>8 min de leitura</span><span class="badge producao">Em produção</span></div>
+    </div>
+
+    <div class="art-card">
+      <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
+      <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
+      <p>O maior acidente da história da aviação civil não foi causado por falha técnica — foi causado por silêncio hierárquico. O que isso ensina sobre segurança psicológica na linha de frente.</p>
+      <div class="status"><span>6 min de leitura</span><span class="badge producao">Em produção</span></div>
+    </div>
+
+    <div class="art-card">
+      <div class="atag"><span class="dot" style="background:var(--itc);"></span>Talento</div>
+      <h3>CliftonStrengths no chão de fábrica</h3>
+      <p>Como identificar quem executa, quem conecta e quem sustenta — antes de promover a pessoa errada para um cargo de liderança.</p>
+      <div class="status"><span>7 min de leitura</span><span class="badge producao">Em produção</span></div>
+    </div>
+
+    <div class="art-card">
+      <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
+      <h3>O que Amy Edmondson descobriu sobre equipes que mais erram</h3>
+      <p>Um achado contraintuitivo de Harvard: as equipes que mais reportam erros não são as piores — são as mais seguras para admiti-los. O que isso muda na forma de liderar uma linha de produção.</p>
+      <div class="status"><span>5 min de leitura</span><span class="badge producao">Em produção</span></div>
+    </div>
+
+    <div class="art-card">
+      <div class="atag"><span class="dot" style="background:var(--cap);"></span>Comunicação</div>
+      <h3>Informar não é comunicar</h3>
+      <p>A distinção de Dominique Wolton entre comunicação funcional e normativa — e por que a maioria dos programas internos de comunicação corporativa só faz a primeira.</p>
+      <div class="status"><span>6 min de leitura</span><span class="badge producao">Em produção</span></div>
+    </div>
+
+    <div class="art-card">
+      <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
+      <h3>ESG: a dimensão Social que ninguém audita direito</h3>
+      <p>Governança e meio ambiente já têm métricas maduras. A dimensão Social do ESG ainda é, na maioria das empresas, boa intenção sem dado. Como isso pode — e deve — mudar.</p>
+      <div class="status"><span>7 min de leitura</span><span class="badge producao">Em produção</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="subscribe">
+  <div class="eyebrow">Não perca os próximos</div>
+  <h2>Os artigos serão publicados aqui conforme forem concluídos — sem calendário fixo, sem enchimento.</h2>
+  <p>Prefere ser avisado diretamente? Acompanhe pelo LinkedIn, onde o conteúdo circula primeiro.</p>
+  <a href="#" class="btn-primary">Seguir no LinkedIn</a>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+
+</body>
+</html>

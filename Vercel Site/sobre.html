@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  section{padding:100px 6vw;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .navlinks a.active{color:var(--gold-deep);}
+
+  .page-hero{padding-top:180px;padding-bottom:60px;}
+  .page-hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.15;font-weight:300;margin:20px 0 26px;max-width:780px;}
+  .page-hero p{font-size:17px;line-height:1.75;color:var(--stone);max-width:600px;}
+
+  .photo-note{margin:0 6vw 90px;border:1px dashed var(--line);padding:60px;text-align:center;color:var(--stone);font-size:13px;font-family:'IBM Plex Mono',monospace;background:var(--paper-2);}
+
+  /* TIMELINE */
+  .timeline{padding:0 6vw 110px;}
+  .tl-strip{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:860px){.tl-strip{grid-template-columns:repeat(4,1fr);}}
+  .tl-step{background:var(--panel);padding:30px 26px;}
+  .tl-step .tperiod{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-deep);}
+  .tl-step h4{font-size:19px;font-weight:400;margin:12px 0 10px;}
+  .tl-step p{font-size:13px;color:var(--stone);line-height:1.55;}
+
+  /* NARRATIVE */
+  .narrative{padding:100px 6vw;border-top:1px solid var(--line);background:var(--paper-2);}
+  .narrative-inner{max-width:720px;margin:0 auto;}
+  .narrative p{font-size:16px;line-height:1.9;color:var(--stone);margin-bottom:24px;}
+  .narrative p strong{color:var(--ink);font-weight:500;}
+  .values-line{border-left:2px solid var(--gold);padding-left:20px;font-size:15px;line-height:1.8;color:var(--ink);margin:44px 0;font-style:italic;}
+  .breadth-line{font-size:14px;color:var(--stone);line-height:1.7;}
+
+  /* CREDENTIALS */
+  .creds{padding:110px 6vw;}
+  .creds-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px;}
+  @media(min-width:640px){.creds-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:960px){.creds-grid{grid-template-columns:repeat(4,1fr);}}
+  .cred-card{background:var(--panel);padding:32px 26px;}
+  .cred-card .val{font-family:'Fraunces',serif;font-size:32px;color:var(--gold-deep);}
+  .cred-card .lbl{font-size:12.5px;color:var(--stone);margin-top:8px;line-height:1.5;}
+
+  .closing{padding:130px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .closing .eyebrow{justify-content:center;color:var(--gold-bright);}
+  .closing .eyebrow::before{background:var(--gold-bright);}
+  .closing h2{font-size:clamp(28px,4vw,46px);font-weight:300;max-width:760px;margin:20px auto 36px;line-height:1.3;color:#FFFFFF;}
+  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
+  .btn-primary:hover{background:#FFFFFF;}
+
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="index.html#setores">Setores</a>
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html" class="active">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">Quem assina o método</div>
+  <h1>Trinta anos de chão de fábrica. Uma pós-graduação para nomear o que já era prática.</h1>
+  <p>Antes de virar metodologia, isso foi vivido — em linha de produção, em estúdio de rádio, em sala de aula de pós-graduação.</p>
+</section>
+
+<div class="photo-note">[ espaço reservado para fotografia profissional — a incluir na próxima fase ]</div>
+
+<section class="timeline">
+  <div class="eyebrow" style="margin-bottom:36px;">A trajetória, em quatro fases</div>
+  <div class="tl-strip">
+    <div class="tl-step">
+      <div class="tperiod">Fase 01</div>
+      <h4>Comunicação</h4>
+      <p>Mais de 10 anos entre rádio, TV e apresentação — onde ficou claro, na prática, que informar não é comunicar. Comunicar é negociar sentido com quem ouve.</p>
+    </div>
+    <div class="tl-step">
+      <div class="tperiod">Fase 02</div>
+      <h4>Indústria</h4>
+      <p>30 anos em ambientes operacionais, incluindo Mercedes-Benz do Brasil e Volkswagen do Brasil — logística, qualidade, segurança e liderança de linha.</p>
+    </div>
+    <div class="tl-step">
+      <div class="tperiod">Fase 03</div>
+      <h4>Academia</h4>
+      <p>Pós-graduação em Comunicação Estratégica (PUCRS, nota 10/10), com a própria Mercedes-Benz como estudo de caso de reputação corporativa.</p>
+    </div>
+    <div class="tl-step">
+      <div class="tperiod">Fase 04</div>
+      <h4>Método</h4>
+      <p>Especialização em CliftonStrengths 34 e consolidação de tudo isso na metodologia que hoje sustenta o Grand Talent Consulting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="narrative">
+  <div class="narrative-inner">
+    <div class="eyebrow">A história por trás do método</div>
+    <p style="margin-top:24px;">Era uma manhã como outra qualquer. O abastecimento da linha de eixos já tinha virado rotina — centenas de vezes o mesmo trajeto, os mesmos cubos de roda, a mesma sequência automática nas mãos. Até o dia em que dois cubos visualmente idênticos foram trocados, e o errado chegou à linha de montagem.</p>
+    <p>A linha parou. Numa fábrica de precisão como a Mercedes-Benz do Brasil, isso não é um detalhe — é prejuízo alto, contado em cada minuto parado. A reação não foi medo. Foi raiva — de si mesmo, por um erro bobo, evitável, que agora custava caro para todo mundo ao redor.</p>
+    <p>O líder chegou. Sem gritar. <strong>Frio, calmo</strong> — o tipo de calma que pesa mais do que qualquer bronca. Perguntou o que tinha acontecido. Ouviu a resposta inteira, sem interromper. E então fez uma pergunta que ninguém esperava:</p>
+    <p style="font-size:19px;font-family:'Fraunces',serif;font-style:italic;color:var(--ink);">"O que você sugere para isso não acontecer de novo?"</p>
+    <p>Não "quem errou". Não "isso não pode se repetir". <strong>O que você sugere.</strong> A resposta veio de imediato: diferenciar os cubos por cor, sinalização visual simples, impossível de confundir de novo. Foi implementado. O erro nunca mais aconteceu.</p>
+    <p>Anos depois, num TCC de pós-graduação, esse episódio ganhou nome técnico. É o que a pesquisadora Amy Edmondson, de Harvard, batizou de <strong>segurança psicológica</strong> — a crença de que o ambiente é seguro o suficiente para assumir riscos interpessoais, para admitir um erro em voz alta sem esperar punição. Edmondson descobriu, ainda nos anos 1990, algo contraintuitivo: as equipes que mais reportavam erros não eram as piores — eram as que tinham mais segurança para admiti-los. É essa inversão, não uma teoria lida em livro, que sustenta cada diagnóstico aplicado hoje.</p>
+    <p>O autor Simon Sinek descreve esse tipo de reação de liderança como um <strong>Círculo de Segurança</strong>: o líder absorve a pressão de cima para proteger quem está embaixo, e é exatamente essa proteção — não a cobrança — que gera confiança real dentro de uma equipe.</p>
+    <p>Antes da indústria, veio o jornalismo — mais de 10 anos entre rádio, TV e apresentação. Foi ali que uma distinção ficou clara na prática, muito antes de ganhar nome em livro: existe a comunicação que só transmite informação depressa, e existe a que constrói sentido entre as pessoas. É a diferença que o pesquisador francês Dominique Wolton nomeia como <strong>comunicação funcional</strong> e <strong>comunicação normativa</strong> — e é a segunda, não a primeira, que sustenta cada diagnóstico aplicado hoje.</p>
+    <p>Radicado em Portugal, com raízes brasileiras, o trabalho acontece com <strong>os dois mercados vividos de dentro</strong> — não estudados de fora. Cultura organizacional, ritmo de decisão e expectativa de liderança mudam do Brasil para Portugal; poucos consultores atravessam essa fronteira com experiência real dos dois lados.</p>
+    <p>Essa mesma pergunta — o que sustenta uma reputação por dentro — hoje tem nome na linguagem de qualquer diretoria: <strong>ESG</strong>. A dimensão Social do ESG cobra, com dado auditável, exatamente o que o chão de fábrica sempre soube na prática: saúde, segurança e bem-estar dos trabalhadores não são discurso de sustentabilidade — são número que pode ser medido, comparado e reportado. É por isso que o IBEP-4.0 nasceu pensado para gerar evidência quantitativa da dimensão Social, não apenas boas intenções.</p>
+    <div class="values-line">O trabalho é guiado por um compromisso simples: integridade antes de resultado, e propósito antes de performance — princípios que vêm de uma fé pessoal que raramente é tema de conversa, mas nunca sai de cena.</div>
+    <p class="breadth-line">O caminho até aqui passou por dezenas de áreas diferentes além das citadas — cada uma deixou uma ferramenta a mais na caixa, mesmo as que hoje não aparecem em nenhum currículo.</p>
+  </div>
+</section>
+
+<section class="creds">
+  <div class="eyebrow">Credenciais</div>
+  <div class="creds-grid">
+    <div class="cred-card"><div class="val">30</div><div class="lbl">anos de experiência industrial e de liderança operacional</div></div>
+    <div class="cred-card"><div class="val">10/10</div><div class="lbl">nota na tese de pós-graduação, Comunicação Estratégica (PUCRS)</div></div>
+    <div class="cred-card"><div class="val">Clifton 34</div><div class="lbl">especialista em CliftonStrengths — os 34 temas de talento</div></div>
+    <div class="cred-card"><div class="val">BR · PT</div><div class="lbl">jornalismo, rádio e TV, com vivência real nos dois mercados</div></div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="eyebrow">Vamos conversar?</div>
+  <h2>Conhecer a pessoa por trás do método é o primeiro passo antes de qualquer diagnóstico.</h2>
+  <a href="contato.html" class="btn-primary">Agendar uma conversa</a>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+
+</body>
+</html>

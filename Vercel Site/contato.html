@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  section{padding:100px 6vw;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .navlinks a.active{color:var(--gold-deep);}
+
+  .page-hero{padding-top:180px;padding-bottom:50px;}
+  .page-hero h1{font-size:clamp(34px,5.2vw,58px);line-height:1.15;font-weight:300;margin:20px 0 22px;max-width:720px;}
+  .page-hero p{font-size:17px;line-height:1.75;color:var(--stone);max-width:580px;}
+
+  .contact-wrap{padding:0 6vw 130px;display:grid;grid-template-columns:1fr;gap:60px;}
+  @media(min-width:960px){.contact-wrap{grid-template-columns:1fr 1fr;align-items:start;}}
+
+  form{display:flex;flex-direction:column;gap:22px;}
+  .field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
+  .field input, .field select, .field textarea{
+    width:100%;background:var(--panel);border:1px solid var(--line);padding:14px 16px;
+    font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);border-radius:2px;
+    transition:border-color .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--gold-deep);}
+  .field textarea{resize:vertical;min-height:110px;}
+  .row2{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:560px){.row2{grid-template-columns:1fr 1fr;}}
+  .submit-btn{
+    background:var(--ink);color:var(--paper);padding:16px 32px;font-size:13.5px;letter-spacing:0.04em;
+    font-weight:500;border:none;border-radius:2px;cursor:pointer;transition:background .25s ease;align-self:flex-start;
+    font-family:'Inter',sans-serif;
+  }
+  .submit-btn:hover{background:var(--gold-deep);}
+  .form-note{font-size:12.5px;color:var(--stone);font-family:'IBM Plex Mono',monospace;}
+
+  .side-info{display:flex;flex-direction:column;gap:0;}
+  .info-block{padding:26px 0;border-bottom:1px solid var(--line);}
+  .info-block:first-child{padding-top:0;}
+  .info-block .ilabel{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:10px;}
+  .info-block .ival{font-size:16px;color:var(--ink);}
+  .info-block .ival a:hover{color:var(--gold-deep);}
+  .info-block .isub{font-size:13px;color:var(--stone);margin-top:6px;line-height:1.5;}
+
+  .expect-box{background:var(--ink-bg);color:#fff;padding:34px 30px;margin-top:36px;}
+  .expect-box .eyebrow{color:var(--gold-bright);}
+  .expect-box .eyebrow::before{background:var(--gold-bright);}
+  .expect-box h3{color:#fff;font-size:19px;font-weight:400;margin:14px 0 16px;}
+  .expect-box ol{padding-left:18px;color:var(--stone-on-dark);font-size:13.5px;line-height:1.9;}
+
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="index.html#setores">Setores</a>
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html" class="active">Contato</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">Vamos conversar</div>
+  <h1>O primeiro passo é sempre o mesmo: medir o que hoje só se percebe.</h1>
+  <p>Conte um pouco sobre a operação e o desafio de liderança que você está enfrentando. A resposta chega em até 24h.</p>
+</section>
+
+<div class="contact-wrap">
+  <form action="https://formspree.io/f/xwvgleqn" method="POST">
+    <div class="row2">
+      <div class="field">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="field">
+        <label for="cargo">Cargo</label>
+        <input type="text" id="cargo" name="cargo" placeholder="Ex: Diretor de RH">
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" name="empresa" required>
+      </div>
+      <div class="field">
+        <label for="porte">Número de colaboradores</label>
+        <select id="porte" name="porte">
+          <option value="">Selecione</option>
+          <option value="200-500">200 – 500</option>
+          <option value="500-1500">500 – 1.500</option>
+          <option value="1500-5000">1.500 – 5.000</option>
+          <option value="5000+">Mais de 5.000</option>
+        </select>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="email">E-mail corporativo</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="telefone">Telefone / WhatsApp</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="+55 11 91234-5678 ou +351 912 345 678">
+        <div style="font-size:11.5px;color:var(--stone);margin-top:6px;">Inclua o código do país (ex: +55 para Brasil, +351 para Portugal)</div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="setor">Setor</label>
+      <select id="setor" name="setor">
+        <option value="">Selecione</option>
+        <option>Manufatura / Indústria</option>
+        <option>Logística</option>
+        <option>Construção civil</option>
+        <option>Agroindústria</option>
+        <option>Energia e utilities</option>
+        <option>Outro</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="mensagem">Sobre o desafio de liderança</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco do que está acontecendo — não precisa ser formal."></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Enviar e agendar conversa</button>
+    <div class="form-note">Seus dados são usados apenas para retorno deste contato — sem newsletter, sem terceiros.</div>
+  </form>
+
+  <div>
+    <div class="side-info">
+      <div class="info-block">
+        <div class="ilabel">E-mail direto</div>
+        <div class="ival"><a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a></div>
+      </div>
+      <div class="info-block">
+        <div class="ilabel">LinkedIn</div>
+        <div class="ival"><a href="#">Perfil profissional →</a></div>
+      </div>
+      <div class="info-block">
+        <div class="ilabel">Atuação</div>
+        <div class="ival">Brasil · Portugal</div>
+        <div class="isub">Atendimento remoto e presencial, conforme escopo do projeto.</div>
+      </div>
+      <div class="info-block">
+        <div class="ilabel">Prospecção prioritária</div>
+        <div class="ival">Logística e Manufatura</div>
+        <div class="isub">200 a 5.000 colaboradores</div>
+      </div>
+    </div>
+
+    <div class="expect-box">
+      <div class="eyebrow">O que esperar depois</div>
+      <h3>Três passos, sem enrolação</h3>
+      <ol>
+        <li>Resposta por e-mail em até 24h úteis, com uma pergunta ou duas para entender o contexto.</li>
+        <li>Conversa de 30 minutos, sem compromisso, pra entender se faz sentido seguir.</li>
+        <li>Se fizer sentido, proposta de diagnóstico (Starter) enviada em até 48h após a conversa.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+
+</body>
+</html>
