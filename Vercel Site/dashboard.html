@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --gold-bright:#D4B36A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+
+  header{background:var(--ink-bg);color:#fff;padding:24px 6vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .logo{font-family:'Fraunces',serif;font-size:18px;}
+  .logo span{color:var(--gold-bright);}
+  .header-right{display:flex;align-items:center;gap:20px;font-size:13px;}
+  .logout-btn{background:transparent;border:1px solid rgba(255,255,255,0.25);color:#fff;padding:8px 16px;border-radius:2px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12.5px;}
+  .logout-btn:hover{border-color:var(--gold-bright);color:var(--gold-bright);}
+
+  main{padding:60px 6vw 100px;max-width:1000px;margin:0 auto;}
+  #loading{text-align:center;padding:100px 0;color:var(--stone);font-family:'IBM Plex Mono',monospace;font-size:13px;}
+  #content{display:none;}
+
+  .welcome{margin-bottom:50px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-deep);}
+  .welcome h1{font-size:clamp(26px,3.4vw,38px);font-weight:300;margin-top:14px;}
+
+  .empty-state{background:var(--panel);border:1px solid var(--line);padding:60px 40px;text-align:center;}
+  .empty-state p{color:var(--stone);font-size:14.5px;line-height:1.7;max-width:420px;margin:0 auto;}
+
+  .score-row{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:50px;}
+  @media(min-width:700px){.score-row{grid-template-columns:1fr 2fr;}}
+  .score-card{background:var(--ink-bg);color:#fff;padding:40px 34px;display:flex;flex-direction:column;justify-content:center;}
+  .score-card .slabel{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-bright);letter-spacing:0.08em;text-transform:uppercase;}
+  .score-card .sval{font-family:'Fraunces',serif;font-size:64px;margin:12px 0;}
+  .score-card .szone{font-size:13px;color:#B4AB98;}
+
+  .dims-card{background:var(--panel);border:1px solid var(--line);padding:32px;}
+  .dims-card h3{font-size:15px;font-weight:500;margin-bottom:20px;color:var(--stone);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.04em;}
+  .dim-row{margin-bottom:16px;}
+  .dim-row:last-child{margin-bottom:0;}
+  .dim-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;}
+  .dim-bar-bg{background:var(--paper-2);height:8px;border-radius:4px;overflow:hidden;}
+  .dim-bar-fill{background:var(--gold-deep);height:100%;border-radius:4px;}
+
+  .history{margin-top:20px;}
+  .history h2{font-size:20px;font-weight:400;margin-bottom:20px;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{text-align:left;padding:14px 10px;border-bottom:1px solid var(--line);font-size:13.5px;}
+  th{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);font-weight:400;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="header-right">
+    <span id="company-name-header"></span>
+    <button class="logout-btn" id="logout-btn">Sair</button>
+  </div>
+</header>
+
+<main>
+  <div id="loading">Carregando seus dados...</div>
+
+  <div id="content">
+    <div class="welcome">
+      <div class="eyebrow">Painel de diagnóstico</div>
+      <h1 id="welcome-title">Bem-vindo</h1>
+    </div>
+
+    <div id="no-data" class="empty-state" style="display:none;">
+      <p>Ainda não há diagnósticos cadastrados para sua empresa. Assim que o primeiro ciclo do IBEP-4.0 for concluído, os resultados aparecerão aqui.</p>
+    </div>
+
+    <div id="has-data" style="display:none;">
+      <div class="score-row">
+        <div class="score-card">
+          <div class="slabel">GrandMean atual</div>
+          <div class="sval" id="grandmean-val">–</div>
+          <div class="szone" id="zone-val">–</div>
+        </div>
+        <div class="dims-card">
+          <h3>Por dimensão</h3>
+          <div id="dims-list"></div>
+        </div>
+      </div>
+
+      <div class="history">
+        <h2>Histórico de ciclos</h2>
+        <table>
+          <thead>
+            <tr><th>Ciclo</th><th>Instrumento</th><th>GrandMean</th><th>Data</th></tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const SUPABASE_URL = 'https://flberbkrxhnitmxhjsoz.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_gtbIzPsWkxcFf05ZBhIwlQ_P8dmsw2V';
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const dimLabels = {
+    seguranca_psicologica: 'Segurança psicológica',
+    clareza_proposito: 'Clareza de propósito',
+    qualidade_lideranca: 'Qualidade da liderança direta',
+    reconhecimento: 'Reconhecimento',
+    condicoes_trabalho: 'Condições de trabalho',
+    pertencimento: 'Pertencimento'
+  };
+
+  function zoneFromScore(score) {
+    if (score >= 4.0) return 'Zona Positiva';
+    if (score >= 3.1) return 'Zona de Atenção';
+    return 'Zona Crítica';
+  }
+
+  async function init() {
+    const { data: sessionData } = await supabaseClient.auth.getSession();
+    if (!sessionData.session) {
+      window.location.href = 'area-cliente.html';
+      return;
+    }
+    const userId = sessionData.session.user.id;
+
+    // Busca o vínculo do usuário com a empresa
+    const { data: linkRow, error: linkErr } = await supabaseClient
+      .from('client_users')
+      .select('client_id')
+      .eq('id', userId)
+      .single();
+
+    if (linkErr || !linkRow) {
+      document.getElementById('loading').textContent = 'Sua conta ainda não está vinculada a uma empresa. Entre em contato com a Grand Talent Consulting.';
+      return;
+    }
+
+    // Busca dados da empresa
+    const { data: clientRow } = await supabaseClient
+      .from('clients')
+      .select('company_name')
+      .eq('id', linkRow.client_id)
+      .single();
+
+    document.getElementById('company-name-header').textContent = clientRow ? clientRow.company_name : '';
+    document.getElementById('welcome-title').textContent = clientRow ? `Olá, ${clientRow.company_name}` : 'Bem-vindo';
+
+    // Busca diagnósticos
+    const { data: diagnostics } = await supabaseClient
+      .from('diagnostics')
+      .select('*')
+      .eq('client_id', linkRow.client_id)
+      .order('created_at', { ascending: false });
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+
+    if (!diagnostics || diagnostics.length === 0) {
+      document.getElementById('no-data').style.display = 'block';
+      return;
+    }
+
+    document.getElementById('has-data').style.display = 'block';
+
+    const latest = diagnostics[0];
+    document.getElementById('grandmean-val').textContent = latest.grandmean ? latest.grandmean.toFixed(1) : '–';
+    document.getElementById('zone-val').textContent = latest.grandmean ? zoneFromScore(latest.grandmean) : '';
+
+    const dimsList = document.getElementById('dims-list');
+    dimsList.innerHTML = '';
+    if (latest.dimensions) {
+      Object.entries(latest.dimensions).forEach(([key, val]) => {
+        const label = dimLabels[key] || key;
+        const pct = Math.min((val / 5) * 100, 100);
+        dimsList.innerHTML += `
+          <div class="dim-row">
+            <div class="dim-label"><span>${label}</span><span>${val.toFixed(1)}</span></div>
+            <div class="dim-bar-bg"><div class="dim-bar-fill" style="width:${pct}%;"></div></div>
+          </div>`;
+      });
+    }
+
+    const historyBody = document.getElementById('history-body');
+    historyBody.innerHTML = '';
+    diagnostics.forEach(d => {
+      const date = new Date(d.created_at).toLocaleDateString('pt-BR');
+      historyBody.innerHTML += `
+        <tr>
+          <td>${d.period_label || '–'}</td>
+          <td>${d.instrument}</td>
+          <td>${d.grandmean ? d.grandmean.toFixed(1) : '–'}</td>
+          <td>${date}</td>
+        </tr>`;
+    });
+  }
+
+  document.getElementById('logout-btn').addEventListener('click', async () => {
+    await supabaseClient.auth.signOut();
+    window.location.href = 'area-cliente.html';
+  });
+
+  init();
+</script>
+
+</body>
+</html>
