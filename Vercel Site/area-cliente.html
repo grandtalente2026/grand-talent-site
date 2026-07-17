@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Cliente — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root{
+    --paper:#FAF7F1; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --gold-bright:#D4B36A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--ink-bg);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .logo{font-family:'Fraunces',serif;font-size:20px;color:#fff;text-align:center;margin-bottom:8px;}
+  .logo span{color:var(--gold-bright);}
+  .sub{text-align:center;color:#B4AB98;font-size:13px;margin-bottom:40px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;}
+  .card{background:var(--panel);width:100%;max-width:400px;padding:40px 34px;border-radius:2px;}
+  h1{font-family:'Fraunces',serif;font-size:24px;font-weight:400;margin-bottom:8px;}
+  .desc{font-size:13.5px;color:var(--stone);margin-bottom:28px;line-height:1.5;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
+  .field input{width:100%;background:var(--paper);border:1px solid var(--line);padding:13px 14px;font-size:14.5px;color:var(--ink);border-radius:2px;font-family:'Inter',sans-serif;}
+  .field input:focus{outline:none;border-color:var(--gold-deep);}
+  .submit-btn{width:100%;background:var(--ink);color:var(--paper);padding:14px;font-size:13.5px;letter-spacing:0.04em;font-weight:500;border:none;border-radius:2px;cursor:pointer;margin-top:8px;font-family:'Inter',sans-serif;}
+  .submit-btn:hover{background:var(--gold-deep);}
+  .submit-btn:disabled{opacity:0.6;cursor:default;}
+  .msg{margin-top:16px;font-size:13px;text-align:center;min-height:18px;}
+  .msg.error{color:#A33;}
+  .msg.ok{color:var(--gold-deep);}
+  .back{display:block;text-align:center;margin-top:24px;font-size:12.5px;color:var(--stone);text-decoration:none;}
+  .back:hover{color:var(--gold-deep);}
+</style>
+</head>
+<body>
+
+<div>
+  <div class="logo">Grand<span>Talent</span> Consulting</div>
+  <div class="sub">ÁREA DO CLIENTE</div>
+
+  <div class="card">
+    <h1>Acessar diagnósticos</h1>
+    <p class="desc">Entre com o e-mail e senha cadastrados para acompanhar os resultados do seu diagnóstico.</p>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="password">Senha</label>
+        <input type="password" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="submit-btn" id="submit-btn">Entrar</button>
+      <div class="msg" id="msg"></div>
+    </form>
+
+    <a href="index.html" class="back">← Voltar ao site</a>
+  </div>
+</div>
+
+<script>
+  const SUPABASE_URL = 'https://flberbkrxhnitmxhjsoz.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_gtbIzPsWkxcFf05ZBhIwlQ_P8dmsw2V';
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const form = document.getElementById('login-form');
+  const msg = document.getElementById('msg');
+  const submitBtn = document.getElementById('submit-btn');
+
+  // Se já estiver logado, manda direto pro painel
+  supabaseClient.auth.getSession().then(({ data }) => {
+    if (data.session) window.location.href = 'dashboard.html';
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Entrando...';
+    msg.textContent = '';
+    msg.className = 'msg';
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+
+    const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      msg.textContent = 'E-mail ou senha incorretos. Tente novamente.';
+      msg.className = 'msg error';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Entrar';
+    } else {
+      msg.textContent = 'Login realizado. Redirecionando...';
+      msg.className = 'msg ok';
+      window.location.href = 'dashboard.html';
+    }
+  });
+</script>
+
+</body>
+</html>
