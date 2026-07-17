@@ -29,6 +29,16 @@
   .logo span{color:var(--gold-deep);}
   .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
   @media(min-width:860px){.navlinks{display:flex;}}
+  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
+  @media(min-width:860px){.hamburger{display:none;}}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
+  .mobile-menu a.active{color:var(--gold-deep);}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
   .navlinks a:hover{color:var(--gold-deep);}
   .navlinks a.active{color:var(--gold-deep);}
 
@@ -78,7 +88,15 @@
     <a href="insights.html" class="active">Insights</a>
     <a href="contato.html">Contato</a>
   </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html" class="active">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
 
 <section class="page-hero">
   <div class="eyebrow">Ponto de vista</div>
@@ -97,19 +115,19 @@
 <section class="articles">
   <div class="art-grid">
 
-    <div class="art-card">
+    <a href="artigo-reputacao-de-dentro-para-fora.html" class="art-card" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
       <h3>Por que reputação se constrói de dentro pra fora</h3>
       <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre a relação entre engajamento interno e imagem corporativa — e por que pesquisa de clima sozinha não basta.</p>
-      <div class="status"><span>8 min de leitura</span><span class="badge producao">Em produção</span></div>
-    </div>
+      <div class="status"><span>8 min de leitura</span><span class="badge publicado">Publicado</span></div>
+    </a>
 
-    <div class="art-card">
+    <a href="artigo-tenerife-1977.html" class="art-card" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
       <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
       <p>O maior acidente da história da aviação civil não foi causado por falha técnica — foi causado por silêncio hierárquico. O que isso ensina sobre segurança psicológica na linha de frente.</p>
-      <div class="status"><span>6 min de leitura</span><span class="badge producao">Em produção</span></div>
-    </div>
+      <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
+    </a>
 
     <div class="art-card">
       <div class="atag"><span class="dot" style="background:var(--itc);"></span>Talento</div>
@@ -153,6 +171,21 @@
   <div>Grand Talent Consulting © 2026</div>
   <div>Brasil · Portugal</div>
 </footer>
-
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+</script>
 </body>
 </html>

@@ -28,6 +28,16 @@
   .logo span{color:var(--gold-deep);}
   .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
   @media(min-width:860px){.navlinks{display:flex;}}
+  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
+  @media(min-width:860px){.hamburger{display:none;}}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
+  .mobile-menu a.active{color:var(--gold-deep);}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
   .navlinks a:hover{color:var(--gold-deep);}
   .navlinks a.active{color:var(--gold-deep);}
 
@@ -85,7 +95,16 @@
     <a href="insights.html">Insights</a>
     <a href="contato.html">Contato</a>
   </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#setores">Setores</a>
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html" class="active">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
 
 <section class="page-hero">
   <div class="eyebrow">Quem assina o método</div>
@@ -159,6 +178,21 @@
   <div>Grand Talent Consulting © 2026</div>
   <div>Brasil · Portugal</div>
 </footer>
-
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+</script>
 </body>
 </html>

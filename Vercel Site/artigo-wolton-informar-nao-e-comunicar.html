@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informar não é comunicar — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14); --cap:#6B3F63;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
+  @media(min-width:860px){.hamburger{display:none;}}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
+  .mobile-menu a.active{color:var(--gold-deep);}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .art-hero{padding:180px 6vw 60px;}
+  .back-link{font-size:12.5px;color:var(--stone);margin-bottom:28px;display:inline-block;}
+  .back-link:hover{color:var(--gold-deep);}
+  .art-hero h1{font-size:clamp(28px,4.4vw,48px);line-height:1.2;font-weight:300;margin:20px 0 20px;max-width:780px;}
+  .art-meta{display:flex;gap:18px;font-size:12.5px;color:var(--stone);font-family:'IBM Plex Mono',monospace;flex-wrap:wrap;}
+  .art-body{padding:0 6vw 100px;}
+  .art-body-inner{max-width:700px;margin:0 auto;}
+  .art-body-inner p{font-size:16px;line-height:1.9;color:var(--ink);margin-bottom:22px;}
+  .art-body-inner h2{font-size:24px;font-weight:400;margin:44px 0 18px;color:var(--ink);}
+  .art-body-inner strong{font-weight:500;color:var(--ink);}
+  .art-body-inner em{font-style:italic;color:var(--stone);font-size:14px;}
+  .art-body-inner hr{border:none;border-top:1px solid var(--line);margin:44px 0 24px;}
+  .callout{background:var(--paper-2);border-left:3px solid var(--gold);padding:20px 24px;font-size:14.5px;color:var(--stone);line-height:1.7;margin:8px 0 30px;}
+  .closing{padding:130px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .closing .eyebrow{justify-content:center;color:var(--gold-bright);}
+  .closing .eyebrow::before{background:var(--gold-bright);}
+  .closing h2{font-size:clamp(26px,3.6vw,42px);font-weight:300;max-width:700px;margin:20px auto 34px;line-height:1.3;color:#fff;}
+  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
+  .btn-primary:hover{background:#FFFFFF;}
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+
+<div class="art-hero">
+  <a href="insights.html" class="back-link">← Voltar para Insights</a>
+  <div class="eyebrow"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--cap);display:inline-block;"></span>Comunicação</div>
+  <h1>Informar não é comunicar</h1>
+  <div class="art-meta">
+    <span>6 min de leitura</span>
+    <span>·</span>
+    <span>Grand Talent Consulting</span>
+  </div>
+</div>
+
+<div class="art-body">
+  <div class="art-body-inner">
+
+<p>A maioria das empresas industriais hoje tem mais canais de comunicação interna do que nunca. Aplicativo corporativo, TV nos refeitórios, mural digital, grupo de WhatsApp por turno, newsletter semanal. A informação circula rápido, em volume alto, quase em tempo real.</p>
+
+<p>E, ainda assim, pesquisa de clima após pesquisa de clima continua mostrando a mesma queixa: "a liderança não se comunica com a gente". Como isso é possível, com tanto canal disponível?</p>
+
+<p>A resposta está numa distinção que o pesquisador francês Dominique Wolton propõe desde os anos 1990, e que continua tão atual quanto era então: existem dois tipos estruturalmente diferentes de comunicação, e a maioria das empresas só pratica um deles.</p>
+
+<h2>Funcional versus normativa</h2>
+
+<p>A <strong>comunicação funcional</strong> é a que empresas conseguem escalar bem: rápida, eficiente, orientada a transmitir informação. Um aviso de turno, uma instrução de segurança, uma meta de produção. Ela resolve o problema de "a informação chegou?".</p>
+
+<p>A <strong>comunicação normativa</strong> é outra coisa: orientada à partilha real de sentido, à compreensão mútua, ao espaço onde as pessoas se sentem ouvidas, não apenas informadas. Ela resolve um problema diferente — "essa pessoa se sente parte disso, ou só recebe ordens?".</p>
+
+<p>Wolton alerta para um paradoxo específico da era digital: quanto mais os canais tecnológicos se multiplicam e aceleram, mais evidente fica a diferença entre o que é comunicação técnica eficiente e o que é comunicação humana real — e o risco é a empresa confundir as duas, achando que, por ter muitos canais, está se comunicando bem.</p>
+
+<h2>O ponto cego da Indústria 4.0</h2>
+
+<p>Esse alerta é particularmente relevante para operações industriais que investiram pesado em digitalização — painéis, dashboards, aplicativos corporativos. Toda essa infraestrutura resolve o lado funcional muito bem. Mas tecnologia sozinha não cria o segundo tipo de comunicação. Ela pode, inclusive, mascarar a ausência dele: a empresa "se comunica muito" no sentido de volume de mensagens, e "não se comunica" no sentido de espaço real de escuta.</p>
+
+<div class="callout">Wolton também argumenta que comunicação não é um estorvo à autoridade organizacional — é a condição para que ela funcione de verdade. Sem espaço real de escuta, nenhuma ferramenta digital, por mais sofisticada que seja, gera engajamento duradouro.</div>
+
+<h2>O que isso muda na prática</h2>
+
+<p>Instrumentos digitais — formulários, dashboards, inteligência artificial aplicada a diagnóstico — têm um papel real e útil: dão suporte funcional, tornam o processo escalável, geram dado. Mas o valor de diagnóstico verdadeiro não está na tecnologia em si. Está na dimensão normativa que ela deveria viabilizar: a escuta autêntica da percepção de quem está no chão de fábrica, e a construção de diálogo real entre liderança e equipe — não substituição de um pelo outro.</p>
+
+<h2>A pergunta que fica</h2>
+
+<p>Se você contasse quantas mensagens sua empresa enviou aos colaboradores este mês, o número seria alto. Se perguntasse a eles quantas vezes se sentiram realmente ouvidos no mesmo período, o número seria o mesmo?</p>
+
+<hr>
+<p><em>Referência: Wolton, D. (1999). <em>Internet, et après?</em>; Wolton, D. (2006). <em>É Preciso Salvar a Comunicação</em>.</em></p>
+
+  </div>
+</div>
+
+<section class="closing">
+  <div class="eyebrow">Vamos conversar</div>
+  <h2>Sua empresa informa muito, ou comunica de verdade?</h2>
+  <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+</script>
+</body>
+</html>
