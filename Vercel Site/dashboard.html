@@ -8,11 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
   :root{
     --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
     --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
     --ink-bg:#1C1913; --gold-bright:#D4B36A;
+    --up:#2E7D4F; --down:#B23A3A;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
@@ -26,34 +28,64 @@
   .logout-btn{background:transparent;border:1px solid rgba(255,255,255,0.25);color:#fff;padding:8px 16px;border-radius:2px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12.5px;}
   .logout-btn:hover{border-color:var(--gold-bright);color:var(--gold-bright);}
 
-  main{padding:60px 6vw 100px;max-width:1000px;margin:0 auto;}
+  main{padding:60px 6vw 100px;max-width:1100px;margin:0 auto;}
   #loading{text-align:center;padding:100px 0;color:var(--stone);font-family:'IBM Plex Mono',monospace;font-size:13px;}
   #content{display:none;}
 
-  .welcome{margin-bottom:50px;}
+  .welcome{margin-bottom:44px;}
   .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-deep);}
   .welcome h1{font-size:clamp(26px,3.4vw,38px);font-weight:300;margin-top:14px;}
 
   .empty-state{background:var(--panel);border:1px solid var(--line);padding:60px 40px;text-align:center;}
   .empty-state p{color:var(--stone);font-size:14.5px;line-height:1.7;max-width:420px;margin:0 auto;}
 
-  .score-row{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:50px;}
+  .score-row{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:24px;}
   @media(min-width:700px){.score-row{grid-template-columns:1fr 2fr;}}
   .score-card{background:var(--ink-bg);color:#fff;padding:40px 34px;display:flex;flex-direction:column;justify-content:center;}
   .score-card .slabel{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-bright);letter-spacing:0.08em;text-transform:uppercase;}
   .score-card .sval{font-family:'Fraunces',serif;font-size:64px;margin:12px 0;}
   .score-card .szone{font-size:13px;color:#B4AB98;}
+  .score-card .sdelta{font-size:13px;margin-top:10px;font-family:'IBM Plex Mono',monospace;}
+  .sdelta.up{color:#7FD99F;}
+  .sdelta.down{color:#E89B9B;}
 
   .dims-card{background:var(--panel);border:1px solid var(--line);padding:32px;}
   .dims-card h3{font-size:15px;font-weight:500;margin-bottom:20px;color:var(--stone);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.04em;}
   .dim-row{margin-bottom:16px;}
   .dim-row:last-child{margin-bottom:0;}
-  .dim-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;}
+  .dim-label{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:6px;}
+  .dim-label .dname{display:flex;align-items:center;gap:8px;}
+  .dim-delta{font-size:11px;font-family:'IBM Plex Mono',monospace;padding:1px 6px;border-radius:8px;}
+  .dim-delta.up{color:var(--up);background:#E7F3EC;}
+  .dim-delta.down{color:var(--down);background:#FBEAEA;}
+  .dim-delta.flat{color:var(--stone);background:var(--paper-2);}
   .dim-bar-bg{background:var(--paper-2);height:8px;border-radius:4px;overflow:hidden;}
   .dim-bar-fill{background:var(--gold-deep);height:100%;border-radius:4px;}
 
-  .history{margin-top:20px;}
-  .history h2{font-size:20px;font-weight:400;margin-bottom:20px;}
+  .chart-card{background:var(--panel);border:1px solid var(--line);padding:32px;margin-bottom:24px;}
+  .chart-card h2{font-size:19px;font-weight:400;margin-bottom:6px;}
+  .chart-card .sub{font-size:13px;color:var(--stone);margin-bottom:24px;}
+  .chart-wrap{height:280px;}
+
+  .action-card{background:var(--panel);border:1px solid var(--line);padding:32px;}
+  .action-card h2{font-size:19px;font-weight:400;margin-bottom:24px;}
+  .action-item{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .action-item:last-child{border-bottom:none;}
+  .action-status{flex-shrink:0;width:10px;height:10px;border-radius:50%;margin-top:6px;}
+  .action-status.pendente{background:#C0392B;}
+  .action-status.em_andamento{background:#D4820A;}
+  .action-status.concluido{background:#2E7D4F;}
+  .action-body{flex-grow:1;}
+  .action-title{font-size:14.5px;color:var(--ink);margin-bottom:4px;}
+  .action-meta{display:flex;gap:14px;font-size:11.5px;color:var(--stone);font-family:'IBM Plex Mono',monospace;flex-wrap:wrap;}
+  .action-badge{padding:2px 9px;border-radius:10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.03em;}
+  .action-badge.pendente{background:#FBEAEA;color:#C0392B;}
+  .action-badge.em_andamento{background:#FFF3E0;color:#D4820A;}
+  .action-badge.concluido{background:#E7F3EC;color:#2E7D4F;}
+  .no-actions{color:var(--stone);font-size:13.5px;text-align:center;padding:30px 0;}
+
+  .history{margin-top:30px;}
+  .history h2{font-size:19px;font-weight:400;margin-bottom:20px;}
   table{width:100%;border-collapse:collapse;}
   th,td{text-align:left;padding:14px 10px;border-bottom:1px solid var(--line);font-size:13.5px;}
   th{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);font-weight:400;}
@@ -83,16 +115,30 @@
     </div>
 
     <div id="has-data" style="display:none;">
+
       <div class="score-row">
         <div class="score-card">
           <div class="slabel">GrandMean atual</div>
           <div class="sval" id="grandmean-val">–</div>
           <div class="szone" id="zone-val">–</div>
+          <div class="sdelta" id="grandmean-delta"></div>
         </div>
         <div class="dims-card">
-          <h3>Por dimensão</h3>
+          <h3>Por dimensão (vs. ciclo anterior)</h3>
           <div id="dims-list"></div>
         </div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Evolução ao longo dos ciclos</h2>
+        <div class="sub">GrandMean geral, ciclo a ciclo</div>
+        <div class="chart-wrap"><canvas id="evolution-chart"></canvas></div>
+      </div>
+
+      <div class="action-card" style="margin-bottom:24px;">
+        <h2>Plano de ação</h2>
+        <div id="actions-list"></div>
+        <div id="no-actions" class="no-actions" style="display:none;">Nenhuma ação cadastrada ainda para este ciclo.</div>
       </div>
 
       <div class="history">
@@ -122,10 +168,24 @@
     pertencimento: 'Pertencimento'
   };
 
+  const statusLabels = { pendente: 'Pendente', em_andamento: 'Em andamento', concluido: 'Concluído' };
+
   function zoneFromScore(score) {
     if (score >= 4.0) return 'Zona Positiva';
     if (score >= 3.1) return 'Zona de Atenção';
     return 'Zona Crítica';
+  }
+
+  function deltaHtml(current, previous, small) {
+    if (previous === undefined || previous === null) return '';
+    const diff = +(current - previous).toFixed(2);
+    if (Math.abs(diff) < 0.05) return small ? '<span class="dim-delta flat">= estável</span>' : '<span class="sdelta">= estável desde o último ciclo</span>';
+    const dir = diff > 0 ? 'up' : 'down';
+    const arrow = diff > 0 ? '▲' : '▼';
+    const text = `${arrow} ${Math.abs(diff).toFixed(1)}`;
+    return small
+      ? `<span class="dim-delta ${dir}">${text}</span>`
+      : `<span class="sdelta ${dir}">${text} desde o último ciclo</span>`;
   }
 
   async function init() {
@@ -136,7 +196,6 @@
     }
     const userId = sessionData.session.user.id;
 
-    // Busca o vínculo do usuário com a empresa
     const { data: linkRow, error: linkErr } = await supabaseClient
       .from('client_users')
       .select('client_id')
@@ -148,7 +207,6 @@
       return;
     }
 
-    // Busca dados da empresa
     const { data: clientRow } = await supabaseClient
       .from('clients')
       .select('company_name')
@@ -158,9 +216,14 @@
     document.getElementById('company-name-header').textContent = clientRow ? clientRow.company_name : '';
     document.getElementById('welcome-title').textContent = clientRow ? `Olá, ${clientRow.company_name}` : 'Bem-vindo';
 
-    // Busca diagnósticos
-    const { data: diagnostics } = await supabaseClient
+    const { data: diagnosticsDesc } = await supabaseClient
       .from('diagnostics')
+      .select('*')
+      .eq('client_id', linkRow.client_id)
+      .order('created_at', { ascending: false });
+
+    const { data: actions } = await supabaseClient
+      .from('action_items')
       .select('*')
       .eq('client_id', linkRow.client_id)
       .order('created_at', { ascending: false });
@@ -168,16 +231,20 @@
     document.getElementById('loading').style.display = 'none';
     document.getElementById('content').style.display = 'block';
 
-    if (!diagnostics || diagnostics.length === 0) {
+    if (!diagnosticsDesc || diagnosticsDesc.length === 0) {
       document.getElementById('no-data').style.display = 'block';
       return;
     }
 
     document.getElementById('has-data').style.display = 'block';
 
-    const latest = diagnostics[0];
+    const diagnostics = [...diagnosticsDesc].reverse();
+    const latest = diagnosticsDesc[0];
+    const previous = diagnosticsDesc[1];
+
     document.getElementById('grandmean-val').textContent = latest.grandmean ? latest.grandmean.toFixed(1) : '–';
     document.getElementById('zone-val').textContent = latest.grandmean ? zoneFromScore(latest.grandmean) : '';
+    document.getElementById('grandmean-delta').innerHTML = previous ? deltaHtml(latest.grandmean, previous.grandmean, false) : '<span class="sdelta">Primeiro ciclo registrado</span>';
 
     const dimsList = document.getElementById('dims-list');
     dimsList.innerHTML = '';
@@ -185,17 +252,68 @@
       Object.entries(latest.dimensions).forEach(([key, val]) => {
         const label = dimLabels[key] || key;
         const pct = Math.min((val / 5) * 100, 100);
+        const prevVal = previous && previous.dimensions ? previous.dimensions[key] : undefined;
         dimsList.innerHTML += `
           <div class="dim-row">
-            <div class="dim-label"><span>${label}</span><span>${val.toFixed(1)}</span></div>
+            <div class="dim-label">
+              <span class="dname">${label} ${deltaHtml(val, prevVal, true)}</span>
+              <span>${val.toFixed(1)}</span>
+            </div>
             <div class="dim-bar-bg"><div class="dim-bar-fill" style="width:${pct}%;"></div></div>
           </div>`;
       });
     }
 
+    const ctx = document.getElementById('evolution-chart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: diagnostics.map(d => d.period_label || new Date(d.created_at).toLocaleDateString('pt-BR')),
+        datasets: [{
+          label: 'GrandMean',
+          data: diagnostics.map(d => d.grandmean),
+          borderColor: '#7A5F22',
+          backgroundColor: 'rgba(122,95,34,0.08)',
+          borderWidth: 2,
+          pointBackgroundColor: '#7A5F22',
+          pointRadius: 5,
+          tension: 0.3,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { min: 1, max: 5, ticks: { stepSize: 1 }, grid: { color: '#F1EBDD' } },
+          x: { grid: { display: false } }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    const actionsList = document.getElementById('actions-list');
+    if (!actions || actions.length === 0) {
+      document.getElementById('no-actions').style.display = 'block';
+    } else {
+      actionsList.innerHTML = actions.map(a => `
+        <div class="action-item">
+          <div class="action-status ${a.status}"></div>
+          <div class="action-body">
+            <div class="action-title">${a.title}</div>
+            <div class="action-meta">
+              ${a.dimension ? `<span>${dimLabels[a.dimension] || a.dimension}</span>` : ''}
+              ${a.due_date ? `<span>Prazo: ${new Date(a.due_date).toLocaleDateString('pt-BR')}</span>` : ''}
+              <span class="action-badge ${a.status}">${statusLabels[a.status] || a.status}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
     const historyBody = document.getElementById('history-body');
     historyBody.innerHTML = '';
-    diagnostics.forEach(d => {
+    diagnosticsDesc.forEach(d => {
       const date = new Date(d.created_at).toLocaleDateString('pt-BR');
       historyBody.innerHTML += `
         <tr>
