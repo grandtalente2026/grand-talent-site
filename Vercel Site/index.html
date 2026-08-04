@@ -130,7 +130,8 @@
   .segments .eyebrow::before{background:var(--gold-bright);}
   .segments h2{color:#FFFFFF;}
   .seg-groups{display:grid;grid-template-columns:1fr;gap:60px;margin-top:60px;}
-  @media(min-width:860px){.seg-groups{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:860px){.seg-groups{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1200px){.seg-groups{grid-template-columns:repeat(4,1fr);}}
   .seg-group .glabel{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line-on-dark);}
   .seg-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
   .seg-item svg{flex-shrink:0;width:22px;height:22px;stroke:var(--gold-bright);margin-top:2px;}
@@ -207,7 +208,7 @@
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
     <a href="contato.html">Contato</a>
-    <a href="https://app.grandtalent.com.br/cliente" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Área do Cliente</a>
+    <a href="https://app.grandtalent.com.br/cliente" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Área do Cliente</a> <a href="https://app.grandtalent.com.br" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Acesso ao Consultor</a>
   </div>
   <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -220,6 +221,7 @@
     <a href="insights.html">Insights</a>
     <a href="contato.html">Contato</a>
     <a href="https://app.grandtalent.com.br/cliente" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Área do Cliente</a>
+    <a href="https://app.grandtalent.com.br" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Acesso ao Consultor</a>
   </div>
 
 <section class="hero">
@@ -253,9 +255,9 @@
 
 <section class="method" id="metodologia">
   <div class="method-head">
-    <div class="eyebrow">O problema é real, e tem número</div>
-    <h2>Sua empresa está entre os 21% engajados, ou entre os 79% que ainda não sabem?</h2>
-    <p style="max-width:640px;color:var(--stone);font-size:15px;line-height:1.7;margin-top:14px;">Apenas 21% dos profissionais no mundo se declaram engajados no trabalho (Gallup). A liderança direta responde por cerca de 70% desse resultado. E a queda global de engajamento já custou US$ 438 bilhões em produtividade perdida. O Sistema 4.0 existe pra transformar esse risco invisível em diagnóstico, plano de ação e acompanhamento — com quatro instrumentos que se conectam.</p>
+    <div class="eyebrow">O custo do engajamento invisível</div>
+    <h2>Todo board sabe o custo de uma parada de linha. Poucos sabem o custo de uma liderança que não sustenta engajamento.</h2>
+    <p style="max-width:660px;color:var(--stone);font-size:15px;line-height:1.7;margin-top:14px;">A Gallup estima que a queda global de engajamento já custa US$ 438 bilhões em produtividade perdida por ano. Apenas 21% dos profissionais no mundo se declaram genuinamente engajados — e cerca de 70% dessa variação vem diretamente da qualidade da liderança direta, não de política de RH ou benefício. Em manufatura e logística, isso se traduz em retrabalho, turnover de operação e decisões que não pegam. O Sistema 4.0 mede esse risco antes que ele apareça no resultado — com quatro instrumentos que se conectam num só diagnóstico.</p>
   </div>
   <div class="pillars">
     <div class="pillar">
@@ -299,7 +301,7 @@
 <section class="segments" id="setores">
   <div class="method-head" style="margin-bottom:0;">
     <div class="eyebrow">Onde atuamos</div>
-    <h2>Setores que exigem liderança de chão de fábrica, não de escritório.</h2>
+    <h2>Da linha de produção à sala de reunião — a mesma disciplina de diagnóstico.</h2>
   </div>
   <div class="seg-groups">
     <div class="seg-group">
@@ -357,6 +359,21 @@
       <div class="seg-item">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 11-13h-8l1-7Z"/></svg>
         <span>Energia e utilities (operações de campo)</span>
+      </div>
+    </div>
+    <div class="seg-group">
+      <div class="glabel">Liderança administrativa &amp; corporativa</div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
+        <span>Escritórios administrativos dentro da própria operação industrial</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+        <span>Times de RH, qualidade, engenharia e supply chain</span>
+      </div>
+      <div class="seg-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Diretoria e liderança executiva da mesma empresa</span>
       </div>
     </div>
   </div>
@@ -490,9 +507,6 @@ window.addEventListener('scroll', () => {
     var updatedEl = document.getElementById('feed-updated');
     if (!container) return;
 
-    var FEED_URL = 'https://news.google.com/rss/search?q=engajamento%20de%20funcion%C3%A1rios%20OR%20lideran%C3%A7a%20OR%20clima%20organizacional&hl=pt-BR&gl=BR&ceid=BR:pt-419';
-    var API = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(FEED_URL);
-
     function tempoAtras(segundos) {
       if (segundos < 60) return 'agora mesmo';
       var min = Math.floor(segundos / 60);
@@ -504,17 +518,14 @@ window.addEventListener('scroll', () => {
     var carregadoEm = null;
 
     function carregar() {
-      fetch(API)
+      fetch('/api/feed-noticias')
         .then(function(r) { return r.json(); })
         .then(function(data) {
-          if (!data.items || data.items.length === 0) throw new Error('vazio');
-          var itens = data.items.slice(0, 6);
-          container.innerHTML = itens.map(function(item) {
-            var fonte = (item.title.split(' - ').pop() || 'Notícia').trim();
-            var titulo = item.title.replace(' - ' + fonte, '');
+          if (!data.ok || !data.itens || data.itens.length === 0) throw new Error('vazio');
+          container.innerHTML = data.itens.map(function(item) {
             return '<a class="feed-card" href="' + item.link + '" target="_blank" rel="noopener">' +
-              '<div class="feed-source">' + fonte + '</div>' +
-              '<div class="feed-title">' + titulo + '</div>' +
+              '<div class="feed-source">' + item.fonte + '</div>' +
+              '<div class="feed-title">' + item.titulo + '</div>' +
               '</a>';
           }).join('');
           carregadoEm = Date.now();
