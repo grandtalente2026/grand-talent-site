@@ -118,7 +118,7 @@
   .method-head{max-width:640px;margin-bottom:70px;}
   .method-head h2{font-size:clamp(26px,3.4vw,42px);font-weight:300;margin-top:18px;}
   .pillars{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media(min-width:860px){.pillars{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:860px){.pillars{grid-template-columns:repeat(4,1fr);}}
   .pillar{background:var(--panel);padding:42px 32px;}
   .pillar .num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-deep);letter-spacing:0.05em;}
   .pillar h3{font-size:23px;margin:16px 0 12px;font-weight:400;}
@@ -169,6 +169,16 @@
   .insight-card h3{font-size:19px;margin:14px 0 12px;font-weight:400;line-height:1.35;}
   .insight-card p{font-size:13.5px;color:var(--stone);line-height:1.6;}
   .insight-note{margin-top:36px;font-size:13px;color:var(--stone);font-style:italic;}
+
+  .live-feed{padding:100px 6vw 80px;border-top:1px solid var(--line);}
+  .feed-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px;}
+  @media(min-width:860px){.feed-grid{grid-template-columns:repeat(3,1fr);}}
+  .feed-card{background:var(--panel);padding:26px 24px;text-decoration:none;color:var(--ink);display:block;transition:background .2s ease;}
+  .feed-card:hover{background:var(--paper-2);}
+  .feed-source{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
+  .feed-title{font-size:15.5px;line-height:1.45;color:var(--ink);}
+  .feed-loading{grid-column:1/-1;padding:40px;text-align:center;color:var(--stone);font-size:13px;background:var(--panel);}
+  .feed-updated{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);text-align:right;}
 
   .contact{padding:140px 6vw 90px;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
   .contact .eyebrow{color:var(--gold-bright);justify-content:center;}
@@ -243,8 +253,9 @@
 
 <section class="method" id="metodologia">
   <div class="method-head">
-    <div class="eyebrow">Metodologia proprietária</div>
-    <h2>Três instrumentos. Uma reputação construída de dentro pra fora.</h2>
+    <div class="eyebrow">O problema é real, e tem número</div>
+    <h2>Sua empresa está entre os 21% engajados, ou entre os 79% que ainda não sabem?</h2>
+    <p style="max-width:640px;color:var(--stone);font-size:15px;line-height:1.7;margin-top:14px;">Apenas 21% dos profissionais no mundo se declaram engajados no trabalho (Gallup). A liderança direta responde por cerca de 70% desse resultado. E a queda global de engajamento já custou US$ 438 bilhões em produtividade perdida. O Sistema 4.0 existe pra transformar esse risco invisível em diagnóstico, plano de ação e acompanhamento — com quatro instrumentos que se conectam.</p>
   </div>
   <div class="pillars">
     <div class="pillar">
@@ -262,10 +273,27 @@
       <h3>ITC-4.0</h3>
       <p>Mapeia perfis colaborativos reais do seu time — quem executa, quem conecta, quem sustenta — para alocar liderança onde ela rende mais.</p>
     </div>
+    <div class="pillar">
+      <div class="num">04 — Mudança</div>
+      <h3>ADM-4.0</h3>
+      <p>Mede a disposição real das pessoas diante de uma mudança específica em curso — e identifica exatamente em qual etapa ela está travando.</p>
+    </div>
   </div>
-  <div style="margin-top:36px;">
+  <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
     <a href="metodologia.html" class="btn-ghost">Ver a metodologia completa (com CAP-4.0) →</a>
+    <a href="https://app.grandtalent.com.br/termometro" class="btn-primary">Sentir o pulso da sua empresa agora — teste grátis →</a>
   </div>
+</section>
+
+<section class="live-feed" id="radar">
+  <div class="method-head">
+    <div class="eyebrow">Acontecendo agora</div>
+    <h2>O que o mundo está discutindo sobre engajamento e liderança</h2>
+  </div>
+  <div id="feed-container" class="feed-grid">
+    <div class="feed-loading">Carregando notícias mais recentes...</div>
+  </div>
+  <div id="feed-updated" class="feed-updated"></div>
 </section>
 
 <section class="segments" id="setores">
@@ -454,6 +482,58 @@ window.addEventListener('scroll', () => {
       });
     });
   }
+</script>
+
+<script>
+  (function() {
+    var container = document.getElementById('feed-container');
+    var updatedEl = document.getElementById('feed-updated');
+    if (!container) return;
+
+    var FEED_URL = 'https://news.google.com/rss/search?q=engajamento%20de%20funcion%C3%A1rios%20OR%20lideran%C3%A7a%20OR%20clima%20organizacional&hl=pt-BR&gl=BR&ceid=BR:pt-419';
+    var API = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(FEED_URL);
+
+    function tempoAtras(segundos) {
+      if (segundos < 60) return 'agora mesmo';
+      var min = Math.floor(segundos / 60);
+      if (min < 60) return 'há ' + min + ' min';
+      var h = Math.floor(min / 60);
+      return 'há ' + h + 'h';
+    }
+
+    var carregadoEm = null;
+
+    function carregar() {
+      fetch(API)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (!data.items || data.items.length === 0) throw new Error('vazio');
+          var itens = data.items.slice(0, 6);
+          container.innerHTML = itens.map(function(item) {
+            var fonte = (item.title.split(' - ').pop() || 'Notícia').trim();
+            var titulo = item.title.replace(' - ' + fonte, '');
+            return '<a class="feed-card" href="' + item.link + '" target="_blank" rel="noopener">' +
+              '<div class="feed-source">' + fonte + '</div>' +
+              '<div class="feed-title">' + titulo + '</div>' +
+              '</a>';
+          }).join('');
+          carregadoEm = Date.now();
+          atualizarTimestamp();
+        })
+        .catch(function() {
+          container.innerHTML = '<div class="feed-loading">Não foi possível carregar as notícias agora. <a href="https://news.google.com/search?q=engajamento%20de%20funcionários" target="_blank" rel="noopener">Ver no Google Notícias →</a></div>';
+        });
+    }
+
+    function atualizarTimestamp() {
+      if (!carregadoEm || !updatedEl) return;
+      updatedEl.textContent = 'Atualizado ' + tempoAtras(Math.floor((Date.now() - carregadoEm) / 1000));
+    }
+
+    carregar();
+    setInterval(atualizarTimestamp, 30000);
+    setInterval(carregar, 5 * 60 * 1000);
+  })();
 </script>
 </body>
 </html>
