@@ -55,10 +55,10 @@
 
   /* ARTICLES */
   .articles{padding:0 6vw 120px;}
-  .art-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media(min-width:760px){.art-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:1100px){.art-grid{grid-template-columns:repeat(3,1fr);}}
-  .art-card{background:var(--panel);padding:34px 28px;display:flex;flex-direction:column;min-height:280px;}
+  .art-grid{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .art-card{background:var(--panel);padding:34px 28px;display:flex;flex-direction:column;min-height:280px;flex:1 1 100%;}
+  @media(min-width:760px){.art-card{flex:1 1 calc(50% - 1px);}}
+  @media(min-width:1100px){.art-card{flex:1 1 calc(33.333% - 1px);}}
   .art-card .atag{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px;}
   .art-card .atag .dot{width:7px;height:7px;border-radius:50%;}
   .art-card h3{font-size:20px;font-weight:400;line-height:1.3;margin-bottom:14px;}
