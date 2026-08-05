@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O porquê que ninguém pergunta primeiro — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14); --plh:#3E5C76;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
+  @media(min-width:860px){.hamburger{display:none;}}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
+  .mobile-menu a.active{color:var(--gold-deep);}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .art-hero{padding:180px 6vw 60px;}
+  .back-link{font-size:12.5px;color:var(--stone);margin-bottom:28px;display:inline-block;}
+  .back-link:hover{color:var(--gold-deep);}
+  .art-hero h1{font-size:clamp(28px,4.4vw,48px);line-height:1.2;font-weight:300;margin:20px 0 20px;max-width:780px;}
+  .art-meta{display:flex;gap:18px;font-size:12.5px;color:var(--stone);font-family:'IBM Plex Mono',monospace;flex-wrap:wrap;}
+  .art-body{padding:0 6vw 100px;}
+  .art-body-inner{max-width:700px;margin:0 auto;}
+  .art-body-inner p{font-size:16px;line-height:1.9;color:var(--ink);margin-bottom:22px;}
+  .art-body-inner h2{font-size:24px;font-weight:400;margin:44px 0 18px;color:var(--ink);}
+  .art-body-inner strong{font-weight:500;color:var(--ink);}
+  .art-body-inner em{font-style:italic;color:var(--stone);font-size:14px;}
+  .art-body-inner hr{border:none;border-top:1px solid var(--line);margin:44px 0 24px;}
+  .callout{background:var(--paper-2);border-left:3px solid var(--gold);padding:20px 24px;font-size:14.5px;color:var(--stone);line-height:1.7;margin:8px 0 30px;}
+  .closing{padding:130px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .closing .eyebrow{justify-content:center;color:var(--gold-bright);}
+  .closing .eyebrow::before{background:var(--gold-bright);}
+  .closing h2{font-size:clamp(26px,3.6vw,42px);font-weight:300;max-width:700px;margin:20px auto 34px;line-height:1.3;color:#fff;}
+  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
+  .btn-primary:hover{background:#FFFFFF;}
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+
+<div class="art-hero">
+  <a href="insights.html" class="back-link">← Voltar para Insights</a>
+  <div class="eyebrow"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--plh);display:inline-block;"></span>Propósito</div>
+  <h1>O porquê que ninguém pergunta primeiro</h1>
+  <div class="art-meta">
+    <span>6 min de leitura</span>
+    <span>·</span>
+    <span>Grand Talent Consulting</span>
+  </div>
+</div>
+
+<div class="art-body">
+  <div class="art-body-inner">
+
+<p>A reunião de kickoff de qualquer novo processo, meta ou sistema costuma seguir a mesma ordem: primeiro se explica o quê vai mudar, depois como vai funcionar. Só raramente alguém para pra explicar por quê — e, quando explica, geralmente é a última coisa dita, quase um adendo, não o ponto de partida.</p>
+
+<p>Simon Sinek chamou essa inversão de atenção pelo nome, em <em>Comece Pelo Porquê</em>: a maioria das organizações sabe exatamente o que faz, boa parte sabe como faz, mas poucas conseguem articular, com clareza e de forma consistente, por que fazem o que fazem — além de "para ganhar dinheiro" ou "para bater a meta".</p>
+
+<h2>O Círculo Dourado ao contrário</h2>
+
+<p>O modelo que Sinek descreve — o Círculo Dourado — tem três camadas: <strong>Porquê</strong> no centro (a crença, o propósito), <strong>Como</strong> no meio (o processo, o diferencial) e <strong>O quê</strong> na borda (o produto, a tarefa, o resultado visível). A maioria das comunicações internas de empresa se movimenta de fora para dentro: primeiro o quê, depois o como, e o porquê — quando aparece — vem por último, se aparecer.</p>
+
+<p>O problema não é técnico, é neurológico, argumenta Sinek: decisões e engajamento nascem numa parte do cérebro ligada à emoção e ao comportamento, não à linguagem racional. Comunicar de fora para dentro entrega informação. Comunicar de dentro para fora — começando pelo porquê — é o que efetivamente move comportamento.</p>
+
+<div class="callout">Um operador que entende o "quê" da sua função sabe o que fazer. Um operador que entende o "porquê" sabe por que aquilo importa quando ninguém está olhando.</div>
+
+<h2>O porquê da fábrica não é o porquê do slide</h2>
+
+<p>Isso não significa colocar a missão da empresa emoldurada na parede do refeitório. Significa algo mais concreto: quando uma liderança direta explica uma mudança de processo, ela abre pelo motivo real — o que essa mudança resolve, para quem, e por quê agora — antes de entrar na lista de novos passos. E significa também que o "porquê" precisa ser verdadeiro e específico, não um slogan corporativo genérico que soa igual em qualquer empresa do setor.</p>
+
+<p>Sem esse ponto de partida, a mudança vira só mais uma instrução técnica na fila de instruções técnicas — e o engajamento com ela dura exatamente o tempo da novidade.</p>
+
+<h2>A pergunta que fica</h2>
+
+<p>Se você pedisse, hoje, para um colaborador do chão de fábrica explicar por que a empresa faz o que faz — não o quê, o porquê — ele conseguiria responder com algo além do nome do produto?</p>
+
+<hr>
+<p><em>Referência: Sinek, S. (2009). <em>Start with Why: How Great Leaders Inspire Everyone to Take Action</em>. Portfolio.</em></p>
+
+  </div>
+</div>
+
+<section class="closing">
+  <div class="eyebrow">Vamos conversar</div>
+  <h2>Sua empresa comunica o que faz, ou por que faz?</h2>
+  <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+</script>
+</body>
+</html>
