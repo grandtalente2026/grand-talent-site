@@ -141,6 +141,9 @@
   .about{padding:120px 6vw;display:grid;grid-template-columns:1fr;gap:56px;}
   @media(min-width:860px){.about{grid-template-columns:0.9fr 1.1fr;align-items:start;}}
   .about h2{font-size:clamp(24px,3vw,36px);font-weight:300;margin-top:18px;max-width:420px;}
+  .about-photo{margin-top:36px;max-width:420px;}
+  .about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.05);border-radius:2px;}
+  .about-photo-caption{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.05em;color:var(--stone);text-transform:uppercase;}
   .about-body p{font-size:15.5px;line-height:1.85;color:var(--stone);margin-bottom:20px;max-width:560px;}
   .about-body strong{color:var(--ink);font-weight:500;}
   .credentials{display:flex;flex-wrap:wrap;margin-top:34px;border-top:1px solid var(--line);}
@@ -396,6 +399,10 @@
   <div>
     <div class="eyebrow">Quem assina o método</div>
     <h2>Trinta anos de chão de fábrica. Uma pós-graduação para nomear o que já era prática.</h2>
+    <div class="about-photo">
+      <img src="eu-na-mb.jpg" alt="Anderson Carvalho no chão de fábrica, na produção de caminhões">
+      <div class="about-photo-caption">Anderson Carvalho · linha de produção</div>
+    </div>
   </div>
   <div class="about-body">
     <p>O Grand Talent Consulting nasce de uma trajetória de 30 anos em ambientes industriais — incluindo passagem pela Mercedes-Benz do Brasil e pela Volkswagen do Brasil, em logística, qualidade, segurança e liderança — combinada a uma pós-graduação em <strong>Comunicação Estratégica para Marca e Reputação</strong> (PUCRS, TCC nota 10), que teve a própria Mercedes-Benz como estudo de caso.</p>
