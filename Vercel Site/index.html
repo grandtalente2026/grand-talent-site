@@ -82,9 +82,11 @@
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
   .navlinks a:hover{color:var(--gold-deep);}
 
-  .hero{min-height:96vh;display:flex;flex-direction:column;justify-content:center;padding:0 6vw;position:relative;}
-  .hero-inner{max-width:900px;padding-top:150px;}
-  .hero h1{font-size:clamp(36px,5.8vw,72px);line-height:1.08;margin:22px 0 26px;font-weight:300;}
+  .hero{padding:170px 6vw 90px;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;max-width:1280px;margin:0 auto;}
+  @media(min-width:960px){.hero-grid{grid-template-columns:1.15fr 0.85fr;}}
+  .hero-inner{max-width:600px;}
+  .hero h1{font-size:clamp(36px,5.8vw,64px);line-height:1.08;margin:22px 0 26px;font-weight:300;}
   .hero h1 em{font-style:normal;color:var(--gold-deep);font-weight:500;}
   .hero p.lede{max-width:580px;font-size:17px;line-height:1.7;color:var(--stone);margin-bottom:20px;}
   .diff-line{
@@ -97,14 +99,11 @@
   .btn-ghost{font-size:13px;color:var(--stone);border-bottom:1px solid var(--line);padding-bottom:2px;}
   .btn-ghost:hover{color:var(--gold-deep);border-color:var(--gold);}
 
-  .vector-wrap{position:absolute;right:6vw;bottom:10vh;width:min(36vw,400px);opacity:0.95;}
-  .vector-wrap svg{width:100%;height:auto;overflow:visible;}
-  .vpath{stroke:var(--gold);stroke-width:1.4;fill:none;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.2s cubic-bezier(.65,0,.35,1) .4s forwards;}
-  .vdot{fill:var(--gold-deep);opacity:0;animation:appear .5s ease 2.4s forwards;}
-  .vlabel{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:var(--stone);letter-spacing:0.04em;opacity:0;animation:appear .5s ease 2.6s forwards;}
-  @keyframes draw{to{stroke-dashoffset:0;}}
-  @keyframes appear{to{opacity:1;}}
-  @media(max-width:860px){.vector-wrap{display:none;}}
+  .hero-photo{width:100%;position:relative;}
+  .hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:grayscale(6%) contrast(1.02);border-radius:2px;}
+  .hero-photo::after{content:'';position:absolute;inset:0;border:1px solid var(--line);pointer-events:none;}
+  .hero-photo-caption{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;}
+  @media(max-width:960px){.hero-photo{max-width:440px;margin:0 auto;}}
 
   .manifesto{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
   .manifesto .eyebrow{color:var(--gold-bright);}
@@ -227,25 +226,25 @@
   </div>
 
 <section class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Liderança humanizada &amp; diagnóstico organizacional</div>
-    <h1>A metodologia que transforma liderança em resultado mensurável.</h1>
-    <p class="lede">Sistema 4.0: cinco instrumentos validados academicamente para diagnosticar engajamento, desenvolver liderança, mapear talentos, conduzir mudança e sustentar resultado — num só ciclo integrado. Aplicado em operações industriais, logísticas e corporativas no Brasil e em Portugal. Não é percepção. É dado, com plano de ação e acompanhamento até o resultado aparecer.</p>
-    <div class="diff-line">Diferente de consultorias genéricas de RH: medimos com instrumentos validados academicamente, cruzamos engajamento com disposição para mudança, e acompanhamos até o resultado aparecer — da liderança de linha à diretoria.</div>
-    <div class="cta-row">
-      <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
-      <a href="#metodologia" class="btn-ghost">Conhecer a metodologia</a>
+  <div class="hero-grid">
+    <div class="hero-inner">
+      <div class="eyebrow">Liderança humanizada &amp; diagnóstico organizacional</div>
+      <h1>A metodologia que transforma liderança em resultado mensurável.</h1>
+      <p class="lede">Sistema 4.0: cinco instrumentos validados academicamente para diagnosticar engajamento, desenvolver liderança, mapear talentos, conduzir mudança e sustentar resultado — num só ciclo integrado. Aplicado em operações industriais, logísticas e corporativas no Brasil e em Portugal. Não é percepção. É dado, com plano de ação e acompanhamento até o resultado aparecer.</p>
+      <div class="diff-line">Diferente de consultorias genéricas de RH: medimos com instrumentos validados academicamente, cruzamos engajamento com disposição para mudança, e acompanhamos até o resultado aparecer — da liderança de linha à diretoria.</div>
+      <div class="cta-row">
+        <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+        <a href="#metodologia" class="btn-ghost">Conhecer a metodologia</a>
+      </div>
+      <div style="margin-top:16px;font-size:12px;color:var(--stone);font-family:'IBM Plex Mono',monospace;">Conversa de 30 min, sem compromisso · resposta em até 24h</div>
     </div>
-    <div style="margin-top:16px;font-size:12px;color:var(--stone);font-family:'IBM Plex Mono',monospace;">Conversa de 30 min, sem compromisso · resposta em até 24h</div>
-  </div>
-  <div class="vector-wrap">
-    <svg viewBox="0 0 380 220">
-      <path class="vpath" d="M10,190 C 80,180 120,160 150,120 C 180,80 220,60 260,45 C 300,30 330,20 365,12" />
-      <circle class="vdot" cx="365" cy="12" r="4"/>
-      <text class="vlabel" x="300" y="180">IBEP-4.0 · engajamento 12 meses</text>
-    </svg>
+    <div class="hero-photo">
+      <img src="Fotos%20site/lideranca-escuta.jpg" alt="Liderança humanizada — supervisor em conversa próxima com colaborador no chão de fábrica">
+      <div class="hero-photo-caption">PLH-4.0 · liderança que escuta antes de decidir</div>
+    </div>
   </div>
 </section>
+
 
 <section class="manifesto">
   <div class="manifesto-inner">
