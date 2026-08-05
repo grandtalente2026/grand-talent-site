@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG: a dimensão Social que ninguém audita direito — Grand Talent Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
+    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
+    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
+    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14); --ibep:#1F4D3D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .logo{font-family:'Fraunces',serif;font-size:19px;}
+  .logo span{color:var(--gold-deep);}
+  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
+  @media(min-width:860px){.navlinks{display:flex;}}
+  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
+  @media(min-width:860px){.hamburger{display:none;}}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
+  .mobile-menu a.active{color:var(--gold-deep);}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .navlinks a:hover{color:var(--gold-deep);}
+  .art-hero{padding:180px 6vw 60px;}
+  .back-link{font-size:12.5px;color:var(--stone);margin-bottom:28px;display:inline-block;}
+  .back-link:hover{color:var(--gold-deep);}
+  .art-hero h1{font-size:clamp(28px,4.4vw,48px);line-height:1.2;font-weight:300;margin:20px 0 20px;max-width:780px;}
+  .art-meta{display:flex;gap:18px;font-size:12.5px;color:var(--stone);font-family:'IBM Plex Mono',monospace;flex-wrap:wrap;}
+  .art-body{padding:0 6vw 100px;}
+  .art-body-inner{max-width:700px;margin:0 auto;}
+  .art-body-inner p{font-size:16px;line-height:1.9;color:var(--ink);margin-bottom:22px;}
+  .art-body-inner h2{font-size:24px;font-weight:400;margin:44px 0 18px;color:var(--ink);}
+  .art-body-inner strong{font-weight:500;color:var(--ink);}
+  .art-body-inner em{font-style:italic;color:var(--stone);font-size:14px;}
+  .art-body-inner hr{border:none;border-top:1px solid var(--line);margin:44px 0 24px;}
+  .callout{background:var(--paper-2);border-left:3px solid var(--gold);padding:20px 24px;font-size:14.5px;color:var(--stone);line-height:1.7;margin:8px 0 30px;}
+  .closing{padding:130px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
+  .closing .eyebrow{justify-content:center;color:var(--gold-bright);}
+  .closing .eyebrow::before{background:var(--gold-bright);}
+  .closing h2{font-size:clamp(26px,3.6vw,42px);font-weight:300;max-width:700px;margin:20px auto 34px;line-height:1.3;color:#fff;}
+  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
+  .btn-primary:hover{background:#FFFFFF;}
+  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
+  <div class="navlinks">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Pacotes</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="insights.html">Insights</a>
+    <a href="contato.html">Contato</a>
+  </div>
+
+<div class="art-hero">
+  <a href="insights.html" class="back-link">← Voltar para Insights</a>
+  <div class="eyebrow"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--ibep);display:inline-block;"></span>Reputação</div>
+  <h1>ESG: a dimensão Social que ninguém audita direito</h1>
+  <div class="art-meta">
+    <span>7 min de leitura</span>
+    <span>·</span>
+    <span>Grand Talent Consulting</span>
+  </div>
+</div>
+
+<div class="art-body">
+  <div class="art-body-inner">
+
+<p>Pergunte a qualquer diretoria industrial sobre a letra G do ESG, e ela mostra o organograma de governança, o código de conduta, as atas de comitê. Pergunte sobre o E, e vem a matriz de emissões, o plano de resíduos, os indicadores de consumo hídrico. Pergunte sobre o S — a dimensão Social — e, na maioria das vezes, a resposta é uma lista de programas, não um número.</p>
+
+<p>Isso não é falta de boa vontade. É um problema estrutural: Governança e Ambiental amadureceram em cima de disciplinas que já tinham métrica pronta — contabilidade, engenharia ambiental, direito societário. O Social nasceu depois, sem esse lastro técnico, e até hoje é tratado como terreno de intenção, não de dado.</p>
+
+<h2>O ponto cego que a auditoria não fecha</h2>
+
+<p>Auditorias de ESG são boas em verificar processo: a empresa tem política de diversidade? Tem canal de denúncia? Tem programa de saúde mental? Sim, sim, sim — a lista de caixinhas marcadas cresce a cada ano. O que a auditoria de processo não responde é a pergunta que realmente importa para quem trabalha ali: as pessoas se sentem seguras, ouvidas e reconhecidas no dia a dia, ou a política existe só no papel?</p>
+
+<p>Robert G. Eccles, um dos pesquisadores mais citados em sustentabilidade corporativa, vem alertando há anos para essa lacuna: métricas ambientais e de governança se consolidaram em padrões relativamente objetivos, enquanto a mensuração do capital humano e social continua fragmentada, inconsistente entre empresas, e frequentemente qualitativa demais para orientar decisão real.</p>
+
+<div class="callout">Ter uma política de bem-estar no papel e medir bem-estar real são exercícios completamente diferentes. O primeiro é gestão de risco reputacional. O segundo é gestão de gente.</div>
+
+<h2>O que significa medir o Social de verdade</h2>
+
+<p>Medir a dimensão Social com rigor comparável ao E e ao G significa ir além de "temos o programa" para "sabemos, com dado, se está funcionando". Isso pede instrumento — não pesquisa de clima genérica aplicada uma vez por ano e arquivada, mas diagnóstico estruturado, com dimensões claras (segurança psicológica, reconhecimento, pertencimento, justiça percebida, qualidade da liderança direta) e comparabilidade ao longo do tempo.</p>
+
+<p>Sem isso, o relatório de sustentabilidade de uma empresa pode estar tecnicamente correto e, ainda assim, não dizer nada sobre a experiência real de quem trabalha na linha de produção. E é justamente aí que mora o risco reputacional que ninguém vê chegar: o primeiro processo trabalhista coletivo, o primeiro vazamento de queixa nas redes, o primeiro índice de rotatividade que não fecha a conta com o relatório ESG publicado meses antes.</p>
+
+<h2>A pergunta que fica</h2>
+
+<p>Se um auditor pedisse hoje o dado — não o programa, o número — que sustenta a dimensão Social do seu relatório ESG, sua empresa teria algo mais sólido que boa intenção para mostrar?</p>
+
+<hr>
+<p><em>Referência: Eccles, R. G., Ioannou, I., & Serafeim, G. (2014). <em>The Impact of Corporate Sustainability on Organizational Processes and Performance</em>. Management Science.</em></p>
+
+  </div>
+</div>
+
+<section class="closing">
+  <div class="eyebrow">Vamos conversar</div>
+  <h2>O S do seu relatório ESG tem dado, ou tem intenção?</h2>
+  <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+</section>
+
+<footer>
+  <div>Grand Talent Consulting © 2026</div>
+  <div>Brasil · Portugal</div>
+</footer>
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+</script>
+</body>
+</html>
