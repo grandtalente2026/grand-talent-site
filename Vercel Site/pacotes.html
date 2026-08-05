@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metodologia — Grand Talent Consulting</title>
+<title>Pacotes — Grand Talent Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -129,6 +129,41 @@
   .btn-primary:hover{background:#FFFFFF;}
 
   footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+
+  /* PACKAGE CARDS */
+  .pkg-section{padding:0 6vw 110px;}
+  .pkg-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:900px){.pkg-grid{grid-template-columns:repeat(3,1fr);}}
+  .pkg-card{background:var(--panel);padding:40px 32px;display:flex;flex-direction:column;}
+  .pkg-card.featured{background:var(--ink-bg);color:#FFFFFF;}
+  .pkg-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);letter-spacing:0.08em;}
+  .pkg-card.featured .pkg-num{color:var(--stone-on-dark);}
+  .pkg-card h3{font-size:26px;font-weight:400;margin:14px 0 10px;}
+  .pkg-sub{font-size:13.5px;color:var(--stone);line-height:1.6;margin-bottom:26px;}
+  .pkg-card.featured .pkg-sub{color:var(--stone-on-dark);}
+  .pkg-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex-grow:1;}
+  .pkg-list li{font-size:13.5px;line-height:1.5;padding-left:18px;position:relative;color:var(--ink);}
+  .pkg-card.featured .pkg-list li{color:#EDEAE2;}
+  .pkg-list li::before{content:'—';position:absolute;left:0;color:var(--gold-deep);}
+  .pkg-card.featured .pkg-list li::before{color:var(--gold-bright);}
+  .pkg-indicado{font-size:12.5px;color:var(--stone);line-height:1.6;margin-bottom:26px;font-style:italic;}
+  .pkg-card.featured .pkg-indicado{color:var(--stone-on-dark);}
+  .pkg-tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-deep);border-top:1px solid var(--line);padding-top:18px;}
+  .pkg-card.featured .pkg-tag{color:var(--gold-bright);border-color:var(--line-on-dark);}
+
+  /* AVULSOS */
+  .avulsos{padding:100px 6vw;border-top:1px solid var(--line);background:var(--paper-2);}
+  .avulsos-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:50px;}
+  @media(min-width:640px){.avulsos-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:960px){.avulsos-grid{grid-template-columns:repeat(3,1fr);}}
+  .avulso-card{background:var(--panel);padding:28px 24px;}
+  .avulso-card h4{font-size:16.5px;font-weight:400;margin-bottom:10px;}
+  .avulso-card p{font-size:13px;color:var(--stone);line-height:1.6;}
+  .avulso-card .avulso-tag{display:block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-deep);text-transform:uppercase;letter-spacing:0.05em;}
+  .avulso-card.cta{background:var(--ink-bg);display:flex;flex-direction:column;justify-content:center;}
+  .avulso-card.cta h4{color:#FFFFFF;font-family:'Fraunces',serif;font-size:19px;}
+  .avulso-card.cta p{color:var(--stone-on-dark);}
+  .avulso-card.cta a{display:inline-block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);padding-bottom:3px;}
 </style>
 </head>
 <body>
@@ -137,8 +172,8 @@
   <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
   <div class="navlinks">
     <a href="index.html#setores">Setores</a>
-    <a href="metodologia.html" class="active">Metodologia</a>
-    <a href="pacotes.html">Pacotes</a>
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html" class="active">Pacotes</a>
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
     <a href="contato.html">Contato</a>
@@ -147,222 +182,106 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
     <a href="index.html#setores">Setores</a>
-    <a href="metodologia.html" class="active">Metodologia</a>
-    <a href="pacotes.html">Pacotes</a>
+    <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html" class="active">Pacotes</a>
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
     <a href="contato.html">Contato</a>
   </div>
 
 <section class="page-hero">
-  <div class="eyebrow">A metodologia</div>
-  <h1>Quatro instrumentos. Um único ciclo: medir, desenvolver, mapear e sustentar liderança.</h1>
-  <p>Cada instrumento resolve uma etapa específica — e juntos formam um sistema, não uma coleção de ferramentas soltas. Nenhum deles substitui pesquisa de clima genérica: cada um foi desenhado e validado academicamente para o ambiente industrial e logístico.</p>
+  <div class="eyebrow">O investimento</div>
+  <h1>Três formas de aplicar o Sistema 4.0 — do primeiro diagnóstico ao acompanhamento contínuo.</h1>
+  <p>Cada pacote soma os instrumentos certos pro momento da sua operação. O valor é calculado pelo porte da empresa e pelo escopo real do ciclo — por isso não colocamos uma tabela solta aqui: conversamos primeiro, precificamos depois.</p>
 </section>
 
-<section class="hero-photo-band">
-  <img src="consultor-sala.jpg" alt="Devolutiva de resultados do Sistema 4.0 com a liderança, no chão de fábrica">
-  <div class="cap">Devolutiva de resultados · liderança direta acompanhando o diagnóstico em tempo real</div>
-</section>
+<section class="pkg-section">
+  <div class="pkg-grid">
 
-<section class="cycle">
-  <div class="cycle-strip">
-    <div class="cstep" style="border-top:3px solid var(--ibep);">
-      <div class="cnum">01</div>
-      <div class="ctag" style="background:var(--ibep-tint);color:var(--ibep);">Diagnóstico</div>
-      <h4>IBEP-4.0</h4>
-      <p>Mede engajamento real em 6 dimensões</p>
-      <div class="arrow">→</div>
+    <div class="pkg-card">
+      <div class="pkg-num">01</div>
+      <h3>Essencial</h3>
+      <p class="pkg-sub">O primeiro ciclo: medir o que hoje só se percebe.</p>
+      <ul class="pkg-list">
+        <li>IBEP-4.0 — diagnóstico de engajamento, bem-estar e pertencimento</li>
+        <li>ITC-4.0 — mapeamento de talentos por área e turno</li>
+        <li>Devolutiva de resultados com a liderança</li>
+      </ul>
+      <p class="pkg-indicado">Indicado para quem quer um retrato real da operação antes de decidir o próximo passo.</p>
+      <div class="pkg-tag">Sob consulta</div>
     </div>
-    <div class="cstep" style="border-top:3px solid var(--plh);">
-      <div class="cnum">02</div>
-      <div class="ctag" style="background:var(--plh-tint);color:var(--plh);">Desenvolvimento</div>
-      <h4>PLH-4.0</h4>
-      <p>Forma liderança humanizada, mês a mês</p>
-      <div class="arrow">→</div>
+
+    <div class="pkg-card featured">
+      <div class="pkg-num">02</div>
+      <h3>Completo</h3>
+      <p class="pkg-sub">Diagnóstico e desenvolvimento de liderança, no mesmo ciclo.</p>
+      <ul class="pkg-list">
+        <li>Tudo do Essencial</li>
+        <li>PLH-4.0 — protocolo de liderança humanizada</li>
+        <li>CliftonStrengths Top 5 — aplicado individualmente às lideranças</li>
+        <li>CAP-4.0 — conexão e influência da liderança</li>
+      </ul>
+      <p class="pkg-indicado">Indicado para quando o gargalo já está identificado na liderança, não só no clima.</p>
+      <div class="pkg-tag">Sob consulta</div>
     </div>
-    <div class="cstep" style="border-top:3px solid var(--itc);">
-      <div class="cnum">03</div>
-      <div class="ctag" style="background:var(--itc-tint);color:var(--itc);">Talento</div>
-      <h4>ITC-4.0</h4>
-      <p>Mapeia perfis reais de colaboração</p>
-      <div class="arrow">→</div>
+
+    <div class="pkg-card">
+      <div class="pkg-num">03</div>
+      <h3>Transformação</h3>
+      <p class="pkg-sub">Ciclo completo com sustentação ao longo do tempo.</p>
+      <ul class="pkg-list">
+        <li>Tudo do Completo</li>
+        <li>ADM-4.0 — leitura de onde uma mudança específica está travando</li>
+        <li>Acompanhamento contínuo por 12 meses, em ciclos bimestrais</li>
+      </ul>
+      <p class="pkg-indicado">Indicado para mudanças estruturais em curso — fusão, nova liderança, reestruturação — que exigem sustentação, não só um diagnóstico pontual.</p>
+      <div class="pkg-tag">Sob consulta</div>
     </div>
-    <div class="cstep" style="border-top:3px solid var(--adm);">
-      <div class="cnum">04</div>
-      <div class="ctag" style="background:var(--adm-tint);color:var(--adm);">Mudança</div>
-      <h4>ADM-4.0</h4>
-      <p>Mede disposição real diante de uma mudança específica</p>
-      <div class="arrow">→</div>
-    </div>
-    <div class="cstep" style="border-top:3px solid var(--cap);">
-      <div class="cnum">05</div>
-      <div class="ctag" style="background:var(--cap-tint);color:var(--cap);">Sustentação</div>
-      <h4>CAP-4.0</h4>
-      <p>Consolida conexão e influência da liderança</p>
-    </div>
+
   </div>
 </section>
 
-<!-- IBEP-4.0 -->
-<section class="instrument ibep">
-  <div class="instr-grid">
-    <div class="instr-head">
-      <div class="code">01 — IBEP-4.0</div>
-      <h2>Diagnóstico de engajamento</h2>
-      <div class="full-name">Índice de Bem-Estar e Engajamento Profissional</div>
-      <p class="desc">O ponto de partida de todo trabalho. Mede, com rigor estatístico, o que realmente está acontecendo dentro da operação — não o que o organograma presume.</p>
-      <div class="tier-tag accent">Incluído em: Starter · Professional · Enterprise</div>
-    </div>
-    <div class="instr-body">
-      <div class="dim-block">
-        <h4>As 6 dimensões medidas</h4>
-        <div class="dim-list">
-          <div class="dim-item">Segurança psicológica</div>
-          <div class="dim-item">Clareza de propósito</div>
-          <div class="dim-item">Qualidade da liderança direta</div>
-          <div class="dim-item">Reconhecimento</div>
-          <div class="dim-item">Condições de trabalho</div>
-          <div class="dim-item">Pertencimento</div>
-        </div>
-      </div>
-      <div class="output-box">
-        <div class="olabel">Entregável</div>
-        <p>Relatório executivo com índice geral (GrandMean das 6 dimensões), comparativo por área/turno, e os 3 pontos de maior alavancagem para intervenção imediata.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="avulsos">
+  <div class="eyebrow">Também aplicamos individualmente</div>
+  <h2 style="font-size:clamp(24px,3vw,34px);font-weight:300;margin-top:16px;max-width:640px;">Nem toda empresa precisa do ciclo inteiro de uma vez.</h2>
+  <div class="avulsos-grid">
 
-<!-- PLH-4.0 -->
-<section class="instrument plh">
-  <div class="instr-grid">
-    <div class="instr-head">
-      <div class="code">02 — PLH-4.0</div>
-      <h2>Protocolo de liderança humanizada</h2>
-      <div class="full-name">Programa de desenvolvimento contínuo</div>
-      <p class="desc">O diagnóstico aponta onde intervir. O PLH-4.0 é onde a mudança de comportamento realmente acontece — com as lideranças de linha, não só com a diretoria.</p>
-      <div class="tier-tag accent">Incluído em: Professional · Enterprise</div>
+    <div class="avulso-card">
+      <h4>IBEP-4.0 avulso</h4>
+      <p>Só o diagnóstico de engajamento, sem o restante do ciclo — para quem quer medir antes de comprometer orçamento maior.</p>
+      <span class="avulso-tag">Sob consulta</span>
     </div>
-    <div class="instr-body">
-      <div class="dim-block">
-        <h4>Estrutura do ciclo</h4>
-        <div class="dim-list">
-          <div class="dim-item">Diagnóstico individual de liderança</div>
-          <div class="dim-item">Encontros mensais estruturados</div>
-          <div class="dim-item">Ferramentas práticas de PNL e escuta ativa</div>
-          <div class="dim-item">Casos reais da própria operação</div>
-          <div class="dim-item">Acompanhamento de indicadores comportamentais</div>
-          <div class="dim-item">Reavaliação a cada ciclo (90 dias)</div>
-        </div>
-      </div>
-      <div class="output-box">
-        <div class="olabel">Entregável</div>
-        <p>Plano de desenvolvimento individual por líder, com metas de 90 dias e comparação de evolução entre ciclos.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ITC-4.0 -->
-<section class="instrument itc">
-  <div class="instr-grid">
-    <div class="instr-head">
-      <div class="code">03 — ITC-4.0</div>
-      <h2>Inteligência de talentos colaborativos</h2>
-      <div class="full-name">Mapeamento de perfis reais de equipe</div>
-      <p class="desc">Nem todo bom técnico é um bom líder de equipe, e nem toda liderança nata está no cargo certo. O ITC-4.0 revela o perfil real de cada colaborador — não o que o currículo diz.</p>
-      <div class="tier-tag accent">Incluído em: Professional · Enterprise · disponível avulso</div>
+    <div class="avulso-card">
+      <h4>ITC-4.0 avulso</h4>
+      <p>Mapeamento de talentos por turma, independente de estar rodando o IBEP no mesmo momento.</p>
+      <span class="avulso-tag">Sob consulta</span>
     </div>
-    <div class="instr-body">
-      <div class="dim-block">
-        <h4>Os 6 perfis mapeados</h4>
-        <div class="dim-list">
-          <div class="dim-item">Executor</div>
-          <div class="dim-item">Conector</div>
-          <div class="dim-item">Guardião</div>
-          <div class="dim-item">Catalisador</div>
-          <div class="dim-item">Construtor</div>
-          <div class="dim-item">Âncora</div>
-        </div>
-      </div>
-      <div class="output-box">
-        <div class="olabel">Entregável</div>
-        <p>Dossiê individual de perfil, mapa de composição de equipe, e recomendações de alocação/sucessão baseadas em dados, não em percepção.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ADM-4.0 -->
-<section class="instrument adm">
-  <div class="instr-grid">
-    <div class="instr-head">
-      <div class="code">04 — ADM-4.0</div>
-      <h2>Avaliação de disposição para mudança</h2>
-      <div class="full-name">Diagnóstico de barreira em mudanças específicas</div>
-      <p class="desc">Toda empresa que perde uma mudança diz depois: "a gente sentiu que algo não ia bem. Só não sabia dizer onde." O ADM-4.0 identifica, em cada pessoa e em cada setor, exatamente onde uma mudança específica em curso está travando — antes que o custo apareça no resultado.</p>
-      <div class="tier-tag accent">Incluído em: Professional · Enterprise · disponível avulso</div>
+    <div class="avulso-card">
+      <h4>ADM-4.0 avulso</h4>
+      <p>Para uma mudança específica já em curso, sem precisar contratar o ciclo Transformação inteiro.</p>
+      <span class="avulso-tag">Sob consulta</span>
     </div>
-    <div class="instr-body">
-      <div class="dim-block">
-        <h4>Os cinco blocos avaliados</h4>
-        <div class="dim-list">
-          <div class="dim-item">Consciência — por que a mudança acontece</div>
-          <div class="dim-item">Adesão — motivo pessoal para apoiar</div>
-          <div class="dim-item">Conhecimento — como executar na prática</div>
-          <div class="dim-item">Capacidade — conseguir aplicar sozinho</div>
-          <div class="dim-item">Reforço — o que sustenta no tempo</div>
-        </div>
-      </div>
-      <div class="output-box">
-        <div class="olabel">Entregável</div>
-        <p>Mapa de calor por área com o ponto de barreira identificado, cruzamento com o GrandMean do IBEP-4.0, e plano de ação priorizado com responsável e prazo por bloco travado.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- CAP-4.0 -->
-<section class="instrument cap">
-  <div class="instr-grid">
-    <div class="instr-head">
-      <div class="code">05 — CAP-4.0</div>
-      <h2>Conexão &amp; influência da liderança</h2>
-      <div class="full-name">Módulo de sustentação e consolidação</div>
-      <p class="desc">O passo final: garantir que o que foi diagnosticado e desenvolvido não se perca depois que a consultoria sai de cena. Dois módulos, aplicáveis juntos ou isolados.</p>
-      <div class="tier-tag accent">Incluído em: Enterprise · disponível como serviço isolado</div>
+    <div class="avulso-card">
+      <h4>Palestras</h4>
+      <p>Abertura, Manhã de Liderança, Tarde de CliftonStrengths ou Retorno — sessões avulsas, dimensionadas pelo porte do público.</p>
+      <span class="avulso-tag">Sob consulta</span>
     </div>
-    <div class="instr-body">
-      <div class="dim-block">
-        <h4>Os dois módulos</h4>
-        <div class="dim-list" style="grid-template-columns:1fr;">
-          <div class="dim-item"><strong>Conexão</strong> — fortalece os vínculos horizontais entre líderes de diferentes áreas, reduzindo silos operacionais.</div>
-          <div class="dim-item"><strong>Influência</strong> — desenvolve a capacidade de cada líder sustentar mudança de comportamento no time, sem depender de autoridade formal.</div>
-        </div>
-      </div>
-      <div class="output-box">
-        <div class="olabel">Entregável</div>
-        <p>Plano de sustentação de 12 meses, com checkpoints trimestrais e transferência de autonomia gradual para o time interno de RH.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section style="padding:90px 6vw;border-top:1px solid var(--line);">
-  <div class="instr-grid">
-    <div class="instr-head">
-      <div class="code" style="background:#EDEAE2;color:var(--stone);">Complementar</div>
-      <h2>CliftonStrengths</h2>
-      <div class="full-name">Especialização em CliftonStrengths Top 5 — aplicada individualmente às lideranças</div>
-      <p class="desc">Diferente do ITC-4.0 (que mapeia o time inteiro), o CliftonStrengths é usado em profundidade com cada líder — identificando os talentos dominantes que moldam seu estilo de liderar, decidir e se comunicar.</p>
+    <div class="avulso-card">
+      <h4>Workshop de Venda</h4>
+      <p>Uma sessão paga, de baixo compromisso, que serve como primeiro contato prático com o método — 100% creditada em qualquer pacote fechado em até 60 dias.</p>
+      <span class="avulso-tag">Sob consulta</span>
     </div>
-    <div class="instr-body">
-      <div class="output-box">
-        <div class="olabel">Como se conecta ao sistema</div>
-        <p>Aplicado dentro do PLH-4.0 para os líderes em desenvolvimento, e como etapa opcional de aprofundamento no Enterprise. Gera o dossiê individual de liderança com plano de 90 dias baseado nos temas CliftonStrengths — executor, influenciador, construtor de relacionamento ou pensador estratégico.</p>
-      </div>
+
+    <div class="avulso-card cta">
+      <h4>Quanto custa não saber onde está travando?</h4>
+      <p>Enquanto o diagnóstico não acontece, a operação segue absorvendo um custo que ninguém mede — só sente.</p>
+      <a href="contato.html">Falar com o consultor →</a>
     </div>
+
   </div>
 </section>
 
