@@ -48,7 +48,9 @@
 
   /* FILTERS */
   .filters{padding:0 6vw 50px;display:flex;gap:10px;flex-wrap:wrap;}
-  .ftag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--stone);cursor:default;}
+  .ftag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--stone);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+  .ftag:hover{border-color:var(--gold-deep);color:var(--gold-deep);}
+  .art-card.hidden{display:none;}
   .ftag.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 
   /* ARTICLES */
@@ -105,68 +107,68 @@
 </section>
 
 <div class="filters">
-  <div class="ftag active">Todos</div>
-  <div class="ftag">Reputação</div>
-  <div class="ftag">Liderança</div>
-  <div class="ftag">Talento</div>
-  <div class="ftag">Comunicação</div>
-  <div class="ftag">Mudança</div>
-  <div class="ftag">Propósito</div>
+  <div class="ftag active" data-filter="Todos">Todos</div>
+  <div class="ftag" data-filter="Reputação">Reputação</div>
+  <div class="ftag" data-filter="Liderança">Liderança</div>
+  <div class="ftag" data-filter="Talento">Talento</div>
+  <div class="ftag" data-filter="Comunicação">Comunicação</div>
+  <div class="ftag" data-filter="Mudança">Mudança</div>
+  <div class="ftag" data-filter="Propósito">Propósito</div>
 </div>
 
 <section class="articles">
   <div class="art-grid">
 
-    <a href="artigo-reputacao-de-dentro-para-fora.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-reputacao-de-dentro-para-fora.html" class="art-card" data-category="Reputação" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
       <h3>Por que reputação se constrói de dentro pra fora</h3>
       <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre a relação entre engajamento interno e imagem corporativa — e por que pesquisa de clima sozinha não basta.</p>
       <div class="status"><span>8 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-tenerife-1977.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-tenerife-1977.html" class="art-card" data-category="Liderança" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
       <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
       <p>O maior acidente da história da aviação civil não foi causado por falha técnica — foi causado por silêncio hierárquico. O que isso ensina sobre segurança psicológica na linha de frente.</p>
       <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-cliftonstrengths-chao-de-fabrica.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-cliftonstrengths-chao-de-fabrica.html" class="art-card" data-category="Talento" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--itc);"></span>Talento</div>
       <h3>CliftonStrengths no chão de fábrica</h3>
       <p>Como identificar quem executa, quem conecta e quem sustenta — antes de promover a pessoa errada para um cargo de liderança.</p>
       <div class="status"><span>7 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-edmondson-seguranca-psicologica.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-edmondson-seguranca-psicologica.html" class="art-card" data-category="Liderança" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
       <h3>O que Amy Edmondson descobriu sobre equipes que mais erram</h3>
       <p>Um achado contraintuitivo de Harvard: as equipes que mais reportam erros não são as piores — são as mais seguras para admiti-los. O que isso muda na forma de liderar uma linha de produção.</p>
       <div class="status"><span>5 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-wolton-informar-nao-e-comunicar.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-wolton-informar-nao-e-comunicar.html" class="art-card" data-category="Comunicação" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--cap);"></span>Comunicação</div>
       <h3>Informar não é comunicar</h3>
       <p>A distinção de Dominique Wolton entre comunicação funcional e normativa — e por que a maioria dos programas internos de comunicação corporativa só faz a primeira.</p>
       <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-esg-dimensao-social.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-esg-dimensao-social.html" class="art-card" data-category="Reputação" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
       <h3>ESG: a dimensão Social que ninguém audita direito</h3>
       <p>Governança e meio ambiente já têm métricas maduras. A dimensão Social do ESG ainda é, na maioria das empresas, boa intenção sem dado. Como isso pode — e deve — mudar.</p>
       <div class="status"><span>7 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-onde-a-mudanca-trava.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-onde-a-mudanca-trava.html" class="art-card" data-category="Mudança" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--adm);"></span>Mudança</div>
       <h3>Onde a mudança trava</h3>
       <p>Consciência não é adesão, e adesão não é capacidade. Por que confundir esses blocos é o motivo mais comum de uma mudança travar sem ninguém saber apontar onde.</p>
       <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
-    <a href="artigo-o-porque-que-ninguem-pergunta-primeiro.html" class="art-card" style="text-decoration:none;">
+    <a href="artigo-o-porque-que-ninguem-pergunta-primeiro.html" class="art-card" data-category="Propósito" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Propósito</div>
       <h3>O porquê que ninguém pergunta primeiro</h3>
       <p>O Círculo Dourado de Simon Sinek explica por que instruções técnicas engajam menos que o motivo real por trás delas — e por que a maioria das empresas inverte essa ordem.</p>
@@ -202,6 +204,23 @@
       });
     });
   }
+
+  const ftags = document.querySelectorAll('.ftag');
+  const cards = document.querySelectorAll('.art-card');
+  ftags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      ftags.forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      const filter = tag.getAttribute('data-filter');
+      cards.forEach(card => {
+        if (filter === 'Todos' || card.getAttribute('data-category') === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
 </script>
 </body>
 </html>
