@@ -134,22 +134,17 @@
   .pkg-section{padding:0 6vw 110px;}
   .pkg-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
   @media(min-width:760px){.pkg-grid{grid-template-columns:repeat(2,1fr);}}
-  .pkg-card{background:var(--panel);padding:40px 32px;display:flex;flex-direction:column;}
-  .pkg-card.featured{background:var(--ink-bg);color:#FFFFFF;}
+  .pkg-card{background:var(--panel);padding:40px 32px;display:flex;flex-direction:column;position:relative;}
+  .pkg-card.featured{border:2px solid var(--gold);}
+  .pkg-card.featured::before{content:'Produto principal';position:absolute;top:-1px;right:-1px;background:var(--gold);color:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;}
   .pkg-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);letter-spacing:0.08em;}
-  .pkg-card.featured .pkg-num{color:var(--stone-on-dark);}
   .pkg-card h3{font-size:26px;font-weight:400;margin:14px 0 10px;}
   .pkg-sub{font-size:13.5px;color:var(--stone);line-height:1.6;margin-bottom:26px;}
-  .pkg-card.featured .pkg-sub{color:var(--stone-on-dark);}
   .pkg-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex-grow:1;}
   .pkg-list li{font-size:13.5px;line-height:1.5;padding-left:18px;position:relative;color:var(--ink);}
-  .pkg-card.featured .pkg-list li{color:#EDEAE2;}
   .pkg-list li::before{content:'—';position:absolute;left:0;color:var(--gold-deep);}
-  .pkg-card.featured .pkg-list li::before{color:var(--gold-bright);}
   .pkg-indicado{font-size:12.5px;color:var(--stone);line-height:1.6;margin-bottom:26px;font-style:italic;}
-  .pkg-card.featured .pkg-indicado{color:var(--stone-on-dark);}
   .pkg-tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-deep);border-top:1px solid var(--line);padding-top:18px;}
-  .pkg-card.featured .pkg-tag{color:var(--gold-bright);border-color:var(--line-on-dark);}
 
   /* AVULSOS */
   .avulsos{padding:100px 6vw;border-top:1px solid var(--line);background:var(--paper-2);}
@@ -265,9 +260,8 @@
 </section>
 
 <section class="closing">
-  <div class="eyebrow">Pronto pra ver isso aplicado à sua operação?</div>
-  <h2>O primeiro passo é sempre o mesmo: medir o que hoje só se percebe.</h2>
-  <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
+  <div class="eyebrow">Sistema 4.0</div>
+  <h2>Diagnóstico não é o fim do trabalho. É onde ele começa a fazer sentido.</h2>
 </section>
 
 <footer>
