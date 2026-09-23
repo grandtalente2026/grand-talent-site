@@ -281,13 +281,15 @@ footer a{color:var(--muted)}
   </section>
 
   <!-- 4. Vídeo (aparece só quando CONFIG.video estiver preenchido) -->
-  <section id="historia" aria-labelledby="t-historia" hidden>
+  <section id="historia" aria-labelledby="t-historia">
     <div class="wrap narrow">
       <h2 id="t-historia" data-i18n="videoTitle">O Sistema 4.0 num minuto</h2>
       <p class="quote" data-i18n="videoQuote">Da experiência das pessoas à reputação da empresa.</p>
-      <div class="video-frame" id="video-frame">
-        <img id="video-poster" alt="" loading="lazy" decoding="async" hidden>
-        <button type="button" class="video-play" id="video-play"><span><span aria-hidden="true">▶</span> <span data-i18n="videoPlay">Ver o vídeo, 1 minuto</span></span></button>
+      <div style="width:100%;max-width:30rem">
+        <video controls playsinline webkit-playsinline poster="video/capa.jpg" preload="none" style="width:100%;display:block;border-radius:8px;background:#1C1913;aspect-ratio:16/9">
+          <source src="video/historia.mp4" type="video/mp4">
+          <track kind="subtitles" srclang="en" label="English" src="video/legendas-en.vtt">
+        </video>
       </div>
       <p class="video-meta" id="video-meta" data-i18n="videoMetaFile">Vídeo em português, com legendas em português na imagem e legendas em inglês disponíveis. Só é carregado quando carrega em reproduzir.</p>
       <a class="video-next" href="#sistema" data-i18n="videoNext">Ver como funciona o Sistema 4.0</a>
