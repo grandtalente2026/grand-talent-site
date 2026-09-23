@@ -719,16 +719,20 @@ if (videoOn) {
     const frame = $("#video-frame");
     if (V.provider === "file") {
       const v = document.createElement("video");
-      v.controls = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "auto";
-      if (V.poster) v.poster = V.poster;
+      v.setAttribute("controls", "");
+      v.setAttribute("playsinline", "");
+      v.setAttribute("webkit-playsinline", "");
+      v.setAttribute("preload", "auto");
+      v.setAttribute("src", V.src);
+      if (V.poster) v.setAttribute("poster", V.poster);
       v.setAttribute("aria-label", T[lang].videoPlayer);
-      const s = document.createElement("source"); s.src = V.src; s.type = /\.webm$/i.test(V.src) ? "video/webm" : "video/mp4"; v.appendChild(s);
+      v.style.width = "100%";
+      v.style.display = "block";
       [["pt","Português"],["en","English"]].forEach(([code,label]) => {
-        if (!V.captions || !V.captions[code]) return;   // o vídeo atual só traz a faixa EN
+        if (!V.captions || !V.captions[code]) return;
         const tr = document.createElement("track");
         tr.kind = "subtitles"; tr.srclang = code; tr.label = label; tr.src = V.captions[code];
         if (code === lang) tr.default = true;
-        tr.addEventListener("load", syncCaptions);
         v.appendChild(tr);
       });
       frame.replaceChildren(v);
@@ -737,8 +741,6 @@ if (videoOn) {
       v.addEventListener("playing", syncCaptions, { once: true });
       if (v.textTracks && v.textTracks.addEventListener) v.textTracks.addEventListener("addtrack", syncCaptions);
       syncCaptions();
-      const pr = v.play(); if (pr && pr.catch) pr.catch(() => {});  /* se o navegador bloquear, os controlos ficam visíveis */
-      v.focus();
     } else {
       const f = document.createElement("iframe");
       const q = new URLSearchParams({ autoplay:"1", rel:"0", playsinline:"1", cc_load_policy:"1", cc_lang_pref:lang, hl:lang === "pt" ? "pt-PT" : "en" });
