@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="pt-PT" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#FAF7F1">
+<title>GrandTalent Consulting · Sistema 4.0 | Happiness Camp 2026</title>
+<meta name="description" content="A reputação de uma empresa começa na experiência de quem trabalha nela. O Sistema 4.0 transforma perceções dispersas em informação estruturada para apoiar decisões sobre pessoas, liderança e reputação.">
+<link rel="canonical" href="https://grandtalent.com.br/happinesscamp/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grandtalent.com.br/happinesscamp/">
+<meta property="og:title" content="A reputação de uma empresa começa na experiência de quem trabalha nela.">
+<meta property="og:description" content="Sistema 4.0 · GrandTalent Consulting: informação estruturada para apoiar decisões sobre pessoas, liderança e reputação.">
+<meta property="og:image" content="https://grandtalent.com.br/happinesscamp/partilha.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.replace("no-js","js");</script>
+<style>
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-wght-normal.woff2) format("woff2");font-weight:300 900;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/inter-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+
+/* Contraste (WCAG 2.1) medido no fundo onde cada cor é usada:
+   ink #1C1913 / paper 16.4 · muted #5E574C / paper 6.7 · error #A12A1B / paper 6.9
+   field-border #857A69 / branco 4.2 (mín. 3) · gold #9C7A32 só em elementos gráficos (3.75)
+   Secção escura: paper 16.4 · #E4DCCC 12.9 · #D8BD7E 9.6 · #CFC6B6 10.4 sobre ink */
+:root{
+  color-scheme: only light;
+  --paper:#FAF7F1; --ink:#1C1913; --gold:#9C7A32; --gold-light:#D8BD7E;
+  --muted:#5E574C; --line:#E3DACA; --field:#FFFFFF; --field-border:#857A69;
+  --error:#A12A1B; --error-bg:#F8E6E2; --soft:#F2EDE2;
+  --dark-text:#E4DCCC; --dark-muted:#CFC6B6; --dark-line:#4A443A;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--paper); color:var(--ink);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--sans);-webkit-tap-highlight-color:rgba(156,122,50,.25)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--ink);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.dark :focus-visible{outline-color:var(--gold-light)}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+.narrow{max-width:40rem}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:-.01em;margin:0;color:inherit}
+h2{font-size:clamp(1.75rem,5.5vw,2.6rem);margin-bottom:1rem}
+h3{font-size:1.3rem;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:10}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:56px;gap:1rem}
+.brand{font-family:var(--serif);font-size:1.15rem;font-weight:600;text-decoration:none;color:var(--ink)}
+.brand span{font-weight:400;color:var(--muted)}
+.lang{display:flex;gap:.25rem;font-size:.95rem}
+.lang button{-webkit-appearance:none;appearance:none;background:var(--paper);border:0;padding:.55rem .6rem;min-width:44px;min-height:44px;font:inherit;color:var(--muted);cursor:pointer;border-radius:6px}
+.lang button[aria-pressed="true"]{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--gold)}
+.no-js .lang{display:none}
+
+/* Hero */
+.hero{padding:2.5rem 0 3rem}
+.context{font-size:.9rem;color:var(--muted);margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.1rem,8.6vw,4.1rem);max-width:17ch;font-weight:450}
+.hero .lead{font-size:1.1rem;color:var(--muted);max-width:38rem;margin:1.25rem 0 1.5rem}
+.founder{display:flex;align-items:center;gap:.9rem;margin-bottom:1.75rem}
+.founder img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.founder strong{display:block;font-weight:600}
+.founder small{color:var(--muted);font-size:.9rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.8rem 1.4rem;border-radius:10px;font:600 1rem/1.2 var(--sans);text-decoration:none;cursor:pointer;border:2px solid var(--ink)}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:#34302A}
+.btn-ghost{background:var(--paper);color:var(--ink)}
+.btn-ghost:hover{background:#F0EBE0}
+.btn[disabled]{background:#5E574C;border-color:#5E574C;color:#FFFFFF;cursor:wait}
+@media (max-width:480px){.actions .btn{flex:1 1 100%}}
+
+section{padding:3.25rem 0;border-top:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.kicker-q{font-family:var(--serif);font-size:1.35rem;line-height:1.35;font-style:italic;margin:1.75rem 0 0;max-width:30ch}
+
+/* Sinais */
+.signals{list-style:none;padding:0;margin:1.25rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.25rem}
+@media (min-width:760px){.signals{grid-template-columns:repeat(4,1fr)}}
+.signals li{border-left:3px solid var(--gold);padding:.15rem 0 .15rem .75rem;font-size:1rem;line-height:1.35}
+.signals-intro{color:var(--muted);font-size:.95rem;margin:1.5rem 0 0}
+
+/* De dentro para fora */
+.chain{list-style:none;padding:0;margin:1.5rem 0 .75rem;max-width:26rem}
+.chain li{font-family:var(--serif);font-size:1.3rem;line-height:1.25;padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--field)}
+.chain li+li{margin-top:1.9rem;position:relative}
+.chain li+li::before{content:"↓";position:absolute;top:-1.75rem;left:1.1rem;color:var(--gold);font:600 1.2rem/1.5rem var(--sans);speak:never}
+.chain li:last-child{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chain-note{font-size:.9rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem}
+.esg{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.esg h3{font-size:1.2rem}
+.esg p{font-size:.98rem;color:var(--ink)}
+
+/* Vídeo */
+.quote{font-family:var(--serif);font-size:clamp(1.35rem,5vw,1.8rem);line-height:1.3;margin:0 0 1.25rem;max-width:26ch}
+.video-frame{position:relative;width:100%;max-width:30rem;aspect-ratio:var(--video-ratio,4 / 5);background:var(--ink);border-radius:12px;overflow:hidden}
+.video-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-play{-webkit-appearance:none;appearance:none;position:absolute;inset:0;width:100%;height:100%;border:0;margin:0;padding:1.25rem;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.has-poster .video-play{align-items:flex-end}
+.video-play > span{display:inline-flex;align-items:center;gap:.55rem;min-height:52px;padding:.8rem 1.25rem;border-radius:999px;background:var(--paper);color:var(--ink);font:600 1rem/1.2 var(--sans);box-shadow:0 2px 12px rgba(28,25,19,.35)}
+.video-play:focus-visible{outline:none}.video-play:focus-visible > span{outline:3px solid var(--gold);outline-offset:3px}
+.video-frame video,.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--ink)}
+video::cue{background:rgba(28,25,19,.88);color:#FAF7F1;font-family:var(--sans);font-size:1rem;line-height:1.35}
+.video-meta{font-size:.85rem;color:var(--muted);margin:.75rem 0 0;max-width:30rem}
+.video-next{display:inline-block;margin-top:1rem;font-weight:600;min-height:44px;padding:.6rem 0}
+
+/* Método (secção escura) */
+section.dark{background:var(--ink);color:var(--paper);border-top:0}
+.dark .muted{color:var(--dark-muted)}
+.dark a{color:var(--paper)}
+.steps{list-style:none;padding:0;margin:1.75rem 0 0;display:grid;gap:0;counter-reset:s}
+@media (min-width:860px){.steps{grid-template-columns:repeat(5,1fr);gap:1.25rem}}
+.steps li{counter-increment:s;padding:1.1rem 0;border-top:1px solid var(--dark-line)}
+@media (min-width:860px){.steps li{border-top:2px solid var(--gold)}}
+.steps li::before{content:counter(s);font-family:var(--serif);color:var(--gold-light);font-size:1.4rem;margin-right:.6rem}
+.steps strong{font-size:.95rem;letter-spacing:.04em;color:var(--paper)}
+.steps p{color:var(--dark-text);font-size:1rem;margin:.4rem 0 0}
+.steps .tools{display:block;color:var(--gold-light);font-size:.9rem;margin-top:.35rem}
+.steps li.cond{border-top-style:dashed}
+.steps .cond-label{display:block;font-size:.85rem;color:var(--dark-muted);margin-top:.15rem}
+.steps .extra{display:block;font-size:.9rem;color:var(--dark-muted);margin-top:.4rem}
+details.components{margin-top:2rem;border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line)}
+details.components summary{list-style:none;cursor:pointer;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font:600 1.05rem/1.3 var(--sans);color:var(--paper)}
+details.components summary::-webkit-details-marker{display:none}
+details.components summary::after{content:"+";font:400 1.8rem/1 var(--sans);color:var(--gold-light);transition:transform .2s}
+details.components[open] summary::after{transform:rotate(45deg)}
+details.components[open]{padding-bottom:1.25rem}
+.group-title{font:600 1rem/1.3 var(--sans);letter-spacing:.02em;color:var(--gold-light);margin:1.5rem 0 0}
+@media (min-width:860px){details.components .instruments{grid-template-columns:repeat(2,1fr)}}
+.inst h4{font:600 1rem/1.35 var(--sans);margin:.5rem 0 .6rem;color:var(--paper)}
+.complement{margin-top:1.75rem;padding:0 1rem 1rem;border:1px dashed var(--dark-line);border-radius:10px}
+.complement p{color:var(--dark-text);font-size:.98rem;margin:.5rem 0 0}
+.inst-title{font-family:var(--serif);font-size:1.4rem;margin:2.5rem 0 0;color:var(--paper)}
+.instruments{display:grid;gap:0;margin-top:.5rem}
+@media (min-width:860px){.instruments{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.inst{padding:1.25rem 0;border-top:1px solid var(--dark-line)}
+.code{font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--gold-light);display:block;line-height:1}
+.inst h3{font-family:var(--sans);font-size:1rem;font-weight:600;margin:.5rem 0 .6rem;letter-spacing:0;color:var(--paper)}
+.inst p{color:var(--dark-text);font-size:1rem;margin:0}
+.note{font-size:.85rem;margin-top:1.5rem}
+
+/* Credencial */
+.about{display:grid;gap:1.75rem;align-items:start}
+@media (min-width:860px){.about{grid-template-columns:5fr 7fr;gap:3rem}}
+.about figure{margin:0}
+.about figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
+.about img{border-radius:12px;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--soft)}
+.pillars{list-style:none;padding:0;margin:0 0 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.pillars li{border:1.5px solid var(--ink);border-radius:999px;padding:.3rem .8rem;font-size:.9rem;font-weight:600}
+
+/* Formulário */
+.form{margin-top:2rem;display:grid;gap:1.1rem}
+.no-js .form{display:none}
+.nojs-note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:1rem;margin-top:2rem}
+.field label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.35rem;color:var(--ink)}
+.opt{font-weight:400;color:var(--muted)}
+.hint{font-size:.85rem;margin-top:.3rem;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel],select,textarea{
+  -webkit-appearance:none;appearance:none;color-scheme:only light;
+  width:100%;font:1rem/1.4 var(--sans);
+  color:var(--ink);-webkit-text-fill-color:var(--ink);
+  background-color:var(--field);border:1.5px solid var(--field-border);border-radius:10px;
+  padding:.8rem .9rem;min-height:50px;opacity:1;
+}
+textarea{min-height:96px;resize:vertical}
+::placeholder{color:#6E6759;-webkit-text-fill-color:#6E6759;opacity:1}
+select{padding-right:2.6rem;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%231C1913' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .95rem center;background-size:14px 9px}
+select option{color:#1C1913;background-color:#FFFFFF}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:3px solid var(--gold);outline-offset:1px}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,textarea:-webkit-autofill,select:-webkit-autofill{
+  -webkit-text-fill-color:var(--ink);-webkit-box-shadow:0 0 0 1000px var(--field) inset;box-shadow:0 0 0 1000px var(--field) inset;caret-color:var(--ink)}
+.phone{display:grid;grid-template-columns:8.5rem 1fr;gap:.5rem}
+.phone #indicativo-outro{grid-column:1 / 2}
+[aria-invalid="true"]{border-color:var(--error)!important;border-width:2px!important}
+.err{color:var(--error);font-size:.9rem;font-weight:500;margin-top:.3rem}
+.err:empty{display:none}
+.err::before{content:"⚠ ";speak:never}
+.check{display:flex;gap:.75rem;align-items:flex-start;font-size:.95rem;color:var(--ink);cursor:pointer}
+.check input{-webkit-appearance:none;appearance:none;flex:none;width:26px;height:26px;margin:.05rem 0 0;border:2px solid var(--field-border);border-radius:6px;background:var(--field);display:grid;place-content:center;cursor:pointer}
+.check input::after{content:"";width:12px;height:7px;border:solid var(--paper);border-width:0 0 3px 3px;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.check input:checked{background:var(--ink);border-color:var(--ink)}
+.check input:checked::after{opacity:1}
+.privacy{font-size:.9rem;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:1rem}
+.privacy p{margin:0 0 .5rem}.privacy p:last-child{margin:0}
+.privacy a{color:var(--ink);font-weight:600}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.ts{min-height:65px}
+.form-status{border-radius:10px;padding:1rem;font-size:.95rem;background:var(--error-bg);color:var(--error);border:1.5px solid var(--error);font-weight:500}
+.success{background:var(--field);color:var(--ink);border:1.5px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:1.5rem;margin-top:2rem}
+.success h3{font-size:1.6rem}
+.success .sig{margin-top:1rem;font-weight:600}
+.success .sig span{display:block;font-weight:400;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 2.5rem;font-size:.88rem;color:var(--muted);background:var(--paper)}
+footer a{color:var(--muted)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<a class="skip" href="#contacto" data-i18n="skip">Ir para o formulário de contacto</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://grandtalent.com.br/">GrandTalent <span>Consulting</span></a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" aria-pressed="true" lang="pt-PT">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="context">Happiness Camp 2026 | Porto</p>
+      <h1 data-i18n="h1">A reputação de uma empresa começa na experiência de quem trabalha nela.</h1>
+      <p class="lead" data-i18n="lead">Liderança, bem-estar, segurança psicológica, pertença e talentos deixam sinais dentro de cada organização. O Sistema 4.0 transforma perceções dispersas em informação estruturada para apoiar decisões sobre pessoas, liderança e reputação.</p>
+      <div class="founder">
+        <img src="anderson.jpg" alt="" width="56" height="56" onerror="this.remove()">
+        <div><strong>Anderson Carvalho</strong><small data-i18n="founderRole">Fundador da GrandTalent Consulting</small></div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#sistema" data-i18n="ctaSystem">Conhecer o Sistema 4.0</a>
+        <a class="btn btn-ghost" href="#contacto" data-interest="Solicitar uma reunião" data-i18n="ctaTalk">Solicitar uma conversa</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. A dor -->
+  <section aria-labelledby="t-sinais">
+    <div class="wrap">
+      <div class="narrow">
+        <h2 id="t-sinais" data-i18n="painTitle">O que os seus indicadores ainda não mostram?</h2>
+        <p data-i18n="painP">Rotatividade, absentismo, produtividade e desempenho mostram resultados. Nem sempre mostram o que está a acontecer na experiência das pessoas.</p>
+      </div>
+      <p class="signals-intro" data-i18n="signalsIntro">Sinais que podem estar associados a esses números e merecem investigação:</p>
+      <ul class="signals">
+        <li data-i18n="s1">Perda de envolvimento</li>
+        <li data-i18n="s2">Confiança fragilizada</li>
+        <li data-i18n="s3">Tensão na relação com a liderança</li>
+        <li data-i18n="s4">Pouca segurança psicológica para falar</li>
+        <li data-i18n="s5">Pertença enfraquecida</li>
+        <li data-i18n="s6">Talentos subutilizados</li>
+        <li data-i18n="s7">Diferenças entre áreas, equipas ou turnos</li>
+        <li data-i18n="s8">Comunicação que não chega</li>
+      </ul>
+      <p class="kicker-q" data-i18n="painQ">Será que estamos a ver apenas o resultado, e não o que está por trás dele?</p>
+    </div>
+  </section>
+
+  <!-- 3. De dentro para fora + ESG -->
+  <section aria-labelledby="t-dentro">
+    <div class="wrap narrow">
+      <h2 id="t-dentro" data-i18n="insideTitle">De dentro para fora</h2>
+      <ol class="chain" data-i18n-aria="chainLabel" aria-label="Da experiência do colaborador à reputação">
+        <li data-i18n="c1">Experiência do colaborador</li>
+        <li data-i18n="c2">Liderança, confiança e cultura</li>
+        <li data-i18n="c3">Comportamentos e relações no dia a dia</li>
+        <li data-i18n="c4">Reputação</li>
+      </ol>
+      <p class="chain-note" data-i18n="chainNote">Uma relação de influência, não uma fórmula.</p>
+      <p data-i18n="insideP">O que se vive dentro da organização pode refletir-se para fora: na forma como as equipas se relacionam, atendem, resolvem problemas e falam da empresa. É aqui que a gestão de pessoas encontra a comunicação estratégica, a marca e a reputação.</p>
+      <div class="esg">
+        <h3 data-i18n="esgTitle">Pessoas também fazem parte da agenda de sustentabilidade.</h3>
+        <p data-i18n="esgP">Condições de trabalho, desenvolvimento, bem-estar e práticas de liderança dialogam com a dimensão social e com a governança da agenda ESG. O Sistema 4.0 pode gerar informação organizacional útil para essas discussões. Não mede nem certifica ESG, e não substitui frameworks, auditorias ou obrigações de sustentabilidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Vídeo (aparece só quando CONFIG.video estiver preenchido) -->
+  <section id="historia" aria-labelledby="t-historia" hidden>
+    <div class="wrap narrow">
+      <h2 id="t-historia" data-i18n="videoTitle">O Sistema 4.0 num minuto</h2>
+      <p class="quote" data-i18n="videoQuote">Da experiência das pessoas à reputação da empresa.</p>
+      <div class="video-frame" id="video-frame">
+        <img id="video-poster" alt="" loading="lazy" decoding="async" hidden>
+        <button type="button" class="video-play" id="video-play"><span><span aria-hidden="true">▶</span> <span data-i18n="videoPlay">Ver o vídeo, 1 minuto</span></span></button>
+      </div>
+      <p class="video-meta" id="video-meta" data-i18n="videoMetaFile">Vídeo em português, com legendas em português na imagem e legendas em inglês disponíveis. Só é carregado quando carrega em reproduzir.</p>
+      <a class="video-next" href="#sistema" data-i18n="videoNext">Ver como funciona o Sistema 4.0</a>
+    </div>
+  </section>
+
+  <!-- 5. Método + componentes do Sistema 4.0 -->
+  <section id="sistema" class="dark" aria-labelledby="t-sistema">
+    <div class="wrap">
+      <div class="narrow">
+        <h2 id="t-sistema" data-i18n="sysTitle">Medir é apenas o começo.</h2>
+        <p class="muted" data-i18n="sysIntro">Uma pesquisa recolhe respostas. O Sistema 4.0 estrutura evidências para identificar prioridades, orientar decisões e acompanhar a evolução.</p>
+      </div>
+      <ol class="steps" data-i18n-aria="stepsLabel" aria-label="Etapas do Sistema 4.0">
+        <li><strong data-i18n="st1">DIAGNOSTICAR</strong><span class="tools">IBEP-4.0 · ITC-4.0</span><p data-i18n="st1p">Recolher evidências sobre experiência e talentos.</p></li>
+        <li><strong data-i18n="st2">COMPREENDER</strong><p data-i18n="st2p">Cruzar resultados, identificar padrões e localizar pontos de atenção.</p></li>
+        <li><strong data-i18n="st3">DESENVOLVER</strong><span class="tools">PLH-4.0 · CAP-4.0</span><p data-i18n="st3p">Transformar evidências em prioridades para o desenvolvimento das lideranças.</p><span class="extra" data-i18n="st3x">O CliftonStrengths® pode complementar esta etapa, conforme o escopo.</span></li>
+        <li class="cond"><strong data-i18n="st4">ADAPTAR À MUDANÇA</strong><span class="cond-label" data-i18n="st4c">Quando aplicável</span><span class="tools">ADM-4.0</span><p data-i18n="st4p">Para contextos de mudança organizacional específica.</p></li>
+        <li><strong data-i18n="st5">ACOMPANHAR</strong><p data-i18n="st5p">Observar a evolução, rever prioridades e acompanhar pontos de atenção.</p></li>
+      </ol>
+
+      <details class="components">
+        <summary data-i18n="compSummary">Ver os componentes do Sistema 4.0</summary>
+
+        <h3 class="group-title" data-i18n="g1">Diagnosticar e compreender</h3>
+        <div class="instruments">
+          <article class="inst">
+            <span class="code">IBEP-4.0</span>
+            <h4 data-i18n="ibepName">Índice de Bem-Estar, Engajamento e Pertencimento</h4>
+            <p data-i18n="ibepText">Investiga a experiência dos colaboradores, incluindo envolvimento, bem-estar, pertença e sinais relacionados com voz, confiança e segurança para se expressar. Permite identificar padrões e pontos de atenção quando metodologicamente adequado e respeitando critérios de confidencialidade.</p>
+          </article>
+          <article class="inst">
+            <span class="code">ITC-4.0</span>
+            <h4 data-i18n="itcName">Inventário de Talentos Colaborativos</h4>
+            <p data-i18n="itcText">Mapeia perfis de talentos para compreender como diferentes capacidades estão distribuídas nas equipas e apoiar decisões de desenvolvimento e complementaridade.</p>
+          </article>
+        </div>
+
+        <h3 class="group-title" data-i18n="g2">Desenvolver a liderança</h3>
+        <div class="instruments">
+          <article class="inst">
+            <span class="code">PLH-4.0</span>
+            <h4 data-i18n="plhName">Protocolo de Liderança Humanizada</h4>
+            <p data-i18n="plhText">Integra as evidências do diagnóstico e o mapeamento de talentos para orientar o desenvolvimento das lideranças, incluindo práticas de escuta, confiança, feedback e segurança psicológica.</p>
+          </article>
+          <article class="inst" id="cap">
+            <span class="code">CAP-4.0</span>
+            <h4 data-i18n="capName">Comunicação de Alta Performance</h4>
+            <p data-i18n="capText">Integrado ao PLH-4.0, desenvolve competências de comunicação da liderança, com foco em escuta, adaptação da comunicação, inteligência emocional, feedback e influência ética, favorecendo relações de maior confiança e segurança para a expressão.</p>
+          </article>
+        </div>
+
+        <h3 class="group-title" data-i18n="g3">Apoiar contextos de mudança</h3>
+        <div class="instruments">
+          <article class="inst">
+            <span class="code">ADM-4.0</span>
+            <h4 data-i18n="admName">Avaliação de Disposição para a Mudança</h4>
+            <p data-i18n="admText">Analisa a disposição das pessoas face a uma mudança organizacional específica e identifica pontos de atenção entre áreas ou grupos, quando metodologicamente adequado.</p>
+          </article>
+        </div>
+
+        <div class="complement">
+          <h3 class="group-title" data-i18n="g4">Aprofundar talentos da liderança</h3>
+          <p data-i18n="csText">CliftonStrengths® é uma ferramenta da Gallup, Inc. Não foi criada pela GrandTalent nem é um instrumento do Sistema 4.0. Pode ser incorporada ao desenvolvimento das lideranças, conforme o escopo do projeto.</p>
+        </div>
+      </details>
+
+      <p class="note muted" data-i18n="sysNote">Os instrumentos do Sistema 4.0 são ferramentas de gestão organizacional. Não são testes clínicos nem avaliações psicológicas individuais. CliftonStrengths® é marca registada da Gallup, Inc.</p>
+    </div>
+  </section>
+
+  <!-- 6. Credencial -->
+  <section aria-labelledby="t-quem">
+    <div class="wrap about">
+      <figure>
+        <img src="eu-na-mb.jpg" alt="Anderson Carvalho numa linha de produção industrial" data-i18n-alt="aboutAlt" loading="lazy" decoding="async" width="800" height="1000" fetchpriority="low">
+        <figcaption data-i18n="aboutCap">Anderson Carvalho na linha de produção da Mercedes-Benz</figcaption>
+      </figure>
+      <div class="narrow">
+        <h2 id="t-quem" data-i18n="aboutTitle">Quem está por trás da GrandTalent</h2>
+        <p data-i18n="aboutP1">A GrandTalent Consulting trabalha na interseção entre pessoas, liderança, comunicação e reputação e trata estes temas como partes do mesmo sistema.</p>
+        <p data-i18n="aboutP2">Anderson Carvalho é jornalista, com mais de 10 anos de experiência em comunicação, e especialista em Comunicação Estratégica, Marca e Reputação Empresarial. Conhece também o chão de fábrica por dentro, com experiência em ambientes industriais como Mercedes-Benz e Volkswagen.</p>
+        <a id="linkedin" class="btn btn-ghost" href="#" target="_blank" rel="noopener" hidden data-i18n="linkedin">Ver perfil no LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA + formulário -->
+  <section id="contacto" aria-labelledby="t-contacto">
+    <div class="wrap narrow">
+      <h2 id="t-contacto" data-i18n="ctTitle">O primeiro passo é compreender.</h2>
+      <p data-i18n="ctP1">Se liderança, bem-estar, segurança psicológica, pertença, talentos ou experiência do colaborador estão na agenda da sua organização, podemos começar por uma conversa.</p>
+      <p data-i18n="ctP2">Conte-me o que está a acontecer na sua organização.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#form-start" data-interest="Solicitar uma reunião" data-i18n="ctBtn1">Solicitar uma conversa</a>
+        <a class="btn btn-ghost" href="#form-start" data-interest="Conhecer o Sistema 4.0" data-i18n="ctBtn2">Quero conhecer o Sistema 4.0</a>
+      </div>
+
+      <noscript>
+        <div class="nojs-note">Para enviar o formulário é necessário JavaScript. Pode escrever diretamente para <a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a>.<br><span lang="en">To use the form, please enable JavaScript, or write to contato@grandtalent.com.br.</span></div>
+      </noscript>
+
+      <form id="lead-form" class="form" action="#" method="post" novalidate>
+        <span id="form-start"></span>
+        <div class="field">
+          <label for="nome" data-i18n="lNome">Nome completo</label>
+          <input id="nome" name="nome" type="text" autocomplete="name" required maxlength="120" aria-describedby="e-nome">
+          <div class="err" id="e-nome" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="lEmail">Email profissional</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="e-email">
+          <div class="err" id="e-email" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="empresa" data-i18n="lEmpresa">Empresa</label>
+          <input id="empresa" name="empresa" type="text" autocomplete="organization" required maxlength="160" aria-describedby="e-empresa">
+          <div class="err" id="e-empresa" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="cargo"><span data-i18n="lCargo">Cargo ou função</span> <span class="opt" data-i18n="optional">(opcional)</span></label>
+          <input id="cargo" name="cargo" type="text" autocomplete="organization-title" maxlength="120">
+        </div>
+        <div class="field">
+          <label for="telefone"><span data-i18n="lTel">Telefone ou WhatsApp</span> <span class="opt" data-i18n="optional">(opcional)</span></label>
+          <div class="phone">
+            <select id="indicativo" name="indicativo" data-i18n-aria="lCode" aria-label="Indicativo internacional">
+              <option value="+351" selected>🇵🇹 +351</option>
+              <option value="+55">🇧🇷 +55</option>
+              <option value="+34">🇪🇸 +34</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+33">🇫🇷 +33</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+39">🇮🇹 +39</option>
+              <option value="+31">🇳🇱 +31</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="outro" data-i18n="codeOther">Outro</option>
+            </select>
+            <input id="telefone" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" maxlength="20" aria-describedby="e-tel">
+            <input id="indicativo-outro" type="text" inputmode="tel" maxlength="5" placeholder="+" hidden data-i18n-aria="lCodeOther" aria-label="Escreva o indicativo, por exemplo +41" aria-describedby="e-tel">
+          </div>
+          <div class="err" id="e-tel" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="interesse"><span data-i18n="lInt">Principal interesse</span> <span class="opt" data-i18n="optional">(opcional)</span></label>
+          <select id="interesse" name="interesse">
+            <option value="" data-i18n="selPick">Selecione uma opção</option>
+            <option value="Conhecer o Sistema 4.0" data-i18n="i1">Conhecer o Sistema 4.0</option>
+            <option value="Informações sobre diagnóstico organizacional" data-i18n="i2">Solicitar informações sobre diagnóstico organizacional</option>
+            <option value="Solicitar uma reunião" data-i18n="i3">Solicitar uma reunião</option>
+            <option value="Parceria profissional" data-i18n="i4">Explorar uma parceria profissional</option>
+            <option value="Receber materiais" data-i18n="i5">Receber materiais sobre liderança e experiência do colaborador</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="como"><span data-i18n="lComo">Como nos conhecemos?</span> <span class="opt" data-i18n="optional">(opcional)</span></label>
+          <select id="como" name="como_conheceu">
+            <option value="" data-i18n="selPick">Selecione uma opção</option>
+            <option value="Conversámos no Happiness Camp" data-i18n="m1">Conversámos no Happiness Camp</option>
+            <option value="Recebi o QR Code de um participante" data-i18n="m2">Recebi o QR Code de um participante</option>
+            <option value="Encontrei a página por outro meio" data-i18n="m3">Encontrei a página por outro meio</option>
+            <option value="Outro" data-i18n="m4">Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="desafio"><span data-i18n="lDesafio">Qual é o principal desafio da sua organização atualmente?</span> <span class="opt" data-i18n="optional">(opcional)</span></label>
+          <textarea id="desafio" name="desafio" maxlength="500" aria-describedby="h-desafio"></textarea>
+          <div id="h-desafio" class="hint" data-i18n="hDesafio">Máximo de 500 caracteres. Não inclua dados pessoais de colaboradores nem informação confidencial.</div>
+        </div>
+
+        <!-- Campo-isca anti-spam: fora do ecrã, fora da navegação por teclado e escondido dos leitores de ecrã -->
+        <div class="hp" aria-hidden="true">
+          <label for="gt-campo-extra">Não preencher</label>
+          <input id="gt-campo-extra" name="gt_campo_extra" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore>
+        </div>
+
+        <div class="privacy" id="aviso">
+          <p data-i18n-tpl="pv1"></p>
+          <p data-i18n-tpl="pv2"></p>
+          <p><a href="/privacidade.html" target="_blank" rel="noopener" data-i18n="pvLink">Ler a Política de Privacidade completa</a></p>
+        </div>
+
+        <label class="check">
+          <input type="checkbox" id="comunicacoes" name="comunicacoes">
+          <span data-i18n="mkt">Aceito receber, por email, comunicações ocasionais da GrandTalent sobre liderança e experiência do colaborador. Posso retirar esta autorização a qualquer momento. (opcional)</span>
+        </label>
+
+        <div id="turnstile" class="ts" hidden></div>
+
+        <div id="form-status" class="form-status" role="alert" hidden></div>
+        <button id="submit" class="btn btn-primary" type="submit" data-i18n="submit">Enviar contacto</button>
+      </form>
+
+      <div id="success" class="success" hidden tabindex="-1">
+        <h3 data-i18n="okTitle">Obrigado pelo seu interesse!</h3>
+        <p data-i18n="okText">Recebemos o seu contacto. Em breve, entraremos em contacto consigo para dar continuidade à nossa conversa.</p>
+        <p class="sig">Anderson Carvalho<span>GrandTalent Consulting</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot1">A GrandTalent Consulting participa no Happiness Camp 2026 de forma independente, sem vínculo institucional com a organização do evento. Esta página foi criada para os contactos feitos no evento.</p>
+    <p><a href="https://grandtalent.com.br/">grandtalent.com.br</a> · <a href="/privacidade.html" data-i18n="footPriv">Política de Privacidade</a> · GrandTalent Consulting © 2026</p>
+  </div>
+</footer>
+
+<script>
+/* ============ CONFIGURAÇÃO (preencher antes de publicar) ============
+   Nenhum destes valores é secreto. Enquanto responsavel, emailPrivacidade
+   ou conservacao estiverem vazios, o formulário NÃO envia. */
+const CONFIG = {
+  endpoint: "https://flberbkrxhnitmxhjsoz.supabase.co/functions/v1/registar-contacto",
+  turnstileSiteKey: "0x4AAAAAAFAaZBiSuz4uO8B7",
+  linkedinUrl: "",
+  responsavel: "Anderson Carvalho",
+  emailPrivacidade: "contato@grandtalent.com.br",
+  conservacao: { pt: "24 meses", en: "24 months" },
+  politicaPublicada: true,   // passar a true só quando /privacidade.html estiver publicada e completa
+  versaoAviso: "2026-09-v1",
+  /* Vídeo. Vazio = secção escondida.
+     provider "file": vídeo alojado no próprio site (recomendado: sem terceiros)
+     provider "youtube": src = ID do vídeo; legendas carregadas no YouTube Studio */
+  video: {
+    provider: "file",      // "file" ou "youtube"
+    src: "video/historia.mp4",
+    poster: "video/capa.jpg",
+    // O vídeo já traz legendas gravadas em português. Só se carrega a faixa EN,
+    // posicionada acima delas. Para repor a faixa PT (versão sem legendas na imagem):
+    // pt: "video/legendas-pt.vtt"
+    captions: { en: "video/legendas-en.vtt" },
+    ratio: "16 / 9"        // "4 / 5", "16 / 9", "1 / 1" ou "9 / 16" conforme a gravação
+  }
+};
+/* ==================================================================== */
+
+const T = {
+  pt: {
+    skip:"Ir para o formulário de contacto", founderRole:"Fundador da GrandTalent Consulting",
+    h1:"A reputação de uma empresa começa na experiência de quem trabalha nela.",
+    lead:"Liderança, bem-estar, segurança psicológica, pertença e talentos deixam sinais dentro de cada organização. O Sistema 4.0 transforma perceções dispersas em informação estruturada para apoiar decisões sobre pessoas, liderança e reputação.",
+    ctaSystem:"Conhecer o Sistema 4.0", ctaTalk:"Solicitar uma conversa",
+    painTitle:"O que os seus indicadores ainda não mostram?",
+    painP:"Rotatividade, absentismo, produtividade e desempenho mostram resultados. Nem sempre mostram o que está a acontecer na experiência das pessoas.",
+    signalsIntro:"Sinais que podem estar associados a esses números e merecem investigação:",
+    s1:"Perda de envolvimento", s2:"Confiança fragilizada", s3:"Tensão na relação com a liderança", s4:"Pouca segurança psicológica para falar",
+    s5:"Pertença enfraquecida", s6:"Talentos subutilizados", s7:"Diferenças entre áreas, equipas ou turnos", s8:"Comunicação que não chega",
+    painQ:"Será que estamos a ver apenas o resultado, e não o que está por trás dele?",
+    insideTitle:"De dentro para fora", chainLabel:"Da experiência do colaborador à reputação",
+    c1:"Experiência do colaborador", c2:"Liderança, confiança e cultura", c3:"Comportamentos e relações no dia a dia", c4:"Reputação",
+    chainNote:"Uma relação de influência, não uma fórmula.",
+    insideP:"O que se vive dentro da organização pode refletir-se para fora: na forma como as equipas se relacionam, atendem, resolvem problemas e falam da empresa. É aqui que a gestão de pessoas encontra a comunicação estratégica, a marca e a reputação.",
+    esgTitle:"Pessoas também fazem parte da agenda de sustentabilidade.",
+    esgP:"Condições de trabalho, desenvolvimento, bem-estar e práticas de liderança dialogam com a dimensão social e com a governança da agenda ESG. O Sistema 4.0 pode gerar informação organizacional útil para essas discussões. Não mede nem certifica ESG, e não substitui frameworks, auditorias ou obrigações de sustentabilidade.",
+    videoTitle:"O Sistema 4.0 num minuto",
+    videoQuote:"Da experiência das pessoas à reputação da empresa.",
+    videoPlay:"Ver o vídeo, 1 minuto",
+    videoPlayer:"Vídeo: o Sistema 4.0 num minuto, por Anderson Carvalho",
+    videoMetaFile:"Vídeo em português, com legendas em português na imagem e legendas em inglês disponíveis. Só é carregado quando carrega em reproduzir.",
+    videoMetaYt:"Vídeo em português. Ao reproduzir, é carregado a partir do YouTube (Google), em modo de privacidade reforçada.",
+    videoNext:"Ver como funciona o Sistema 4.0",
+    sysTitle:"Medir é apenas o começo.",
+    sysIntro:"Uma pesquisa recolhe respostas. O Sistema 4.0 estrutura evidências para identificar prioridades, orientar decisões e acompanhar a evolução.",
+    stepsLabel:"Etapas do Sistema 4.0",
+    st1:"DIAGNOSTICAR", st1p:"Recolher evidências sobre experiência e talentos.",
+    st2:"COMPREENDER", st2p:"Cruzar resultados, identificar padrões e localizar pontos de atenção.",
+    st3:"DESENVOLVER", st3p:"Transformar evidências em prioridades para o desenvolvimento das lideranças.",
+    st3x:"O CliftonStrengths® pode complementar esta etapa, conforme o escopo.",
+    st4:"ADAPTAR À MUDANÇA", st4c:"Quando aplicável", st4p:"Para contextos de mudança organizacional específica.",
+    st5:"ACOMPANHAR", st5p:"Observar a evolução, rever prioridades e acompanhar pontos de atenção.",
+    compSummary:"Ver os componentes do Sistema 4.0",
+    g1:"Diagnosticar e compreender", g2:"Desenvolver a liderança", g3:"Apoiar contextos de mudança", g4:"Aprofundar talentos da liderança",
+    ibepName:"Índice de Bem-Estar, Engajamento e Pertencimento",
+    ibepText:"Investiga a experiência dos colaboradores, incluindo envolvimento, bem-estar, pertença e sinais relacionados com voz, confiança e segurança para se expressar. Permite identificar padrões e pontos de atenção quando metodologicamente adequado e respeitando critérios de confidencialidade.",
+    itcName:"Inventário de Talentos Colaborativos",
+    itcText:"Mapeia perfis de talentos para compreender como diferentes capacidades estão distribuídas nas equipas e apoiar decisões de desenvolvimento e complementaridade.",
+    plhName:"Protocolo de Liderança Humanizada",
+    plhText:"Integra as evidências do diagnóstico e o mapeamento de talentos para orientar o desenvolvimento das lideranças, incluindo práticas de escuta, confiança, feedback e segurança psicológica.",
+    capName:"Comunicação de Alta Performance", capText:"Integrado ao PLH-4.0, desenvolve competências de comunicação da liderança, com foco em escuta, adaptação da comunicação, inteligência emocional, feedback e influência ética, favorecendo relações de maior confiança e segurança para a expressão.",
+    admName:"Avaliação de Disposição para a Mudança",
+    admText:"Analisa a disposição das pessoas face a uma mudança organizacional específica e identifica pontos de atenção entre áreas ou grupos, quando metodologicamente adequado.",
+    csText:"CliftonStrengths® é uma ferramenta da Gallup, Inc. Não foi criada pela GrandTalent nem é um instrumento do Sistema 4.0. Pode ser incorporada ao desenvolvimento das lideranças, conforme o escopo do projeto.",
+    sysNote:"Os instrumentos do Sistema 4.0 são ferramentas de gestão organizacional. Não são testes clínicos nem avaliações psicológicas individuais. CliftonStrengths® é marca registada da Gallup, Inc.",
+    aboutAlt:"Anderson Carvalho numa linha de produção industrial", aboutCap:"Anderson Carvalho na linha de produção da Mercedes-Benz",
+    aboutTitle:"Quem está por trás da GrandTalent",
+    aboutP1:"A GrandTalent Consulting trabalha na interseção entre pessoas, liderança, comunicação e reputação e trata estes temas como partes do mesmo sistema.",
+    aboutP2:"Anderson Carvalho é jornalista, com mais de 10 anos de experiência em comunicação, e especialista em Comunicação Estratégica, Marca e Reputação Empresarial. Conhece também o chão de fábrica por dentro, com experiência em ambientes industriais como Mercedes-Benz e Volkswagen.",
+    linkedin:"Ver perfil no LinkedIn",
+    ctTitle:"O primeiro passo é compreender.",
+    ctP1:"Se liderança, bem-estar, segurança psicológica, pertença, talentos ou experiência do colaborador estão na agenda da sua organização, podemos começar por uma conversa.",
+    ctP2:"Conte-me o que está a acontecer na sua organização.",
+    ctBtn1:"Solicitar uma conversa", ctBtn2:"Quero conhecer o Sistema 4.0",
+    lNome:"Nome completo", lEmail:"Email profissional", lEmpresa:"Empresa", lCargo:"Cargo ou função",
+    lTel:"Telefone ou WhatsApp", lCode:"Indicativo internacional", codeOther:"Outro",
+    lCodeOther:"Escreva o indicativo, por exemplo +41", optional:"(opcional)",
+    lInt:"Principal interesse", selPick:"Selecione uma opção",
+    i1:"Conhecer o Sistema 4.0", i2:"Solicitar informações sobre diagnóstico organizacional", i3:"Solicitar uma reunião",
+    i4:"Explorar uma parceria profissional", i5:"Receber materiais sobre liderança e experiência do colaborador",
+    lComo:"Como nos conhecemos?", m1:"Conversámos no Happiness Camp", m2:"Recebi o QR Code de um participante", m3:"Encontrei a página por outro meio", m4:"Outro",
+    lDesafio:"Qual é o principal desafio da sua organização atualmente?",
+    hDesafio:"Máximo de 500 caracteres. Não inclua dados pessoais de colaboradores nem informação confidencial.",
+    pv1:"O responsável pelo tratamento é {nome}. Os seus dados são usados para responder ao seu pedido de contacto e dar seguimento à conversa iniciada no Happiness Camp 2026.",
+    pv2:"São conservados durante {prazo} após o último contacto, salvo pedido de eliminação. Pode pedir acesso, retificação, eliminação ou oposição através de {email}, e apresentar reclamação à CNPD.",
+    pvLink:"Ler a Política de Privacidade completa",
+    mkt:"Aceito receber, por email, comunicações ocasionais da GrandTalent sobre liderança e experiência do colaborador. Posso retirar esta autorização a qualquer momento. (opcional)",
+    submit:"Enviar contacto", sending:"A enviar…",
+    okTitle:"Obrigado pelo seu interesse!",
+    okText:"Recebemos o seu contacto. Em breve, entraremos em contacto consigo para dar continuidade à nossa conversa.",
+    foot1:"A GrandTalent Consulting participa no Happiness Camp 2026 de forma independente, sem vínculo institucional com a organização do evento. Esta página foi criada para os contactos feitos no evento.",
+    footPriv:"Política de Privacidade",
+    eReq:"Preencha este campo.", eEmail:"Indique um email válido, por exemplo nome@empresa.pt.",
+    eTel:"Use apenas números, espaços ou hífenes (4 a 15 dígitos).", eCode:"Escreva o indicativo com +, por exemplo +41.",
+    eInt:"Escolha o seu principal interesse.",
+    eCaptcha:"Confirme a verificação de segurança antes de enviar.",
+    eRate:"Recebemos vários envios seguidos. Aguarde alguns minutos e tente novamente.",
+    eFast:"O envio foi demasiado rápido. Verifique os dados e carregue novamente em Enviar.",
+    eNet:"Não foi possível enviar. Verifique a ligação à internet e tente novamente.",
+    eServer:"O contacto não foi guardado. Tente novamente dentro de instantes ou escreva para contato@grandtalent.com.br.",
+    eConfig:"O formulário ainda não está ativo. Escreva para contato@grandtalent.com.br."
+  },
+  en: {
+    skip:"Skip to the contact form", founderRole:"Founder of GrandTalent Consulting",
+    h1:"A company's reputation starts with the experience of the people who work there.",
+    lead:"Leadership, wellbeing, psychological safety, belonging and talent leave signals inside every organisation. Sistema 4.0 turns scattered perceptions into structured information to support decisions about people, leadership and reputation.",
+    ctaSystem:"Explore Sistema 4.0", ctaTalk:"Request a conversation",
+    painTitle:"What aren't your indicators showing yet?",
+    painP:"Turnover, absenteeism, productivity and performance show outcomes. They don't always show what's happening in people's experience.",
+    signalsIntro:"Signals that may be associated with those numbers and deserve a closer look:",
+    s1:"Falling engagement", s2:"Weakened trust", s3:"Strain in the relationship with leaders", s4:"Low psychological safety to speak up",
+    s5:"A fading sense of belonging", s6:"Underused talent", s7:"Differences between areas, teams or shifts", s8:"Communication that doesn't land",
+    painQ:"Are we only seeing the outcome, and not what sits behind it?",
+    insideTitle:"From the inside out", chainLabel:"From employee experience to reputation",
+    c1:"Employee experience", c2:"Leadership, trust and culture", c3:"Everyday behaviours and relationships", c4:"Reputation",
+    chainNote:"A relationship of influence, not a formula.",
+    insideP:"What people experience inside an organisation can show up outside it: in how teams relate to each other, serve customers, solve problems and talk about the company. This is where people management meets strategic communication, brand and reputation.",
+    esgTitle:"People are part of the sustainability agenda too.",
+    esgP:"Working conditions, development, wellbeing and leadership practices speak to the social dimension and to the governance side of the ESG agenda. Sistema 4.0 can produce organisational information that is useful for those discussions. It does not measure or certify ESG, and it does not replace sustainability frameworks, audits or obligations.",
+    videoTitle:"Sistema 4.0 in one minute",
+    videoQuote:"From people's experience to the company's reputation.",
+    videoPlay:"Watch the video, 1 minute",
+    videoPlayer:"Video: Sistema 4.0 in one minute, by Anderson Carvalho",
+    videoMetaFile:"The video is in Portuguese, with Portuguese subtitles burned in and English subtitles available. It only loads when you press play.",
+    videoMetaYt:"The video is in Portuguese. When you press play, it loads from YouTube (Google) in privacy-enhanced mode.",
+    videoNext:"See how Sistema 4.0 works",
+    sysTitle:"Measuring is only the beginning.",
+    sysIntro:"A survey collects answers. Sistema 4.0 structures evidence to identify priorities, guide decisions and follow progress.",
+    stepsLabel:"Sistema 4.0 stages",
+    st1:"DIAGNOSE", st1p:"Gather evidence on experience and talent.",
+    st2:"UNDERSTAND", st2p:"Cross-reference results, identify patterns and locate areas that need attention.",
+    st3:"DEVELOP", st3p:"Turn evidence into priorities for leadership development.",
+    st3x:"CliftonStrengths® can complement this stage, depending on the scope.",
+    st4:"ADAPT TO CHANGE", st4c:"When applicable", st4p:"For specific organisational change.",
+    st5:"FOLLOW UP", st5p:"Observe progress, review priorities and keep track of areas that need attention.",
+    compSummary:"See the Sistema 4.0 components",
+    g1:"Diagnose and understand", g2:"Develop leadership", g3:"Support change", g4:"Go deeper into leaders' talents",
+    ibepName:"Wellbeing, Engagement and Belonging Index",
+    ibepText:"Looks at employee experience, including engagement, wellbeing, belonging and signals related to voice, trust and feeling safe to speak up. It helps identify patterns and areas that need attention where methodologically appropriate and in line with confidentiality criteria.",
+    itcName:"Collaborative Talent Inventory",
+    itcText:"Maps talent profiles to understand how different capabilities are spread across teams, and to support decisions on development and complementarity.",
+    plhName:"Humanised Leadership Protocol",
+    plhText:"Brings together the evidence from the diagnosis and the talent mapping to guide leadership development, including practices of listening, trust, feedback and psychological safety.",
+    capName:"High-Performance Communication", capText:"Integrated into PLH-4.0, it develops leaders' communication skills, focusing on listening, adapting communication, emotional intelligence, feedback and ethical influence, supporting relationships with more trust and greater safety to speak up.",
+    admName:"Change Readiness Assessment",
+    admText:"Looks at how ready people are for a specific organisational change and identifies areas that need attention across teams or groups, where methodologically appropriate.",
+    csText:"CliftonStrengths® is a Gallup, Inc. tool. It was not created by GrandTalent and is not a Sistema 4.0 instrument. It can be brought into leadership development, depending on the project scope.",
+    sysNote:"Sistema 4.0 instruments are organisational management tools. They are not clinical tests or individual psychological assessments. CliftonStrengths® is a registered trademark of Gallup, Inc.",
+    aboutAlt:"Anderson Carvalho on an industrial production line", aboutCap:"Anderson Carvalho on the Mercedes-Benz production line",
+    aboutTitle:"Who is behind GrandTalent",
+    aboutP1:"GrandTalent Consulting works where people, leadership, communication and reputation meet, and treats them as parts of the same system.",
+    aboutP2:"Anderson Carvalho is a journalist with more than 10 years' experience in communication, and a specialist in Strategic Communication, Brand and Corporate Reputation. He also knows the factory floor from the inside, with experience in industrial settings such as Mercedes-Benz and Volkswagen.",
+    linkedin:"View LinkedIn profile",
+    ctTitle:"The first step is to understand.",
+    ctP1:"If leadership, wellbeing, psychological safety, belonging, talent or employee experience are on your organisation's agenda, we can start with a conversation.",
+    ctP2:"Tell me what's happening in your organisation.",
+    ctBtn1:"Request a conversation", ctBtn2:"I'd like to know more about Sistema 4.0",
+    lNome:"Full name", lEmail:"Work email", lEmpresa:"Company", lCargo:"Job title or role",
+    lTel:"Phone or WhatsApp", lCode:"International dialling code", codeOther:"Other",
+    lCodeOther:"Type the dialling code, e.g. +41", optional:"(optional)",
+    lInt:"Main interest", selPick:"Choose an option",
+    i1:"Learn about Sistema 4.0", i2:"Request information on organisational diagnosis", i3:"Request a meeting",
+    i4:"Explore a professional partnership", i5:"Receive materials on leadership and employee experience",
+    lComo:"How did we meet?", m1:"We talked at Happiness Camp", m2:"A participant shared the QR code with me", m3:"I found this page another way", m4:"Other",
+    lDesafio:"What is your organisation's main challenge right now?",
+    hDesafio:"Up to 500 characters. Please don't include employees' personal data or confidential information.",
+    pv1:"The data controller is {nome}. Your data is used to reply to your contact request and follow up on the conversation started at Happiness Camp 2026.",
+    pv2:"It is kept for {prazo} after our last contact, unless you ask for it to be deleted. You can request access, correction, deletion or object to processing via {email}, and lodge a complaint with the CNPD (Portuguese data protection authority).",
+    pvLink:"Read the full Privacy Policy",
+    mkt:"I agree to receive occasional emails from GrandTalent about leadership and employee experience. I can withdraw this at any time. (optional)",
+    submit:"Send details", sending:"Sending…",
+    okTitle:"Thank you for your interest!",
+    okText:"We've received your details. We'll be in touch soon to continue our conversation.",
+    foot1:"GrandTalent Consulting is taking part in Happiness Camp 2026 independently, with no institutional link to the event organisers. This page was created for the contacts made at the event.",
+    footPriv:"Privacy Policy",
+    eReq:"Please fill in this field.", eEmail:"Enter a valid email, e.g. name@company.com.",
+    eTel:"Use numbers, spaces or hyphens only (4 to 15 digits).", eCode:"Type the code with +, e.g. +41.",
+    eInt:"Choose your main interest.",
+    eCaptcha:"Please complete the security check before sending.",
+    eRate:"We've received several submissions in a row. Please wait a few minutes and try again.",
+    eFast:"That was sent too quickly. Check your details and press Send again.",
+    eNet:"Couldn't send. Check your internet connection and try again.",
+    eServer:"Your details weren't saved. Please try again shortly or write to contato@grandtalent.com.br.",
+    eConfig:"The form isn't active yet. Please write to contato@grandtalent.com.br."
+  }
+};
+
+let lang = "pt";
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const privacyReady = () => Boolean(CONFIG.responsavel && CONFIG.emailPrivacidade && CONFIG.conservacao.pt && CONFIG.conservacao.en && CONFIG.politicaPublicada === true);
+
+/* ---------- Vídeo ---------- */
+const V = CONFIG.video;
+const videoOn = (V.provider === "file" && /^[\w\/.-]+\.(mp4|webm)$/i.test(V.src))
+             || (V.provider === "youtube" && /^[A-Za-z0-9_-]{6,20}$/.test(V.src));
+let videoEl = null;
+
+function syncCaptions(){
+  if (!videoEl || !videoEl.textTracks) return;
+  [...videoEl.textTracks].forEach(t => { t.mode = (t.language === lang) ? "showing" : "disabled"; });
+}
+
+if (videoOn) {
+  $("#historia").hidden = false;
+  if (/^[\d.]+\s*\/\s*[\d.]+$/.test(V.ratio)) $("#video-frame").style.setProperty("--video-ratio", V.ratio);
+  if (V.poster) { const p = $("#video-poster"), fr = $("#video-frame"); p.src = V.poster; p.hidden = false; fr.classList.add("has-poster"); p.onerror = () => { p.remove(); fr.classList.remove("has-poster"); }; }
+  $("#video-play").addEventListener("click", function(){
+    const frame = $("#video-frame");
+    if (V.provider === "file") {
+      const v = document.createElement("video");
+      v.controls = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "auto";
+      if (V.poster) v.poster = V.poster;
+      v.setAttribute("aria-label", T[lang].videoPlayer);
+      const s = document.createElement("source"); s.src = V.src; s.type = /\.webm$/i.test(V.src) ? "video/webm" : "video/mp4"; v.appendChild(s);
+      [["pt","Português"],["en","English"]].forEach(([code,label]) => {
+        if (!V.captions || !V.captions[code]) return;   // o vídeo atual só traz a faixa EN
+        const tr = document.createElement("track");
+        tr.kind = "subtitles"; tr.srclang = code; tr.label = label; tr.src = V.captions[code];
+        if (code === lang) tr.default = true;
+        tr.addEventListener("load", syncCaptions);
+        v.appendChild(tr);
+      });
+      frame.replaceChildren(v);
+      videoEl = v;
+      v.addEventListener("loadedmetadata", syncCaptions);
+      v.addEventListener("playing", syncCaptions, { once: true });
+      if (v.textTracks && v.textTracks.addEventListener) v.textTracks.addEventListener("addtrack", syncCaptions);
+      syncCaptions();
+      const pr = v.play(); if (pr && pr.catch) pr.catch(() => {});  /* se o navegador bloquear, os controlos ficam visíveis */
+      v.focus();
+    } else {
+      const f = document.createElement("iframe");
+      const q = new URLSearchParams({ autoplay:"1", rel:"0", playsinline:"1", cc_load_policy:"1", cc_lang_pref:lang, hl:lang === "pt" ? "pt-PT" : "en" });
+      f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(V.src) + "?" + q.toString();
+      f.title = T[lang].videoPlayer; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
+      f.referrerPolicy = "strict-origin-when-cross-origin";
+      frame.replaceChildren(f);
+    }
+  });
+}
+
+/* ---------- Idioma ---------- */
+function renderPrivacy(){
+  const fill = (el, tpl) => {
+    el.textContent = "";
+    tpl.split(/(\{nome\}|\{prazo\}|\{email\})/).forEach(part => {
+      if (part === "{nome}") el.append(CONFIG.responsavel || (lang === "pt" ? "(a definir)" : "(to be confirmed)"));
+      else if (part === "{prazo}") el.append(CONFIG.conservacao[lang] || (lang === "pt" ? "(a definir)" : "(to be confirmed)"));
+      else if (part === "{email}") {
+        if (CONFIG.emailPrivacidade) { const a = document.createElement("a"); a.href = "mailto:" + CONFIG.emailPrivacidade; a.textContent = CONFIG.emailPrivacidade; el.append(a); }
+        else el.append(lang === "pt" ? "(a definir)" : "(to be confirmed)");
+      } else el.append(part);
+    });
+  };
+  $$("[data-i18n-tpl]").forEach(el => fill(el, T[lang][el.dataset.i18nTpl]));
+}
+
+function setLang(l){
+  lang = l in T ? l : "pt";
+  document.documentElement.lang = lang === "pt" ? "pt-PT" : "en";
+  $$("[data-i18n]").forEach(el => { const v = T[lang][el.dataset.i18n]; if (v) el.textContent = v; });
+  $$("[data-i18n-alt]").forEach(el => el.alt = T[lang][el.dataset.i18nAlt]);
+  $$("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", T[lang][el.dataset.i18nAria]));
+  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  const meta = $("#video-meta"); if (meta) meta.textContent = T[lang][V.provider === "youtube" ? "videoMetaYt" : "videoMetaFile"];
+  if (videoEl) videoEl.setAttribute("aria-label", T[lang].videoPlayer);
+  syncCaptions();
+  renderPrivacy();
+  $$(".err").forEach(e => { if (e.dataset.key) e.textContent = T[lang][e.dataset.key]; });
+  const st = $("#form-status"); if (st.dataset.key) st.textContent = T[lang][st.dataset.key];
+}
+
+(function initLang(){
+  const q = new URLSearchParams(location.search).get("lang");
+  let saved = null; try { saved = localStorage.getItem("gt-lang"); } catch(_) {}
+  const browser = (navigator.language || "pt").toLowerCase().startsWith("pt") ? "pt" : "en";
+  setLang(q || saved || browser);
+  $$(".lang button").forEach(b => b.addEventListener("click", () => {
+    setLang(b.dataset.lang);
+    try { localStorage.setItem("gt-lang", lang); } catch(_) {}   /* só guarda quando o visitante escolhe */
+  }));
+})();
+
+$$("[data-interest]").forEach(a => a.addEventListener("click", () => { $("#interesse").value = a.dataset.interest; }));
+
+$("#indicativo").addEventListener("change", e => {
+  const other = $("#indicativo-outro");
+  other.hidden = e.target.value !== "outro";
+  if (!other.hidden) other.focus();
+});
+$("#indicativo-outro").addEventListener("input", e => {
+  let v = e.target.value.replace(/[^\d+]/g, "");
+  v = "+" + v.replace(/\+/g, "");
+  e.target.value = v.slice(0, 5);
+});
+
+if (CONFIG.linkedinUrl) { const l = $("#linkedin"); l.href = CONFIG.linkedinUrl; l.hidden = false; }
+
+/* ---------- Turnstile (tema claro fixo) ---------- */
+let tsWidget = null;
+if (CONFIG.turnstileSiteKey) {
+  $("#turnstile").hidden = false;
+  window.onTsLoad = () => {
+    tsWidget = turnstile.render("#turnstile", {
+      sitekey: CONFIG.turnstileSiteKey, action: "contacto_happinesscamp",
+      theme: "light", size: "flexible", language: lang === "pt" ? "pt-br" : "en"
+    });
+  };
+  const s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTsLoad&render=explicit";
+  s.async = true; s.defer = true; document.head.appendChild(s);
+}
+
+/* ---------- Validação e envio ---------- */
+const startedAt = Date.now();
+function setErr(ids, errId, key){ ids.forEach(id => $("#"+id).setAttribute("aria-invalid","true")); const e = $("#"+errId); e.dataset.key = key; e.textContent = T[lang][key]; }
+function clearErr(ids, errId){ ids.forEach(id => $("#"+id).removeAttribute("aria-invalid")); const e = $("#"+errId); e.textContent = ""; delete e.dataset.key; }
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const indicativo = () => $("#indicativo").value === "outro" ? $("#indicativo-outro").value.trim() : $("#indicativo").value;
+
+function validate(){
+  let first = null;
+  const check = (ids, errId, ok, key) => { if (!ok) { setErr(ids, errId, key); first = first || ids[0]; } else clearErr(ids, errId); };
+  const v = id => $("#"+id).value.trim();
+  check(["nome"], "e-nome", v("nome").length >= 2, "eReq");
+  check(["email"], "e-email", emailRe.test(v("email")), v("email") ? "eEmail" : "eReq");
+  check(["empresa"], "e-empresa", v("empresa").length >= 1, "eReq");
+  const tel = v("telefone"), digits = tel.replace(/\D/g, "").length;
+  if (tel && $("#indicativo").value === "outro" && !/^\+[1-9][0-9]{0,3}$/.test(indicativo())) check(["indicativo-outro"], "e-tel", false, "eCode");
+  else { $("#indicativo-outro").removeAttribute("aria-invalid"); check(["telefone"], "e-tel", tel === "" || (/^[0-9 ()-]{4,20}$/.test(tel) && digits >= 4 && digits <= 15), "eTel"); }
+  if (first) $("#"+first).focus();
+  return !first;
+}
+
+function showStatus(key){ const s = $("#form-status"); s.dataset.key = key; s.textContent = T[lang][key]; s.hidden = false; }
+function hideStatus(){ const s = $("#form-status"); s.hidden = true; delete s.dataset.key; }
+
+$("#lead-form").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  hideStatus();
+  if (!validate()) return;
+  if (!CONFIG.endpoint || !privacyReady()) { showStatus("eConfig"); return; }
+  let token = "";
+  if (CONFIG.turnstileSiteKey) {
+    token = (window.turnstile && tsWidget !== null) ? turnstile.getResponse(tsWidget) : "";
+    if (!token) { showStatus("eCaptcha"); return; }
+  }
+  const btn = $("#submit"); btn.disabled = true; btn.textContent = T[lang].sending;
+  const tel = $("#telefone").value.trim();
+  const payload = {
+    nome: $("#nome").value.trim(), email: $("#email").value.trim(), empresa: $("#empresa").value.trim(),
+    cargo: $("#cargo").value.trim(),
+    indicativo: tel ? indicativo() : "", telefone: tel,
+    interesse: $("#interesse").value, como_conheceu: $("#como").value, desafio: $("#desafio").value.trim(),
+    comunicacoes: $("#comunicacoes").checked, idioma: lang, versao_aviso: CONFIG.versaoAviso,
+    website: $("#gt-campo-extra").value, elapsed_ms: Date.now() - startedAt, turnstile_token: token
+  };
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const r = await fetch(CONFIG.endpoint, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload), signal: ctrl.signal });
+    let data = {}; try { data = await r.json(); } catch(_) {}
+    if (r.ok && data.ok === true) {
+      $("#lead-form").hidden = true;
+      const s = $("#success"); s.hidden = false; s.focus();
+      return;
+    }
+    const map = { captcha:"eCaptcha", rate:"eRate", too_fast:"eFast" };
+    showStatus(map[data.error] || "eServer");
+  } catch (_) {
+    showStatus("eNet");
+  } finally {
+    clearTimeout(timer);
+    btn.disabled = false; btn.textContent = T[lang].submit;
+    if (window.turnstile && tsWidget !== null) { try { turnstile.reset(tsWidget); } catch(_) {} }
+  }
+});
+</script>
+</body>
+</html>
