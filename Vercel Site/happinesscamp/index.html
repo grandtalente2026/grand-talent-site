@@ -704,8 +704,6 @@ const privacyReady = () => Boolean(CONFIG.responsavel && CONFIG.emailPrivacidade
 
 /* ---------- Vídeo ---------- */
 const V = CONFIG.video;
-const videoOn = (V.provider === "file" && /^[\w\/.-]+\.(mp4|webm)$/i.test(V.src))
-             || (V.provider === "youtube" && /^[A-Za-z0-9_-]{6,20}$/.test(V.src));
 let videoEl = null;
 
 function syncCaptions(){
@@ -713,46 +711,7 @@ function syncCaptions(){
   [...videoEl.textTracks].forEach(t => { t.mode = (t.language === lang) ? "showing" : "disabled"; });
 }
 
-if (videoOn) {
-  $("#historia").hidden = false;
-  if (/^[\d.]+\s*\/\s*[\d.]+$/.test(V.ratio)) $("#video-frame").style.setProperty("--video-ratio", V.ratio);
-  if (V.poster) { const p = $("#video-poster"), fr = $("#video-frame"); p.src = V.poster; p.hidden = false; fr.classList.add("has-poster"); p.onerror = () => { p.remove(); fr.classList.remove("has-poster"); }; }
-  $("#video-play").addEventListener("click", function(){
-    const frame = $("#video-frame");
-    if (V.provider === "file") {
-      const v = document.createElement("video");
-      v.setAttribute("controls", "");
-      v.setAttribute("playsinline", "");
-      v.setAttribute("webkit-playsinline", "");
-      v.setAttribute("preload", "auto");
-      v.setAttribute("src", V.src);
-      if (V.poster) v.setAttribute("poster", V.poster);
-      v.setAttribute("aria-label", T[lang].videoPlayer);
-      v.style.width = "100%";
-      v.style.display = "block";
-      [["pt","Português"],["en","English"]].forEach(([code,label]) => {
-        if (!V.captions || !V.captions[code]) return;
-        const tr = document.createElement("track");
-        tr.kind = "subtitles"; tr.srclang = code; tr.label = label; tr.src = V.captions[code];
-        if (code === lang) tr.default = true;
-        v.appendChild(tr);
-      });
-      frame.replaceChildren(v);
-      videoEl = v;
-      v.addEventListener("loadedmetadata", syncCaptions);
-      v.addEventListener("playing", syncCaptions, { once: true });
-      if (v.textTracks && v.textTracks.addEventListener) v.textTracks.addEventListener("addtrack", syncCaptions);
-      syncCaptions();
-    } else {
-      const f = document.createElement("iframe");
-      const q = new URLSearchParams({ autoplay:"1", rel:"0", playsinline:"1", cc_load_policy:"1", cc_lang_pref:lang, hl:lang === "pt" ? "pt-PT" : "en" });
-      f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(V.src) + "?" + q.toString();
-      f.title = T[lang].videoPlayer; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
-      f.referrerPolicy = "strict-origin-when-cross-origin";
-      frame.replaceChildren(f);
-    }
-  });
-}
+/* Video nativo no HTML, sem JavaScript */
 
 /* ---------- Idioma ---------- */
 function renderPrivacy(){
