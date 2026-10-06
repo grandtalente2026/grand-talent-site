@@ -3,145 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contato — Grand Talent Consulting</title>
+<title>Contato — Conversar sobre minha operação | GrandTalent Consulting</title>
+<meta name="description" content="Conte o que está acontecendo na sua operação. Resposta inicial em até 24 horas úteis e uma conversa de 30 minutos, sem compromisso.">
+<!--GT:HEAD-->
+<link rel="canonical" href="https://grandtalent.com.br/contato.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrandTalent Consulting">
+<meta property="og:title" content="Contato — Conversar sobre minha operação | GrandTalent Consulting">
+<meta property="og:description" content="Conte o que está acontecendo na sua operação. Resposta inicial em até 24 horas úteis e uma conversa de 30 minutos, sem compromisso.">
+<meta property="og:url" content="https://grandtalent.com.br/contato.html">
+<meta property="og:image" content="https://grandtalent.com.br/assets/brand/og-grandtalent.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1C1913">
+<!--/GT:HEAD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#FAF7F1; --paper-2:#F1EBDD; --panel:#FFFFFF; --ink:#1C1913; --stone:#6B6355;
-    --gold:#9C7A2E; --gold-deep:#7A5F22; --line:rgba(28,25,19,0.12);
-    --ink-bg:#1C1913; --ink-bg-2:#252017; --gold-bright:#D4B36A;
-    --stone-on-dark:#B4AB98; --line-on-dark:rgba(255,255,255,0.14);
-  }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
-  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0;}
   h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
   a{color:inherit;text-decoration:none;}
-  section{padding:100px 6vw;}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
-  .logo{font-family:'Fraunces',serif;font-size:19px;}
-  .logo span{color:var(--gold-deep);}
-  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
-  @media(min-width:860px){.navlinks{display:flex;}}
-  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
-  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
-  @media(min-width:860px){.hamburger{display:none;}}
-  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
-  .mobile-menu a.active{color:var(--gold-deep);}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .navlinks a:hover{color:var(--gold-deep);}
-  .navlinks a.active{color:var(--gold-deep);}
+  .page-hero{padding:0 6vw 48px;}
+  .page-hero h1{font-size:clamp(32px,5vw,56px);line-height:1.14;font-weight:300;margin:20px 0 20px;max-width:720px;}
+  .page-hero p{font-size:18px;line-height:1.7;color:var(--stone);max-width:580px;}
 
-  .page-hero{padding-top:180px;padding-bottom:50px;}
-  .page-hero h1{font-size:clamp(34px,5.2vw,58px);line-height:1.15;font-weight:300;margin:20px 0 22px;max-width:720px;}
-  .page-hero p{font-size:17px;line-height:1.75;color:var(--stone);max-width:580px;}
-
-  .contact-wrap{padding:0 6vw 130px;display:grid;grid-template-columns:1fr;gap:60px;}
-  @media(min-width:960px){.contact-wrap{grid-template-columns:1fr 1fr;align-items:start;}}
+  .contact-wrap{padding:0 6vw 110px;display:grid;grid-template-columns:1fr;gap:56px;max-width:1180px;}
+  @media(min-width:960px){.contact-wrap{grid-template-columns:1.1fr 0.9fr;gap:72px;align-items:start;}}
 
   form{display:flex;flex-direction:column;gap:22px;}
-  .field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
-  .field input, .field select, .field textarea{
-    width:100%;background:var(--panel);border:1px solid var(--line);padding:14px 16px;
-    font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);border-radius:2px;
-    transition:border-color .2s ease;
+  .field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
+  .field .opt{text-transform:none;letter-spacing:0;color:var(--stone);opacity:.8;}
+  .field input,.field select,.field textarea{
+    width:100%;background:var(--panel);border:1px solid var(--line);padding:14px 16px;min-height:50px;
+    font-family:'Inter',sans-serif;font-size:16px;color:var(--ink);border-radius:2px;transition:border-color .2s ease;
   }
-  .field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--gold-deep);}
-  .field textarea{resize:vertical;min-height:110px;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue-deep);box-shadow:0 0 0 3px var(--blue-tint);}
+  .field textarea{resize:vertical;min-height:120px;}
+  .field .hint{font-size:13px;color:var(--stone);margin-top:6px;}
   .row2{display:grid;grid-template-columns:1fr;gap:22px;}
   @media(min-width:560px){.row2{grid-template-columns:1fr 1fr;}}
-  .submit-btn{
-    background:var(--ink);color:var(--paper);padding:16px 32px;font-size:13.5px;letter-spacing:0.04em;
-    font-weight:500;border:none;border-radius:2px;cursor:pointer;transition:background .25s ease;align-self:flex-start;
-    font-family:'Inter',sans-serif;
-  }
+  .submit-btn{background:var(--ink);color:var(--paper);padding:17px 30px;font-size:15px;font-weight:500;border:none;border-radius:2px;cursor:pointer;transition:background .25s ease;align-self:flex-start;font-family:'Inter',sans-serif;min-height:52px;}
   .submit-btn:hover{background:var(--gold-deep);}
-  .form-note{font-size:12.5px;color:var(--stone);font-family:'IBM Plex Mono',monospace;}
+  .submit-btn:disabled{opacity:.7;cursor:wait;}
+  @media(max-width:559px){.submit-btn{align-self:stretch;}}
+  .form-note{font-size:13px;color:var(--stone);line-height:1.6;}
+  .form-note a{text-decoration:underline;}
+  .form-error{display:none;font-size:14px;color:#8B2E1F;}
 
-  .side-info{display:flex;flex-direction:column;gap:0;}
-  .info-block{padding:26px 0;border-bottom:1px solid var(--line);}
-  .info-block:first-child{padding-top:0;}
-  .info-block .ilabel{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:10px;}
-  .info-block .ival{font-size:16px;color:var(--ink);}
-  .info-block .ival a:hover{color:var(--gold-deep);}
-  .info-block .isub{font-size:13px;color:var(--stone);margin-top:6px;line-height:1.5;}
+  .side .info-block{padding:22px 0;border-bottom:1px solid var(--line);}
+  .side .info-block:first-child{padding-top:0;}
+  .side .ilabel{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
+  .side .ival{font-size:16.5px;color:var(--ink);line-height:1.5;}
+  .side .ival a{border-bottom:1px solid var(--gold);}
+  .side .ival a:hover{color:var(--blue-deep);border-color:var(--blue-deep);}
+  .side .isub{font-size:14.5px;color:var(--stone);margin-top:6px;line-height:1.55;}
+  .next{background:var(--ink-bg);padding:30px 28px;margin-top:36px;}
+  .next h2{color:#FFFFFF;font-size:22px;font-weight:400;margin:14px 0 6px;}
+  .next .eyebrow{color:var(--gold-bright);}
+  .next .eyebrow::before{background:var(--gold-bright);}
 
-  .expect-box{background:var(--ink-bg);color:#fff;padding:34px 30px;margin-top:36px;}
-  .expect-box .eyebrow{color:var(--gold-bright);}
-  .expect-box .eyebrow::before{background:var(--gold-bright);}
-  .expect-box h3{color:#fff;font-size:19px;font-weight:400;margin:14px 0 16px;}
-  .expect-box ol{padding-left:18px;color:var(--stone-on-dark);font-size:13.5px;line-height:1.9;}
-
-  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+  .success{display:none;padding:0 6vw 120px;}
+  .success-box{background:var(--ink-bg);color:#FFFFFF;padding:56px 36px;max-width:1180px;}
+  .success-box h2{color:#FFFFFF;font-size:clamp(24px,3vw,36px);font-weight:300;margin:18px 0 16px;max-width:620px;line-height:1.3;}
+  .success-box p{color:var(--stone-on-dark);font-size:16px;line-height:1.7;max-width:560px;}
+  .success-box p a{color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);}
+  .success-box .eyebrow{color:var(--gold-bright);}
+  .success-box .eyebrow::before{background:var(--gold-bright);}
 </style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
-  <div class="navlinks">
-    <a href="index.html#setores">Setores</a>
+<!--GT:HEADER-->
+<a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+<header class="gt-header" id="gt-header">
+  <a href="index.html" class="gt-logo" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="(max-width:859px) 80px, 99px"><img src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent" width="197" height="128"></picture></a>
+  <nav class="gt-nav" aria-label="Principal">
     <a href="metodologia.html">Metodologia</a>
-    <a href="pacotes.html">Pacotes</a>
+    <a href="pacotes.html">Investimento</a>
+    <a href="ferramentas.html">Ferramentas</a>
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
-    <a href="contato.html" class="active">Contato</a>
-  </div>
-  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#setores">Setores</a>
-    <a href="metodologia.html">Metodologia</a>
-    <a href="pacotes.html">Pacotes</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="insights.html">Insights</a>
-    <a href="contato.html" class="active">Contato</a>
-  </div>
+    <a href="contato.html" class="gt-nav-cta active" aria-current="page">Contato</a>
+  </nav>
+  <button class="gt-burger" id="gt-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="gt-menu"><span></span><span></span><span></span></button>
+</header>
+<div class="gt-menu" id="gt-menu">
+  <a href="index.html">Início</a>
+  <a href="metodologia.html">Metodologia</a>
+  <a href="pacotes.html">Investimento</a>
+  <a href="ferramentas.html">Ferramentas</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="insights.html">Insights</a>
+  <a href="contato.html">Contato</a>
+  <a href="contato.html" class="gt-menu-cta">Conversar sobre minha operação</a>
+  <a href="https://app.grandtalent.com.br/cliente" class="gt-menu-small">Área do cliente</a>
+</div>
+<!--/GT:HEADER-->
 
-<section class="page-hero">
-  <div class="eyebrow">Vamos conversar</div>
-  <h1>O primeiro passo é sempre o mesmo: medir o que hoje só se percebe.</h1>
-  <p>Conte um pouco sobre a operação e o desafio de liderança que você está enfrentando. A resposta chega em até 24h.</p>
+<main id="conteudo">
+
+<section class="page-hero" id="topo">
+  <div class="eyebrow">Contato</div>
+  <h1>Conte o que está acontecendo na sua operação.</h1>
+  <p>Não precisa ser formal. Algumas linhas bastam para prepararmos a conversa.</p>
 </section>
 
-<div id="success-message" style="display:none;padding:0 6vw 130px;">
-  <div style="background:var(--ink-bg);color:#fff;padding:60px 50px;text-align:center;">
-    <div class="eyebrow" style="justify-content:center;color:var(--gold-bright);">Mensagem enviada</div>
-    <h2 style="color:#fff;font-size:clamp(24px,3vw,36px);font-weight:300;margin:20px auto 16px;max-width:520px;">Obrigado pelo contato. A resposta chega no seu e-mail em até 24h úteis.</h2>
-    <p style="color:var(--stone-on-dark);font-size:14px;">Enquanto isso, fique à vontade pra explorar a <a href="metodologia.html" style="color:var(--gold-bright);text-decoration:underline;">metodologia</a> ou os <a href="insights.html" style="color:var(--gold-bright);text-decoration:underline;">insights</a>.</p>
+<div class="success" id="success-message" role="status" aria-live="polite">
+  <div class="success-box">
+    <div class="eyebrow">Mensagem enviada</div>
+    <h2>Recebemos. Respondemos em até 24 horas úteis para combinar a conversa.</h2>
+    <p>Enquanto isso, se quiser, faça a <a href="https://app.grandtalent.com.br/custo-oculto">estimativa de custo oculto</a> ou veja como funciona o <a href="metodologia.html">Sistema 4.0</a>.</p>
   </div>
 </div>
 
 <div class="contact-wrap" id="contact-wrap">
-  <form id="contact-form" action="https://formspree.io/f/xwvgleqn" method="POST">
+  <form id="contact-form" action="https://formspree.io/f/xwvgleqn" method="POST" novalidate>
+    <input type="hidden" name="_subject" value="Novo contato pelo site — GrandTalent">
     <div class="row2">
       <div class="field">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" name="nome" required>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
       </div>
       <div class="field">
-        <label for="cargo">Cargo</label>
-        <input type="text" id="cargo" name="cargo" placeholder="Ex: Diretor de RH">
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" name="empresa" autocomplete="organization" required>
       </div>
     </div>
     <div class="row2">
       <div class="field">
-        <label for="empresa">Empresa</label>
-        <input type="text" id="empresa" name="empresa" required>
+        <label for="cargo">Cargo</label>
+        <input type="text" id="cargo" name="cargo" autocomplete="organization-title" placeholder="Ex.: Diretor de RH">
       </div>
       <div class="field">
         <label for="porte">Número de colaboradores</label>
         <select id="porte" name="porte">
           <option value="">Selecione</option>
+          <option value="ate-200">Até 200</option>
           <option value="200-500">200 – 500</option>
           <option value="500-1500">500 – 1.500</option>
           <option value="1500-5000">1.500 – 5.000</option>
@@ -149,130 +154,106 @@
         </select>
       </div>
     </div>
-    <div class="row2">
-      <div class="field">
-        <label for="email">E-mail corporativo</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="field">
-        <label for="telefone">Telefone / WhatsApp</label>
-        <div style="display:flex;gap:8px;">
-          <select id="ddi" name="ddi" style="width:auto;min-width:92px;flex-shrink:0;">
-            <option value="+55" selected>🇧🇷 +55</option>
-            <option value="+351">🇵🇹 +351</option>
-            <option value="+1">🇺🇸 +1</option>
-            <option value="+34">🇪🇸 +34</option>
-            <option value="+44">🇬🇧 +44</option>
-            <option value="+49">🇩🇪 +49</option>
-            <option value="+33">🇫🇷 +33</option>
-            <option value="outro">Outro</option>
-          </select>
-          <input type="tel" id="telefone" name="telefone" placeholder="11 91234-5678" style="flex-grow:1;">
-        </div>
-        <div style="font-size:11.5px;color:var(--stone);margin-top:6px;">Código do país pré-selecionado para Brasil — troque se necessário</div>
-      </div>
+    <div class="field">
+      <label for="contato">E-mail ou WhatsApp</label>
+      <input type="text" id="contato" name="contato" autocomplete="email" inputmode="email" required aria-describedby="contato-hint">
+      <div class="hint" id="contato-hint">Para WhatsApp, inclua o código do país (ex.: +55 ou +351).</div>
     </div>
     <div class="field">
-      <label for="setor">Setor</label>
-      <select id="setor" name="setor">
-        <option value="">Selecione</option>
-        <option>Manufatura / Indústria</option>
-        <option>Logística</option>
-        <option>Construção civil</option>
-        <option>Agroindústria</option>
-        <option>Energia e utilities</option>
-        <option>Outro</option>
-      </select>
+      <label for="mensagem">Qual é o principal desafio hoje?</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Ex.: turnover alto em um turno, liderança nova, uma mudança que não está pegando…"></textarea>
     </div>
-    <div class="field">
-      <label for="mensagem">Sobre o desafio de liderança</label>
-      <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco do que está acontecendo — não precisa ser formal."></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Enviar e agendar conversa</button>
-    <div class="form-note">Seus dados são usados apenas para retorno deste contato — sem newsletter, sem terceiros.</div>
+    <p class="form-error" id="form-error" role="alert"></p>
+    <button type="submit" class="submit-btn">Quero conversar sobre minha operação</button>
+    <p class="form-note">Os dados são usados apenas para responder a este contato. Ver a <a href="privacidade.html">política de privacidade</a>.</p>
   </form>
 
-  <div>
-    <div class="side-info">
-      <div class="info-block">
-        <div class="ilabel">E-mail direto</div>
-        <div class="ival"><a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a></div>
-      </div>
-      <div class="info-block">
-        <div class="ilabel">LinkedIn</div>
-        <div class="ival"><a href="#">Perfil profissional →</a></div>
-      </div>
-      <div class="info-block">
-        <div class="ilabel">Atuação</div>
-        <div class="ival">Brasil · Portugal</div>
-        <div class="isub">Atendimento remoto e presencial, conforme escopo do projeto.</div>
-      </div>
-      <div class="info-block">
-        <div class="ilabel">Prospecção prioritária</div>
-        <div class="ival">Logística e Manufatura</div>
-        <div class="isub">200 a 5.000 colaboradores</div>
-      </div>
+  <aside class="side" aria-label="Informações de contato">
+    <div class="info-block">
+      <div class="ilabel">E-mail direto</div>
+      <div class="ival"><a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a></div>
+    </div>
+    <div class="info-block">
+      <div class="ilabel">Atuação</div>
+      <div class="ival">Brasil · Portugal</div>
+      <div class="isub">Remoto e presencial, conforme o escopo do projeto.</div>
+    </div>
+    <div class="info-block">
+      <div class="ilabel">Perfil de operação</div>
+      <div class="isub">Maior aderência em operações industriais e logísticas com múltiplas equipes, turnos ou estruturas de liderança.</div>
     </div>
 
-    <div class="expect-box">
-      <div class="eyebrow">O que esperar depois</div>
-      <h3>Três passos, sem enrolação</h3>
-      <ol>
-        <li>Resposta por e-mail em até 24h úteis, com uma pergunta ou duas para entender o contexto.</li>
-        <li>Conversa de 30 minutos, sem compromisso, pra entender se faz sentido seguir.</li>
-        <li>Se fizer sentido, proposta de diagnóstico (Starter) enviada em até 48h após a conversa.</li>
+    <div class="next">
+      <div class="eyebrow">Depois do envio</div>
+      <h2>O que acontece depois</h2>
+      <ol class="steps3 stack">
+        <li><strong>Entendemos o contexto.</strong><span>Resposta inicial em até 24 horas úteis.</span></li>
+        <li><strong>Conversamos por 30 minutos.</strong><span>Sem compromisso e sem apresentação comercial interminável.</span></li>
+        <li><strong>Definimos o próximo passo.</strong><span>Se houver aderência, você recebe uma proposta de diagnóstico adequada à operação.</span></li>
       </ol>
     </div>
-  </div>
+  </aside>
 </div>
 
-<footer>
-  <div>Grand Talent Consulting © 2026</div>
-  <div>Brasil · Portugal</div>
+</main>
+
+<!--GT:FOOTER-->
+<footer class="gt-footer on-dark">
+  <div class="ft-grid">
+    <a class="ft-logo" href="index.html" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="111px"><img loading="lazy" src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent — Pessoas, Diagnóstico, Alta Performance" width="197" height="128"></picture></a>
+    <div class="ft-links">
+      <a href="metodologia.html">Metodologia</a>
+      <a href="pacotes.html">Investimento</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="insights.html">Insights</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <div class="ft-contact">
+      <a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a>
+      <span>Brasil · Portugal</span>
+    </div>
+  </div>
+  <div class="ft-base">
+    <span>GrandTalent Consulting © 2026</span>
+    <span><a href="privacidade.html">Privacidade</a> · <a href="https://app.grandtalent.com.br/cliente">Área do cliente</a> · <a href="https://app.grandtalent.com.br">Acesso do consultor</a></span>
+  </div>
 </footer>
+<script src="assets/site.js" defer></script>
+<!--/GT:FOOTER-->
 
 <script>
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const submitBtn = form.querySelector('.submit-btn');
-  submitBtn.textContent = 'Enviando...';
-  submitBtn.disabled = true;
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      document.getElementById('contact-wrap').style.display = 'none';
-      document.getElementById('success-message').style.display = 'block';
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    } else {
-      submitBtn.textContent = 'Erro ao enviar — tente novamente';
-      submitBtn.disabled = false;
+(function () {
+  var form = document.getElementById('contact-form');
+  var errorEl = document.getElementById('form-error');
+  function showError(msg) { errorEl.textContent = msg; errorEl.style.display = 'block'; }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+    var nome = form.nome.value.trim(), empresa = form.empresa.value.trim(), contato = form.contato.value.trim();
+    if (!nome || !empresa || !contato) { showError('Preencha nome, empresa e um e-mail ou WhatsApp para retorno.'); return; }
+    var isEmail = contato.indexOf('@') > -1;
+    if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contato)) { showError('Confira o e-mail informado.'); return; }
+    if (!isEmail && contato.replace(/\D/g, '').length < 8) { showError('Confira o número de WhatsApp, com código do país.'); return; }
+    var btn = form.querySelector('.submit-btn');
+    var label = btn.textContent;
+    btn.textContent = 'Enviando…'; btn.disabled = true;
+    var data = new FormData(form);
+    if (isEmail) { data.append('email', contato); } else { data.append('whatsapp', contato); }
+    try {
+      var res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        document.getElementById('contact-wrap').style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+        document.getElementById('topo').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else { throw new Error('status ' + res.status); }
+    } catch (err) {
+      btn.textContent = label; btn.disabled = false;
+      showError('Não foi possível enviar agora. Tente de novo ou escreva para contato@grandtalent.com.br.');
     }
-  } catch (err) {
-    submitBtn.textContent = 'Erro ao enviar — tente novamente';
-    submitBtn.disabled = false;
-  }
-});
-</script>
-<script>
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-  }
+  });
+})();
 </script>
 </body>
 </html>

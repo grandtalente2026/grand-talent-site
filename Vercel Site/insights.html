@@ -3,7 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insights — Grand Talent Consulting</title>
+<title>Insights — GrandTalent Consulting</title>
+<!--GT:HEAD-->
+<meta name="description" content="Análises curtas, embasadas e sem discurso motivacional — conectando pesquisa acadêmica a decisões reais de liderança industrial.">
+<link rel="canonical" href="https://grandtalent.com.br/insights.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrandTalent Consulting">
+<meta property="og:title" content="Insights — GrandTalent Consulting">
+<meta property="og:description" content="Análises curtas, embasadas e sem discurso motivacional — conectando pesquisa acadêmica a decisões reais de liderança industrial.">
+<meta property="og:url" content="https://grandtalent.com.br/insights.html">
+<meta property="og:image" content="https://grandtalent.com.br/assets/brand/og-grandtalent.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1C1913">
+<!--/GT:HEAD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -77,28 +91,47 @@
   .btn-primary:hover{background:#FFFFFF;}
 
   footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
+  .ftag{background:none;font-size:13px !important;min-height:40px;}
+  .feed-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:860px){.feed-grid{grid-template-columns:repeat(3,1fr);}}
+  .feed-card{background:var(--panel);padding:24px 22px;display:block;transition:background .2s ease;}
+  .feed-card:hover{background:var(--paper-2);}
+  .feed-source{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
+  .feed-title{font-size:15.5px;line-height:1.45;color:var(--ink);}
+  .feed-loading{grid-column:1/-1;padding:36px;text-align:center;color:var(--stone);font-size:14px;background:var(--panel);}
+  .feed-loading a{text-decoration:underline;}
+  .feed-updated{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--stone);text-align:right;}
+  .subscribe p{font-size:16px !important;}
 </style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
-  <div class="navlinks">
+<!--GT:HEADER-->
+<header class="gt-header" id="gt-header">
+  <a href="index.html" class="gt-logo" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="(max-width:859px) 80px, 99px"><img src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent" width="197" height="128"></picture></a>
+  <nav class="gt-nav" aria-label="Principal">
     <a href="metodologia.html">Metodologia</a>
-    <a href="pacotes.html">Pacotes</a>
+    <a href="pacotes.html">Investimento</a>
+    <a href="ferramentas.html">Ferramentas</a>
     <a href="sobre.html">Sobre</a>
-    <a href="insights.html" class="active">Insights</a>
-    <a href="contato.html">Contato</a>
-  </div>
-  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-    <a href="metodologia.html">Metodologia</a>
-    <a href="pacotes.html">Pacotes</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="insights.html" class="active">Insights</a>
-    <a href="contato.html">Contato</a>
-  </div>
+    <a href="insights.html" class="active" aria-current="page">Insights</a>
+    <a href="contato.html" class="gt-nav-cta">Contato</a>
+  </nav>
+  <button class="gt-burger" id="gt-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="gt-menu"><span></span><span></span><span></span></button>
+</header>
+<div class="gt-menu" id="gt-menu">
+  <a href="index.html">Início</a>
+  <a href="metodologia.html">Metodologia</a>
+  <a href="pacotes.html">Investimento</a>
+  <a href="ferramentas.html">Ferramentas</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="insights.html" class="active" aria-current="page">Insights</a>
+  <a href="contato.html">Contato</a>
+  <a href="contato.html" class="gt-menu-cta">Conversar sobre minha operação</a>
+  <a href="https://app.grandtalent.com.br/cliente" class="gt-menu-small">Área do cliente</a>
+</div>
+<!--/GT:HEADER-->
 
 <section class="page-hero">
   <div class="eyebrow">Ponto de vista</div>
@@ -107,13 +140,13 @@
 </section>
 
 <div class="filters">
-  <div class="ftag active" data-filter="Todos">Todos</div>
-  <div class="ftag" data-filter="Reputação">Reputação</div>
-  <div class="ftag" data-filter="Liderança">Liderança</div>
-  <div class="ftag" data-filter="Talento">Talento</div>
-  <div class="ftag" data-filter="Comunicação">Comunicação</div>
-  <div class="ftag" data-filter="Mudança">Mudança</div>
-  <div class="ftag" data-filter="Propósito">Propósito</div>
+  <button type="button" class="ftag active" data-filter="Todos" aria-pressed="true">Todos</button>
+  <button type="button" class="ftag" data-filter="Reputação" aria-pressed="false">Reputação</button>
+  <button type="button" class="ftag" data-filter="Liderança" aria-pressed="false">Liderança</button>
+  <button type="button" class="ftag" data-filter="Talento" aria-pressed="false">Talento</button>
+  <button type="button" class="ftag" data-filter="Comunicação" aria-pressed="false">Comunicação</button>
+  <button type="button" class="ftag" data-filter="Mudança" aria-pressed="false">Mudança</button>
+  <button type="button" class="ftag" data-filter="Propósito" aria-pressed="false">Propósito</button>
 </div>
 
 <section class="articles">
@@ -122,73 +155,105 @@
     <a href="artigo-reputacao-de-dentro-para-fora.html" class="art-card" data-category="Reputação" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
       <h3>Por que reputação se constrói de dentro pra fora</h3>
-      <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre a relação entre engajamento interno e imagem corporativa — e por que pesquisa de clima sozinha não basta.</p>
-      <div class="status"><span>8 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre a relação entre engajamento interno e imagem corporativa.</p>
+      <div class="status"><span>4 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-tenerife-1977.html" class="art-card" data-category="Liderança" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
       <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
       <p>O maior acidente da história da aviação civil não foi causado por falha técnica — foi causado por silêncio hierárquico. O que isso ensina sobre segurança psicológica na linha de frente.</p>
-      <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>3 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-cliftonstrengths-chao-de-fabrica.html" class="art-card" data-category="Talento" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--itc);"></span>Talento</div>
       <h3>CliftonStrengths no chão de fábrica</h3>
       <p>Como identificar quem executa, quem conecta e quem sustenta — antes de promover a pessoa errada para um cargo de liderança.</p>
-      <div class="status"><span>7 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>3 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-edmondson-seguranca-psicologica.html" class="art-card" data-category="Liderança" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Liderança</div>
       <h3>O que Amy Edmondson descobriu sobre equipes que mais erram</h3>
       <p>Um achado contraintuitivo de Harvard: as equipes que mais reportam erros não são as piores — são as mais seguras para admiti-los. O que isso muda na forma de liderar uma linha de produção.</p>
-      <div class="status"><span>5 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>3 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-wolton-informar-nao-e-comunicar.html" class="art-card" data-category="Comunicação" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--cap);"></span>Comunicação</div>
       <h3>Informar não é comunicar</h3>
       <p>A distinção de Dominique Wolton entre comunicação funcional e normativa — e por que a maioria dos programas internos de comunicação corporativa só faz a primeira.</p>
-      <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>3 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-esg-dimensao-social.html" class="art-card" data-category="Reputação" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--ibep);"></span>Reputação</div>
       <h3>ESG: a dimensão Social que ninguém audita direito</h3>
       <p>Governança e meio ambiente já têm métricas maduras. A dimensão Social do ESG ainda é, na maioria das empresas, boa intenção sem dado. Como isso pode — e deve — mudar.</p>
-      <div class="status"><span>7 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>3 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-onde-a-mudanca-trava.html" class="art-card" data-category="Mudança" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--adm);"></span>Mudança</div>
       <h3>Onde a mudança trava</h3>
       <p>Consciência não é adesão, e adesão não é capacidade. Por que confundir esses blocos é o motivo mais comum de uma mudança travar sem ninguém saber apontar onde.</p>
-      <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>2 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
     <a href="artigo-o-porque-que-ninguem-pergunta-primeiro.html" class="art-card" data-category="Propósito" style="text-decoration:none;">
       <div class="atag"><span class="dot" style="background:var(--plh);"></span>Propósito</div>
       <h3>O porquê que ninguém pergunta primeiro</h3>
       <p>O Círculo Dourado de Simon Sinek explica por que instruções técnicas engajam menos que o motivo real por trás delas — e por que a maioria das empresas inverte essa ordem.</p>
-      <div class="status"><span>6 min de leitura</span><span class="badge publicado">Publicado</span></div>
+      <div class="status"><span>3 min de leitura</span><span class="badge publicado">Publicado</span></div>
     </a>
 
   </div>
 </section>
 
-<section class="subscribe">
-  <div class="eyebrow">Não perca os próximos</div>
-  <h2>Os artigos serão publicados aqui conforme forem concluídos — sem calendário fixo, sem enchimento.</h2>
-  <p>Prefere ser avisado diretamente? Acompanhe pelo LinkedIn, onde o conteúdo circula primeiro.</p>
-  <a href="#" class="btn-primary">Seguir no LinkedIn</a>
+<section class="sec" id="radar" style="border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:28px;">
+      <div class="eyebrow">Radar</div>
+      <h2>O que está sendo discutido sobre engajamento e liderança</h2>
+      <p>Notícias recentes de fontes externas, atualizadas automaticamente.</p>
+    </div>
+    <div id="feed-container" class="feed-grid"><div class="feed-loading">Carregando notícias recentes…</div></div>
+    <div id="feed-updated" class="feed-updated"></div>
+  </div>
 </section>
 
-<footer>
-  <div>Grand Talent Consulting © 2026</div>
-  <div>Brasil · Portugal</div>
+<section class="subscribe">
+  <div class="eyebrow">Da leitura à operação</div>
+  <h2>Algum desses temas está acontecendo na sua operação agora?</h2>
+  <p>Uma conversa de 30 minutos ajuda a entender se vale medir.</p>
+  <a href="contato.html" class="btn-primary">Conversar sobre minha operação</a>
+</section>
+
+<!--GT:FOOTER-->
+<footer class="gt-footer on-dark">
+  <div class="ft-grid">
+    <a class="ft-logo" href="index.html" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="111px"><img loading="lazy" src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent — Pessoas, Diagnóstico, Alta Performance" width="197" height="128"></picture></a>
+    <div class="ft-links">
+      <a href="metodologia.html">Metodologia</a>
+      <a href="pacotes.html">Investimento</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="insights.html">Insights</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <div class="ft-contact">
+      <a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a>
+      <span>Brasil · Portugal</span>
+    </div>
+  </div>
+  <div class="ft-base">
+    <span>GrandTalent Consulting © 2026</span>
+    <span><a href="privacidade.html">Privacidade</a> · <a href="https://app.grandtalent.com.br/cliente">Área do cliente</a> · <a href="https://app.grandtalent.com.br">Acesso do consultor</a></span>
+  </div>
 </footer>
+<script src="assets/site.js" defer></script>
+<!--/GT:FOOTER-->
 <script>
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -209,8 +274,8 @@
   const cards = document.querySelectorAll('.art-card');
   ftags.forEach(tag => {
     tag.addEventListener('click', () => {
-      ftags.forEach(t => t.classList.remove('active'));
-      tag.classList.add('active');
+      ftags.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed','false'); });
+      tag.classList.add('active'); tag.setAttribute('aria-pressed','true');
       const filter = tag.getAttribute('data-filter');
       cards.forEach(card => {
         if (filter === 'Todos' || card.getAttribute('data-category') === filter) {
@@ -221,6 +286,30 @@
       });
     });
   });
+</script>
+<script>
+(function () {
+  var container = document.getElementById('feed-container');
+  var updatedEl = document.getElementById('feed-updated');
+  if (!container) return;
+  function esc(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
+  function tempoAtras(seg) { if (seg < 60) return 'agora mesmo'; var m = Math.floor(seg / 60); if (m < 60) return 'há ' + m + ' min'; return 'há ' + Math.floor(m / 60) + 'h'; }
+  var carregadoEm = null;
+  function carregar() {
+    fetch('/api/feed-noticias').then(function (r) { return r.json(); }).then(function (data) {
+      if (!data.ok || !data.itens || !data.itens.length) throw new Error('vazio');
+      container.innerHTML = data.itens.map(function (item) {
+        var href = /^https?:\/\//.test(item.link) ? item.link : '#';
+        return '<a class="feed-card" href="' + esc(href) + '" target="_blank" rel="noopener"><div class="feed-source">' + esc(item.fonte) + '</div><div class="feed-title">' + esc(item.titulo) + '</div></a>';
+      }).join('');
+      carregadoEm = Date.now(); atualizar();
+    }).catch(function () {
+      container.innerHTML = '<div class="feed-loading">Não foi possível carregar as notícias agora. <a href="https://news.google.com/search?q=engajamento%20de%20funcion%C3%A1rios" target="_blank" rel="noopener">Ver no Google Notícias</a></div>';
+    });
+  }
+  function atualizar() { if (carregadoEm && updatedEl) updatedEl.textContent = 'Atualizado ' + tempoAtras(Math.floor((Date.now() - carregadoEm) / 1000)); }
+  carregar(); setInterval(atualizar, 30000); setInterval(carregar, 5 * 60 * 1000);
+})();
 </script>
 </body>
 </html>
