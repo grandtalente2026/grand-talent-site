@@ -40,3 +40,25 @@
     els.forEach(function (el) { el.classList.add('in'); });
   }
 })();
+
+// Vídeos do YouTube: só carrega o player quando a pessoa clica (sem autoplay no carregamento).
+(function () {
+  document.querySelectorAll('.yt[data-yt]').forEach(function (box) {
+    var btn = box.querySelector('.yt-play');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var id = box.getAttribute('data-yt');
+      var start = box.getAttribute('data-start');
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+        '?autoplay=1&rel=0&modestbranding=1&playsinline=1' + (start ? '&start=' + parseInt(start, 10) : '');
+      f.title = box.getAttribute('data-title') || 'Vídeo';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      box.innerHTML = '';
+      box.appendChild(f);
+      f.focus();
+    });
+  });
+})();
