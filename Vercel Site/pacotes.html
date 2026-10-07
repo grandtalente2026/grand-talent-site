@@ -56,6 +56,9 @@
 
   .closing h2{font-size:clamp(28px,4vw,46px);font-weight:300;max-width:760px;margin:20px 0 20px;line-height:1.25;}
   .closing p{font-size:18px;line-height:1.7;color:var(--stone-on-dark);max-width:620px;margin-bottom:34px;}
+  .lphoto{margin-top:24px;max-width:300px;}
+  .lphoto img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:2px;border:1px solid var(--line);}
+  @media(max-width:559px){.lphoto{max-width:none;}}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -114,6 +117,7 @@
         <div class="lnum">01</div>
         <h2>Discovery</h2>
         <p class="lq">Existe um problema que justifique investigação?</p>
+        <figure class="lphoto"><picture><source type="image/webp" srcset="fotos/apresentacao.webp"><img src="fotos/apresentacao.jpg" alt="Anderson Carvalho fazendo uma apresentação para um grupo" width="506" height="537" loading="lazy"></picture></figure>
       </div>
       <div>
         <ul>

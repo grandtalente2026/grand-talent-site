@@ -40,9 +40,10 @@
   .hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.1;margin:22px 0 24px;font-weight:300;max-width:680px;}
   .hero .lead{max-width:580px;margin-bottom:22px;}
   .support{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.02em;color:var(--ink);border-left:2px solid var(--blue-deep);padding-left:14px;margin-bottom:38px;line-height:1.7;max-width:560px;}
-  .hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:grayscale(6%) contrast(1.02);border-radius:2px;border:1px solid var(--line);}
+  .hero-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;filter:grayscale(6%) contrast(1.02);border-radius:2px;border:1px solid var(--line);}
   .hero-photo figcaption{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;}
   @media(max-width:959px){.hero{padding-bottom:72px;}.hero-photo{max-width:420px;}}
+  @media(min-width:960px){.hero-photo{max-width:460px;justify-self:end;}}
   @media(max-width:559px){.hero-photo{display:none;}}
 
   /* PERGUNTA */
@@ -180,8 +181,8 @@
       <p class="cta-note">Primeira leitura gratuita em 2 minutos</p>
     </div>
     <figure class="hero-photo">
-      <img src="lideranca-escuta.jpg" alt="Supervisor em conversa próxima com colaborador no chão de fábrica" width="1408" height="768" fetchpriority="high">
-      <figcaption>Liderança que escuta antes de decidir</figcaption>
+      <picture><source type="image/webp" srcset="fotos/conversa-equipe.webp"><img src="fotos/conversa-equipe.jpg" alt="Anderson Carvalho conversando com colaboradores em frente a um quadro de gestão visual, numa fábrica" width="507" height="478" fetchpriority="high"></picture>
+      <figcaption>Anderson Carvalho · visita a fábrica</figcaption>
     </figure>
   </div>
 </section>

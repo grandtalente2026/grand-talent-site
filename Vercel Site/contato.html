@@ -76,6 +76,9 @@
   .success-box p a{color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);}
   .success-box .eyebrow{color:var(--gold-bright);}
   .success-box .eyebrow::before{background:var(--gold-bright);}
+  .side-photo{margin-bottom:32px;}
+  .side-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 30%;display:block;border-radius:2px;border:1px solid var(--line);}
+  .side-photo figcaption{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.05em;color:var(--stone);text-transform:uppercase;}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -169,6 +172,7 @@
   </form>
 
   <aside class="side" aria-label="Informações de contato">
+    <figure class="side-photo"><picture><source type="image/webp" srcset="fotos/trabalho-remoto.webp"><img src="fotos/trabalho-remoto.jpg" alt="Anderson Carvalho em videochamada no computador" width="506" height="478" loading="lazy"></picture></figure>
     <div class="info-block">
       <div class="ilabel">E-mail direto</div>
       <div class="ival"><a href="mailto:hello.grandtalent@gmail.com">hello.grandtalent@gmail.com</a></div>
