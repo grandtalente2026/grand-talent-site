@@ -62,3 +62,19 @@
     });
   });
 })();
+
+// Vídeo hospedado no site: nada é baixado até o clique (preload="none").
+(function () {
+  document.querySelectorAll('.yt[data-video]').forEach(function (box) {
+    var btn = box.querySelector('.yt-play');
+    var v = box.querySelector('video');
+    if (!btn || !v) return;
+    btn.addEventListener('click', function () {
+      v.controls = true;
+      btn.remove();
+      var img = box.querySelector('img');
+      if (img) img.remove();
+      v.play();
+    });
+  });
+})();
