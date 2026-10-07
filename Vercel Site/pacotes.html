@@ -3,288 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pacotes — Grand Talent Consulting</title>
+<title>Investimento — Discovery, Diagnóstico, Transformação e Partnership | GrandTalent Consulting</title>
+<meta name="description" content="Quatro níveis de compromisso, não pacotes fixos: Discovery, Diagnóstico, Transformação e Partnership. Cada etapa responde a uma pergunta diferente sobre a sua operação.">
+<!--GT:HEAD-->
+<link rel="canonical" href="https://grandtalent.com.br/pacotes.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrandTalent Consulting">
+<meta property="og:title" content="Investimento — Discovery, Diagnóstico, Transformação e Partnership | GrandTalent Consulting">
+<meta property="og:description" content="Quatro níveis de compromisso, não pacotes fixos: Discovery, Diagnóstico, Transformação e Partnership. Cada etapa responde a uma pergunta diferente sobre a sua operação.">
+<meta property="og:url" content="https://grandtalent.com.br/pacotes.html">
+<meta property="og:image" content="https://grandtalent.com.br/assets/brand/og-grandtalent.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1C1913">
+<!--/GT:HEAD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#FAF7F1;
-    --paper-2:#F1EBDD;
-    --panel:#FFFFFF;
-    --ink:#1C1913;
-    --stone:#6B6355;
-    --gold:#9C7A2E;
-    --gold-deep:#7A5F22;
-    --line:rgba(28,25,19,0.12);
-    --ink-bg:#1C1913;
-    --ink-bg-2:#252017;
-    --gold-bright:#D4B36A;
-    --stone-on-dark:#B4AB98;
-    --line-on-dark:rgba(255,255,255,0.14);
-    /* cores das 4 ferramentas — sistema já estabelecido no Manual Operacional */
-    --ibep:#1F4D3D;
-    --ibep-tint:#E7EFEA;
-    --plh:#3E5C76;
-    --plh-tint:#E9EEF2;
-    --itc:#B8862E;
-    --itc-tint:#F5EDDA;
-    --cap:#6B3F63;
-    --cap-tint:#F0E6EF;
-    --adm:#8B4226;
-    --adm-tint:#F1E0D5;
-  }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
-  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0;}
   h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
   a{color:inherit;text-decoration:none;}
-  section{padding:100px 6vw;}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 6vw;background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
-  .logo{font-family:'Fraunces',serif;font-size:19px;letter-spacing:0.01em;}
-  .logo span{color:var(--gold-deep);}
-  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
-  @media(min-width:860px){.navlinks{display:flex;}}
-  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
-  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
-  @media(min-width:860px){.hamburger{display:none;}}
-  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
-  .mobile-menu a.active{color:var(--gold-deep);}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .navlinks a:hover{color:var(--gold-deep);}
-  .navlinks a.active{color:var(--gold-deep);}
+  .page-hero{padding:0 6vw 56px;}
+  .page-hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.1;font-weight:300;margin:20px 0 22px;max-width:820px;}
+  .page-hero p{font-size:18px;line-height:1.7;color:var(--stone);max-width:620px;}
 
-  .page-hero{padding-top:180px;padding-bottom:80px;}
-  .page-hero h1{font-size:clamp(36px,5.6vw,68px);line-height:1.08;font-weight:300;margin:20px 0 26px;max-width:820px;}
-  .page-hero p{font-size:17px;line-height:1.75;color:var(--stone);max-width:600px;}
+  .journey-sec{padding:0 6vw 40px;}
+  .journey-sec .jlead{font-family:'Fraunces',serif;font-size:clamp(20px,2.4vw,26px);font-weight:300;line-height:1.4;max-width:720px;margin-top:30px;}
 
-  /* CYCLE STRIP */
-  .cycle{padding:0 6vw 100px;}
-  .cycle-strip{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media(min-width:860px){.cycle-strip{grid-template-columns:repeat(5,1fr);}}
-  @media(min-width:860px) and (max-width:1179px){.cstep{padding:22px 16px;}
-    .cstep h4{font-size:15px;}
-    .cstep p{font-size:11.5px;}}
+  /* NÍVEIS */
+  .levels{padding:70px 6vw 100px;}
+  .level{display:grid;grid-template-columns:1fr;gap:20px;padding:40px 0;border-top:1px solid var(--line);}
+  .level:last-child{border-bottom:1px solid var(--line);}
+  @media(min-width:900px){.level{grid-template-columns:0.9fr 1.1fr;gap:64px;}}
+  .level .lnum{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue-deep);letter-spacing:0.06em;}
+  .level h2{font-size:clamp(28px,3.4vw,40px);font-weight:300;margin:8px 0 12px;}
+  .level .lq{font-family:'Fraunces',serif;font-size:19px;line-height:1.4;color:var(--gold-deep);font-weight:300;}
+  .level ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .level li{font-size:16px;line-height:1.55;padding-left:18px;position:relative;}
+  .level li::before{content:'—';position:absolute;left:0;color:var(--gold-deep);}
+  .level .when{font-size:15px;color:var(--stone);line-height:1.6;margin-top:18px;}
+  .level .price{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);margin-top:18px;}
+  .level.main h2::after{content:'Etapa central';display:inline-block;vertical-align:middle;margin-left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--gold);padding:4px 8px;border-radius:2px;}
+  @media(max-width:559px){.level.main h2::after{display:block;width:max-content;margin:10px 0 0;}}
+  .pricing-note{max-width:720px;font-size:15.5px;line-height:1.7;color:var(--stone);margin-top:36px;}
 
-  .hero-photo-band{padding:0 6vw 70px;}
-  .hero-photo-band img{width:100%;max-height:520px;object-fit:cover;display:block;border-radius:2px;filter:grayscale(8%) contrast(1.02);}
-  .hero-photo-band .cap{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;}
-  .cstep{background:var(--panel);padding:28px 24px;position:relative;}
-  .cstep .cnum{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);}
-  .cstep .ctag{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;padding:4px 10px;border-radius:2px;}
-  .cstep h4{font-size:18px;font-weight:400;margin-top:14px;}
-  .cstep p{font-size:12.5px;color:var(--stone);margin-top:8px;line-height:1.5;}
-  .cstep .arrow{position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--stone);display:none;z-index:2;}
-  @media(min-width:860px){.cstep .arrow{display:block;}}
-  .cstep:last-child .arrow{display:none;}
-
-  /* INSTRUMENT SECTIONS */
-  .instrument{border-top:1px solid var(--line);}
-  .instr-grid{display:grid;grid-template-columns:1fr;gap:50px;}
-  @media(min-width:900px){.instr-grid{grid-template-columns:0.85fr 1.15fr;}}
-  .instr-head .code{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.08em;padding:6px 12px;display:inline-block;border-radius:2px;margin-bottom:20px;}
-  .instr-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:300;margin-bottom:16px;}
-  .instr-head .full-name{font-size:14px;color:var(--stone);margin-bottom:24px;}
-  .instr-head p.desc{font-size:15.5px;line-height:1.8;color:var(--stone);max-width:420px;}
-  .instr-body{display:flex;flex-direction:column;gap:36px;}
-  .dim-block h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:18px;}
-  .dim-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;}
-  @media(min-width:600px){.dim-list{grid-template-columns:1fr 1fr 1fr;}}
-  .dim-item{font-size:13.5px;padding:12px 14px;border-left:2px solid var(--line);line-height:1.4;}
-  .output-box{border:1px solid var(--line);padding:24px;background:var(--panel);}
-  .output-box .olabel{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
-  .output-box p{font-size:14px;color:var(--stone);line-height:1.65;}
-  .tier-tag{font-size:12px;color:var(--stone);margin-top:8px;font-family:'IBM Plex Mono',monospace;}
-
-  /* color variants */
-  .ibep .code{background:var(--ibep-tint);color:var(--ibep);}
-  .ibep .accent{color:var(--ibep);}
-  .ibep .dim-item{border-color:var(--ibep);}
-  .plh .code{background:var(--plh-tint);color:var(--plh);}
-  .plh .accent{color:var(--plh);}
-  .plh .dim-item{border-color:var(--plh);}
-  .itc .code{background:var(--itc-tint);color:var(--itc);}
-  .itc .accent{color:var(--itc);}
-  .itc .dim-item{border-color:var(--itc);}
-  .cap .code{background:var(--cap-tint);color:var(--cap);}
-  .adm .code{background:var(--adm-tint);color:var(--adm);}
-  .cap .accent{color:var(--cap);}
-  .cap .dim-item{border-color:var(--cap);}
-
-  .instrument{padding:90px 6vw;}
-  .instrument:nth-child(even){background:var(--paper-2);}
-
-  .closing{padding:130px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
-  .closing .eyebrow{justify-content:center;color:var(--gold-bright);}
-  .closing .eyebrow::before{background:var(--gold-bright);}
-  .closing h2{font-size:clamp(28px,4vw,46px);font-weight:300;max-width:760px;margin:20px auto 36px;line-height:1.3;color:#FFFFFF;}
-  .btn-primary{background:var(--gold-bright);color:var(--ink-bg);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;display:inline-block;transition:background .25s ease;}
-  .btn-primary:hover{background:#FFFFFF;}
-
-  footer{padding:32px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:12px;background:var(--paper);}
-
-  /* PACKAGE CARDS */
-  .pkg-section{padding:0 6vw 110px;}
-  .pkg-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media(min-width:760px){.pkg-grid{grid-template-columns:repeat(2,1fr);}}
-  .pkg-card{background:var(--panel);padding:40px 32px;display:flex;flex-direction:column;position:relative;}
-  .pkg-card.featured{border:2px solid var(--gold);}
-  .pkg-card.featured::before{content:'Produto principal';position:absolute;top:-1px;right:-1px;background:var(--gold);color:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;}
-  .pkg-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);letter-spacing:0.08em;}
-  .pkg-card h3{font-size:26px;font-weight:400;margin:14px 0 10px;}
-  .pkg-sub{font-size:13.5px;color:var(--stone);line-height:1.6;margin-bottom:26px;}
-  .pkg-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex-grow:1;}
-  .pkg-list li{font-size:13.5px;line-height:1.5;padding-left:18px;position:relative;color:var(--ink);}
-  .pkg-list li::before{content:'—';position:absolute;left:0;color:var(--gold-deep);}
-  .pkg-indicado{font-size:12.5px;color:var(--stone);line-height:1.6;margin-bottom:26px;font-style:italic;}
-  .pkg-tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-deep);border-top:1px solid var(--line);padding-top:18px;}
-
-  /* AVULSOS */
-  .avulsos{padding:100px 6vw;border-top:1px solid var(--line);background:var(--paper-2);}
-  .avulsos-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:50px;}
-  @media(min-width:640px){.avulsos-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:960px){.avulsos-grid{grid-template-columns:repeat(3,1fr);}}
-  .avulso-card{background:var(--panel);padding:28px 24px;}
-  .avulso-card h4{font-size:16.5px;font-weight:400;margin-bottom:10px;}
-  .avulso-card p{font-size:13px;color:var(--stone);line-height:1.6;}
-  .avulso-card .avulso-tag{display:block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-deep);text-transform:uppercase;letter-spacing:0.05em;}
-  .avulso-card.cta{background:var(--ink-bg);display:flex;flex-direction:column;justify-content:center;}
-  .avulso-card.cta h4{color:#FFFFFF;font-family:'Fraunces',serif;font-size:19px;}
-  .avulso-card.cta p{color:var(--stone-on-dark);}
-  .avulso-card.cta a{display:inline-block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);padding-bottom:3px;}
+  .closing h2{font-size:clamp(28px,4vw,46px);font-weight:300;max-width:760px;margin:20px 0 20px;line-height:1.25;}
+  .closing p{font-size:18px;line-height:1.7;color:var(--stone-on-dark);max-width:620px;margin-bottom:34px;}
 </style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
-  <div class="navlinks">
-    <a href="index.html#setores">Setores</a>
+<!--GT:HEADER-->
+<a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+<header class="gt-header" id="gt-header">
+  <a href="index.html" class="gt-logo" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="(max-width:859px) 80px, 99px"><img src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent" width="197" height="128"></picture></a>
+  <nav class="gt-nav" aria-label="Principal">
     <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html" class="active" aria-current="page">Investimento</a>
     <a href="ferramentas.html">Ferramentas</a>
-    <a href="pacotes.html" class="active">Pacotes</a>
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
-    <a href="contato.html">Contato</a>
-  </div>
-  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#setores">Setores</a>
-    <a href="metodologia.html">Metodologia</a>
-    <a href="ferramentas.html">Ferramentas</a>
-    <a href="pacotes.html" class="active">Pacotes</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="insights.html">Insights</a>
-    <a href="contato.html">Contato</a>
-  </div>
+    <a href="contato.html" class="gt-nav-cta">Contato</a>
+  </nav>
+  <button class="gt-burger" id="gt-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="gt-menu"><span></span><span></span><span></span></button>
+</header>
+<div class="gt-menu" id="gt-menu">
+  <a href="index.html">Início</a>
+  <a href="metodologia.html">Metodologia</a>
+  <a href="pacotes.html" class="active" aria-current="page">Investimento</a>
+  <a href="ferramentas.html">Ferramentas</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="insights.html">Insights</a>
+  <a href="contato.html">Contato</a>
+  <a href="contato.html" class="gt-menu-cta">Conversar sobre minha operação</a>
+  <a href="https://app.grandtalent.com.br/cliente" class="gt-menu-small">Área do cliente</a>
+</div>
+<!--/GT:HEADER-->
+
+<main id="conteudo">
 
 <section class="page-hero">
-  <div class="eyebrow">O investimento</div>
-  <h1>Não são pacotes fixos. São quatro níveis de compromisso — do primeiro contato ao acompanhamento contínuo.</h1>
-  <p>Cada nível resolve um momento diferente da sua decisão: conhecer o método, medir a operação, transformar a liderança, ou sustentar o resultado ao longo do tempo. O valor é calculado pelo porte da empresa e pela complexidade real do cenário — por isso conversamos antes de precificar.</p>
+  <div class="eyebrow">Investimento</div>
+  <h1>Não são pacotes fixos. São quatro níveis de compromisso.</h1>
+  <p>Do primeiro contato ao acompanhamento contínuo. O valor depende do porte da empresa e da complexidade da operação — por isso conversamos antes de precificar.</p>
 </section>
 
-<section class="pkg-section">
-  <div class="pkg-grid">
+<section class="journey-sec">
+  <div class="journey reveal">
+    <a class="journey-step" href="#discovery"><div class="jn">01</div><div class="jt">Discovery</div><div class="jq">Existe um problema que justifique investigação?</div></a>
+    <a class="journey-step" href="#diagnostico"><div class="jn">02</div><div class="jt">Diagnóstico</div><div class="jq">Onde está o problema, qual sua dimensão e quais grupos são mais afetados?</div></a>
+    <a class="journey-step" href="#transformacao"><div class="jn">03</div><div class="jt">Transformação</div><div class="jq">O que precisa mudar em liderança, comunicação, talentos e comportamento?</div></a>
+    <a class="journey-step" href="#partnership"><div class="jn">04</div><div class="jt">Partnership</div><div class="jq">Como sustentar o ganho e evitar regressão?</div></a>
+  </div>
+  <p class="jlead reveal">Você não precisa contratar toda a jornada. Cada etapa existe para responder a uma pergunta diferente.</p>
+</section>
 
-    <div class="pkg-card">
-      <div class="pkg-num">01</div>
-      <h3>Discovery</h3>
-      <p class="pkg-sub">Conhecer o método antes de decidir investir mais.</p>
-      <ul class="pkg-list">
-        <li>Workshop de venda (2-3h) com visão geral do Sistema 4.0 — engajamento, liderança, talentos e mudança</li>
-        <li>100% creditável em Diagnóstico ou Transformação, se fechado em até 60 dias</li>
-      </ul>
-      <p class="pkg-indicado">Indicado para o primeiro contato — quando a empresa ainda está decidindo se vale investir, ou tem verba pequena disponível agora.</p>
-      <div class="pkg-tag">Sob consulta</div>
-    </div>
+<section class="levels">
+  <div class="wrap">
 
-    <div class="pkg-card">
-      <div class="pkg-num">02</div>
-      <h3>Diagnóstico</h3>
-      <p class="pkg-sub">Medir o que hoje só se percebe, antes de comprometer orçamento maior.</p>
-      <ul class="pkg-list">
-        <li>IBEP-4.0 — engajamento, bem-estar e pertencimento</li>
-        <li>ITC-4.0 — mapeamento de talentos por área e turno</li>
-        <li>Devolutiva de resultados em 30/60/90 dias, com relatório executivo para RH e Diretoria</li>
-      </ul>
-      <p class="pkg-indicado">Indicado para quem quer dado antes de decidir, ou quer pilotar em uma unidade antes de escalar pra toda a operação.</p>
-      <div class="pkg-tag">Sob consulta</div>
-    </div>
+    <article class="level reveal" id="discovery">
+      <div>
+        <div class="lnum">01</div>
+        <h2>Discovery</h2>
+        <p class="lq">Existe um problema que justifique investigação?</p>
+      </div>
+      <div>
+        <ul>
+          <li>Workshop de 2 a 3 horas com a liderança: engajamento, liderança, talentos e mudança aplicados à realidade da empresa</li>
+          <li>Valor 100% creditável em Diagnóstico ou Transformação, se contratado em até 60 dias</li>
+        </ul>
+        <p class="when">Para quando a empresa ainda está decidindo se vale investigar mais a fundo.</p>
+        <div class="price">Sob consulta</div>
+      </div>
+    </article>
 
-    <div class="pkg-card featured">
-      <div class="pkg-num">03</div>
-      <h3>Transformação</h3>
-      <p class="pkg-sub">O produto carro-chefe: intervenção completa na liderança e na operação.</p>
-      <ul class="pkg-list">
-        <li>Diagnóstico completo (tudo do nível 02)</li>
-        <li>PLH-4.0 — palestra, devolutiva e acompanhamento individual dos casos críticos</li>
-        <li>CliftonStrengths Top 5 — aplicado individualmente às lideranças</li>
-        <li>CAP-4.0 — comunicação de alta performance</li>
-        <li>ADM-4.0 — leitura de prontidão para uma mudança específica em curso</li>
-      </ul>
-      <p class="pkg-indicado">Indicado quando o Diagnóstico já revelou um problema crítico na liderança, ou a empresa já está convencida de que precisa de intervenção ampla.</p>
-      <div class="pkg-tag">Sob consulta</div>
-    </div>
+    <article class="level reveal" id="diagnostico">
+      <div>
+        <div class="lnum">02</div>
+        <h2>Diagnóstico</h2>
+        <p class="lq">Onde está o problema, qual sua dimensão e quais grupos são mais afetados?</p>
+      </div>
+      <div>
+        <ul>
+          <li>IBEP-4.0 — engajamento e experiência, por área, turno e grupo</li>
+          <li>ITC-4.0 — talentos e dinâmica das equipes</li>
+          <li>Devolutiva de resultados em 30/60/90 dias, com relatório executivo para RH e diretoria</li>
+        </ul>
+        <p class="when">Para quem quer dado antes de decidir, ou quer começar por uma unidade antes de levar para toda a operação.</p>
+        <div class="price">Sob consulta</div>
+      </div>
+    </article>
 
-    <div class="pkg-card">
-      <div class="pkg-num">04</div>
-      <h3>Partnership</h3>
-      <p class="pkg-sub">Sustentar o resultado depois que a Transformação já foi entregue.</p>
-      <ul class="pkg-list">
-        <li>6 ciclos bimestrais de remedição ao longo de 12 meses</li>
-        <li>Reunião periódica com RH e Diretoria</li>
-        <li>Acesso prioritário para decisões de pessoas e ajustes de rota</li>
-      </ul>
-      <p class="pkg-indicado">Vendido só depois que a Transformação já mostrou resultado tangível — retainer se vende com prova, não com promessa.</p>
-      <div class="pkg-tag">Sob consulta</div>
-    </div>
+    <article class="level main reveal" id="transformacao">
+      <div>
+        <div class="lnum">03</div>
+        <h2>Transformação</h2>
+        <p class="lq">O que precisa mudar em liderança, comunicação, talentos e comportamento?</p>
+      </div>
+      <div>
+        <ul>
+          <li>Diagnóstico completo (tudo do nível 02)</li>
+          <li>PLH-4.0 — desenvolvimento da liderança, com acompanhamento individual dos casos críticos</li>
+          <li>CliftonStrengths Top 5 aplicado a cada líder</li>
+          <li>CAP-4.0 — Comunicação de Alta Performance</li>
+          <li>ADM-4.0 — prontidão para uma mudança específica em curso</li>
+        </ul>
+        <p class="when">Para quando o diagnóstico já mostrou onde está o problema e a empresa decidiu intervir.</p>
+        <div class="price">Sob consulta</div>
+      </div>
+    </article>
 
+    <article class="level reveal" id="partnership">
+      <div>
+        <div class="lnum">04</div>
+        <h2>Partnership</h2>
+        <p class="lq">Como sustentar o ganho e evitar regressão?</p>
+      </div>
+      <div>
+        <ul>
+          <li>Seis ciclos bimestrais de remedição ao longo de 12 meses</li>
+          <li>Reunião periódica com RH e diretoria</li>
+          <li>Acesso prioritário para decisões de pessoas e ajustes de rota</li>
+        </ul>
+        <p class="when">Depois da Transformação, quando já existe resultado a proteger.</p>
+        <div class="price">Sob consulta</div>
+      </div>
+    </article>
+
+    <p class="pricing-note reveal">Também é possível contratar partes do sistema separadamente — por exemplo, só o ADM-4.0 diante de uma mudança em curso, ou só o CAP-4.0 para a liderança.</p>
   </div>
 </section>
 
-<section class="avulsos">
-  <div class="avulsos-grid" style="grid-template-columns:1fr;">
-    <div class="avulso-card cta" style="text-align:center;">
-      <h4>Quanto custa não saber onde está travando?</h4>
-      <p>Enquanto o diagnóstico não acontece, a operação segue absorvendo um custo que ninguém mede — só sente.</p>
-      <a href="contato.html">Falar com o consultor →</a>
+<section class="sec sec-dark closing on-dark">
+  <div class="wrap">
+    <div class="eyebrow">Antes de decidir</div>
+    <h2>Quanto custa decidir sem localizar a causa?</h2>
+    <p>Turnover, absenteísmo, retrabalho e resistência à mudança já têm custo. A questão é saber onde agir primeiro.</p>
+    <div class="cta-row">
+      <a href="contato.html" class="btn-primary">Conversar sobre minha operação</a>
+      <a href="https://app.grandtalent.com.br/custo-oculto" class="btn-ghost">Calcular custo oculto</a>
     </div>
   </div>
 </section>
 
-<section class="closing">
-  <div class="eyebrow">Sistema 4.0</div>
-  <h2>Diagnóstico não é o fim do trabalho. É onde ele começa a fazer sentido.</h2>
-</section>
+</main>
 
-<footer>
-  <div>Grand Talent Consulting © 2026</div>
-  <div>Brasil · Portugal</div>
+<!--GT:FOOTER-->
+<footer class="gt-footer on-dark">
+  <div class="ft-grid">
+    <a class="ft-logo" href="index.html" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="111px"><img loading="lazy" src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent — Pessoas, Diagnóstico, Alta Performance" width="197" height="128"></picture></a>
+    <div class="ft-links">
+      <a href="metodologia.html">Metodologia</a>
+      <a href="pacotes.html">Investimento</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="insights.html">Insights</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <div class="ft-contact">
+      <a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a>
+      <span>Brasil · Portugal</span>
+    </div>
+  </div>
+  <div class="ft-base">
+    <span>GrandTalent Consulting © 2026</span>
+    <span><a href="privacidade.html">Privacidade</a> · <a href="https://app.grandtalent.com.br/cliente">Área do cliente</a> · <a href="https://app.grandtalent.com.br">Acesso do consultor</a></span>
+  </div>
 </footer>
-<script>
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-  }
-</script>
+<script src="assets/site.js" defer></script>
+<!--/GT:FOOTER-->
 </body>
 </html>

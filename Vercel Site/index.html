@@ -3,586 +3,433 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grand Talent Consulting</title>
+<title>GrandTalent Consulting — Diagnóstico de liderança e engajamento para operações</title>
+<meta name="description" content="A GrandTalent mede engajamento, liderança, talentos e prontidão para mudança em operações industriais e logísticas para mostrar onde a operação está perdendo força e o que corrigir primeiro.">
+<!--GT:HEAD-->
+<link rel="canonical" href="https://grandtalent.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrandTalent Consulting">
+<meta property="og:title" content="GrandTalent Consulting — Diagnóstico de liderança e engajamento para operações">
+<meta property="og:description" content="A GrandTalent mede engajamento, liderança, talentos e prontidão para mudança em operações industriais e logísticas para mostrar onde a operação está perdendo força e o que corrigir primeiro.">
+<meta property="og:url" content="https://grandtalent.com.br/">
+<meta property="og:image" content="https://grandtalent.com.br/assets/brand/og-grandtalent.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1C1913">
+<!--/GT:HEAD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FAF7F1;
-    --paper-2:#F1EBDD;
-    --panel:#FFFFFF;
-    --ink:#1C1913;
-    --stone:#6B6355;
-    --gold:#9C7A2E;
-    --gold-deep:#7A5F22;
-    --line:rgba(28,25,19,0.12);
-    --ink-bg:#1C1913;
-    --ink-bg-2:#252017;
-    --gold-bright:#D4B36A;
-    --stone-on-dark:#B4AB98;
-    --line-on-dark:rgba(255,255,255,0.14);
+    --ibep:#1F4D3D; --plh:#3E5C76; --itc:#B8862E; --cap:#6B3F63; --adm:#8B4226;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-weight:300;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--gold-deep);
-    display:flex;align-items:center;gap:12px;
-  }
-  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0;}
   h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
   a{color:inherit;text-decoration:none;}
 
-  nav{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:22px 6vw;
-    background:rgba(250,247,241,0.88);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid transparent;
-    transition:border-color .3s ease;
-  }
-  #topbar{position:fixed;top:0;left:0;right:0;z-index:100;}
-  #topbar.scrolled nav{border-color:var(--line);}
-  .promo-strip{
-    display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
-    background:var(--gold-bright);color:var(--ink);text-decoration:none;
-    padding:10px 16px;font-size:13px;text-align:center;line-height:1.4;
-    transition:background .2s ease;
-  }
-  .promo-strip:hover{background:var(--gold);}
-  @media(max-width:600px){
-    .promo-strip{padding:9px 12px;font-size:12px;}
-    .promo-strip .promo-desc{display:none;}
-  }
-  .logo{font-family:'Fraunces',serif;font-size:19px;letter-spacing:0.01em;}
-  .logo span{color:var(--gold-deep);}
-  .navlinks{display:none;gap:36px;font-size:13px;color:var(--stone);}
-  @media(min-width:860px){.navlinks{display:flex;}}
-  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:110;}
-  .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:transform .25s ease, opacity .25s ease;}
-  @media(min-width:860px){.hamburger{display:none;}}
-  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:105;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{font-size:20px;font-family:'Fraunces',serif;color:var(--ink);}
-  .mobile-menu a.active{color:var(--gold-deep);}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .navlinks a:hover{color:var(--gold-deep);}
+  /* HERO */
+  .hero{padding:calc(var(--header-h) + 84px) 6vw 96px;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;max-width:1180px;margin:0 auto;}
+  @media(min-width:960px){.hero-grid{grid-template-columns:1.2fr 0.8fr;}}
+  .hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.1;margin:22px 0 24px;font-weight:300;max-width:680px;}
+  .hero .lead{max-width:580px;margin-bottom:22px;}
+  .support{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.02em;color:var(--ink);border-left:2px solid var(--blue-deep);padding-left:14px;margin-bottom:38px;line-height:1.7;max-width:560px;}
+  .hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:grayscale(6%) contrast(1.02);border-radius:2px;border:1px solid var(--line);}
+  .hero-photo figcaption{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;}
+  @media(max-width:959px){.hero{padding-bottom:72px;}.hero-photo{max-width:420px;}}
+  @media(max-width:559px){.hero-photo{display:none;}}
 
-  .hero{padding:170px 6vw 90px;position:relative;}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;max-width:1280px;margin:0 auto;}
-  @media(min-width:960px){.hero-grid{grid-template-columns:1.15fr 0.85fr;}}
-  .hero-inner{max-width:600px;}
-  .hero h1{font-size:clamp(36px,5.8vw,64px);line-height:1.08;margin:22px 0 26px;font-weight:300;}
-  .hero h1 em{font-style:normal;color:var(--gold-deep);font-weight:500;}
-  .hero p.lede{max-width:580px;font-size:17px;line-height:1.7;color:var(--stone);margin-bottom:20px;}
-  .diff-line{
-    max-width:600px;font-size:14.5px;color:var(--ink);
-    border-left:2px solid var(--gold);padding-left:16px;margin-bottom:40px;line-height:1.6;
-  }
-  .cta-row{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
-  .btn-primary{background:var(--ink);color:var(--paper);padding:15px 30px;font-size:13px;letter-spacing:0.04em;font-weight:500;border-radius:2px;transition:background .25s ease;}
-  .btn-primary:hover{background:var(--gold-deep);}
-  .btn-ghost{font-size:13px;color:var(--stone);border-bottom:1px solid var(--line);padding-bottom:2px;}
-  .btn-ghost:hover{color:var(--gold-deep);border-color:var(--gold);}
+  /* PERGUNTA */
+  .question h2{font-size:clamp(28px,4vw,50px);line-height:1.22;font-weight:300;max-width:900px;margin-top:22px;}
+  .question h2 strong{color:var(--gold-bright);font-weight:400;}
+  .question p{font-size:18px;line-height:1.7;color:var(--stone-on-dark);max-width:620px;margin-top:34px;}
+  .verbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .verbs span{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFFFFF;border:1px solid var(--line-on-dark);padding:9px 14px;border-radius:2px;}
 
-  .hero-photo{width:100%;position:relative;}
-  .hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:grayscale(6%) contrast(1.02);border-radius:2px;}
-  .hero-photo::after{content:'';position:absolute;inset:0;border:1px solid var(--line);pointer-events:none;}
-  .hero-photo-caption{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;}
-  @media(max-width:960px){.hero-photo{max-width:440px;margin:0 auto;}}
+  /* CALCULADORA */
+  .calc{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .calc-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;max-width:1180px;margin:0 auto;}
+  @media(min-width:900px){.calc-grid{grid-template-columns:1.3fr 0.7fr;gap:72px;}}
+  .calc h2{font-size:clamp(28px,3.6vw,44px);line-height:1.2;font-weight:300;margin-top:18px;}
+  .calc p{font-size:17px;line-height:1.7;color:var(--stone);margin-top:18px;max-width:580px;}
+  .calc-box{background:var(--panel);border:1px solid var(--line);padding:30px 28px;}
+  .calc-box ul{list-style:none;margin-bottom:24px;}
+  .calc-box li{font-size:15px;color:var(--ink);padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;}
+  .calc-box li span{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--stone);}
+  .calc-box .btn-primary{width:100%;}
 
-  .manifesto{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
-  .manifesto .eyebrow{color:var(--gold-bright);}
-  .manifesto .eyebrow::before{background:var(--gold-bright);}
-  .manifesto-inner{max-width:760px;margin:0 auto;}
-  .manifesto h2{font-size:clamp(24px,3vw,38px);line-height:1.38;font-weight:300;margin-top:18px;color:#FFFFFF;}
-  .manifesto h2 strong{color:var(--gold-bright);font-weight:500;}
-  .manifesto .attribution{margin-top:32px;font-size:13px;color:var(--stone-on-dark);font-family:'IBM Plex Mono',monospace;}
+  /* CUSTO INVISÍVEL */
+  .cost-grid{display:grid;grid-template-columns:1fr;gap:48px;max-width:1180px;margin:0 auto;align-items:start;}
+  @media(min-width:900px){.cost-grid{grid-template-columns:1.1fr 0.9fr;gap:80px;}}
+  .cost h2{font-size:clamp(28px,3.8vw,46px);line-height:1.22;font-weight:300;margin-top:20px;}
+  .cost h2 strong{color:var(--gold-bright);font-weight:400;}
+  .cost .then{font-family:'Fraunces',serif;font-size:clamp(20px,2.4vw,26px);line-height:1.4;color:#FFFFFF;font-weight:300;margin-bottom:26px;}
+  .cost .bridge{margin-top:30px;font-size:17px;color:#FFFFFF;}
+  .cost .bridge a{color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);padding-bottom:2px;}
 
-  .method{padding:120px 6vw;}
+  /* SISTEMA */
+  .system .sec-head{margin-bottom:40px;}
+  .system .flow-wrap{margin-top:40px;}
+  .flow-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);margin-bottom:14px;}
+  .system-note{display:grid;grid-template-columns:1fr;gap:20px 56px;margin-top:44px;max-width:1180px;}
+  @media(min-width:900px){.system-note{grid-template-columns:1fr 1fr;}}
+  .system-note p{font-size:16px;line-height:1.7;color:var(--stone);}
+  .system-note p strong{color:var(--ink);font-weight:500;}
 
-  .roi-teaser{padding:90px 6vw;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);text-align:center;}
-  .roi-teaser-inner{max-width:680px;margin:0 auto;}
-  .roi-teaser .eyebrow{justify-content:center;}
-  .roi-teaser h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(24px,3.6vw,36px);line-height:1.3;margin:16px 0 18px;}
-  .roi-teaser p{font-size:15.5px;line-height:1.75;color:var(--stone);max-width:560px;margin:0 auto 30px;}
-  .roi-teaser .btn-primary{display:inline-block;text-decoration:none;}
-  .method-head{max-width:640px;margin-bottom:70px;}
-  .method-head h2{font-size:clamp(26px,3.4vw,42px);font-weight:300;margin-top:18px;}
-  .pillars{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media(min-width:860px){.pillars{grid-template-columns:repeat(4,1fr);}}
-  .pillar{background:var(--panel);padding:0 0 32px;}
-  .pillar img{width:100%;height:160px;object-fit:cover;display:block;margin-bottom:24px;filter:grayscale(15%);}
-  .pillar .pillar-text{padding:0 32px;}
-  .pillar .num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-deep);letter-spacing:0.05em;}
-  .pillar h3{font-size:23px;margin:16px 0 12px;font-weight:400;}
-  .pillar p{font-size:14.5px;line-height:1.65;color:var(--stone);}
+  /* SETORES */
+  .sectors-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line-on-dark);}
+  @media(min-width:900px){.sectors-grid{grid-template-columns:repeat(3,1fr);gap:48px;border-top:none;}}
+  .sector{padding:26px 0;border-bottom:1px solid var(--line-on-dark);}
+  @media(min-width:900px){.sector{border-bottom:none;border-top:1px solid var(--line-on-dark);padding-top:30px;}}
+  .sector .slabel{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:14px;}
+  .sector p{font-size:17px;line-height:1.75;color:#FFFFFF;}
+  .sectors-foot{margin-top:52px;font-family:'Fraunces',serif;font-size:clamp(20px,2.4vw,26px);line-height:1.4;font-weight:300;color:#FFFFFF;max-width:720px;}
+  .profile-line{margin-top:22px;font-size:15px;color:var(--stone-on-dark);max-width:640px;line-height:1.6;}
 
-  /* SEGMENTS */
-  .segments{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
-  .segments .eyebrow{color:var(--gold-bright);}
-  .segments .eyebrow::before{background:var(--gold-bright);}
-  .segments h2{color:#FFFFFF;}
-  .seg-groups{display:grid;grid-template-columns:1fr;gap:60px;margin-top:60px;}
-  @media(min-width:860px){.seg-groups{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:1200px){.seg-groups{grid-template-columns:repeat(4,1fr);}}
-  .seg-group .glabel{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line-on-dark);}
-  .seg-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
-  .seg-item svg{flex-shrink:0;width:22px;height:22px;stroke:var(--gold-bright);margin-top:2px;}
-  .seg-item span{font-size:14.5px;color:#FFFFFF;line-height:1.5;}
+  /* QUEM ASSINA */
+  .author-grid{display:grid;grid-template-columns:1fr;gap:48px;max-width:1180px;margin:0 auto;}
+  @media(min-width:960px){.author-grid{grid-template-columns:0.8fr 1.2fr;gap:72px;align-items:start;}}
+  .author h2{font-size:clamp(28px,3.6vw,44px);line-height:1.18;font-weight:300;margin-top:18px;}
+  .author figure{margin-top:34px;max-width:440px;}
+  .author figure img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.05);border-radius:2px;}
+  .author figcaption{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;color:var(--stone);text-transform:uppercase;}
+  .author .opening{font-family:'Fraunces',serif;font-size:clamp(19px,2.2vw,23px);line-height:1.5;font-weight:300;color:var(--ink);margin-bottom:30px;}
+  .author .psafe{margin-top:28px;border-left:2px solid var(--gold);padding-left:18px;font-size:16px;line-height:1.7;color:var(--ink);}
 
-  .about{padding:120px 6vw;display:grid;grid-template-columns:1fr;gap:56px;}
-  @media(min-width:860px){.about{grid-template-columns:0.9fr 1.1fr;align-items:start;}}
-  .about h2{font-size:clamp(24px,3vw,36px);font-weight:300;margin-top:18px;max-width:420px;}
-  .about-photo{margin-top:36px;max-width:420px;}
-  .about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.05);border-radius:2px;}
-  .about-photo-caption{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.05em;color:var(--stone);text-transform:uppercase;}
-  .about-body p{font-size:15.5px;line-height:1.85;color:var(--stone);margin-bottom:20px;max-width:560px;}
-  .about-body strong{color:var(--ink);font-weight:500;}
-  .credentials{display:flex;flex-wrap:wrap;margin-top:34px;border-top:1px solid var(--line);}
-  .cred{padding:20px 28px 0 0;margin-right:26px;}
-  .cred .val{font-family:'Fraunces',serif;font-size:24px;color:var(--gold-deep);}
-  .cred .lbl{font-size:11.5px;color:var(--stone);margin-top:4px;max-width:160px;line-height:1.4;}
-
-  .packages{padding:120px 6vw;border-top:1px solid var(--line);background:var(--ink-bg);}
-  .packages .eyebrow{color:var(--gold-bright);}
-  .packages .eyebrow::before{background:var(--gold-bright);}
-  .packages h2{color:#FFFFFF;}
-  .pack-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:60px;}
-  @media(min-width:860px){.pack-grid{grid-template-columns:repeat(3,1fr);}}
-  .pack{background:var(--ink-bg-2);border:1px solid var(--line-on-dark);padding:38px 28px;display:flex;flex-direction:column;transition:border-color .3s ease, transform .3s ease;}
-  .pack:hover{border-color:var(--gold-bright);transform:translateY(-3px);}
-  .pack.feat{border-color:var(--gold-bright);}
-  .pack .tier{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:var(--gold-bright);text-transform:uppercase;}
-  .pack h3{font-size:25px;margin:14px 0 14px;font-weight:400;color:#FFFFFF;}
-  .pack p{font-size:14px;color:var(--stone-on-dark);line-height:1.7;flex-grow:1;margin-bottom:22px;}
-  .pack .link{font-size:12.5px;color:var(--gold-bright);border-top:1px solid var(--line-on-dark);padding-top:16px;}
+  /* ORIGEM ACADÊMICA */
+  .origin-grid{display:grid;grid-template-columns:1fr;gap:36px;max-width:1180px;margin:0 auto;align-items:center;}
+  @media(min-width:900px){.origin-grid{grid-template-columns:1.2fr 0.8fr;gap:72px;}}
+  .origin h2{font-size:clamp(26px,3.2vw,40px);line-height:1.22;font-weight:300;margin-top:18px;}
+  .origin h2 span{color:var(--gold-deep);}
+  .origin p{font-size:17px;line-height:1.75;color:var(--stone);margin-top:20px;max-width:620px;}
+  .grade{background:var(--panel);border:1px solid var(--line);padding:34px 30px;}
+  .grade .gval{font-family:'Fraunces',serif;font-size:64px;line-height:1;color:var(--gold-deep);font-weight:300;}
+  .grade .glbl{font-size:16px;color:var(--ink);margin-top:12px;}
+  .grade .gsub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--stone);margin-top:10px;line-height:1.6;}
 
   /* INSIGHTS */
-  .insights{padding:120px 6vw;}
-  .insight-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:60px;}
-  @media(min-width:860px){.insight-grid{grid-template-columns:repeat(3,1fr);}}
-  .insight-card{border:1px solid var(--line);padding:30px;background:var(--panel);}
-  .insight-card .itag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold-deep);letter-spacing:0.08em;text-transform:uppercase;}
-  .insight-card h3{font-size:19px;margin:14px 0 12px;font-weight:400;line-height:1.35;}
-  .insight-card p{font-size:13.5px;color:var(--stone);line-height:1.6;}
-  .insight-note{margin-top:36px;font-size:13px;color:var(--stone);font-style:italic;}
+  .ins-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:860px){.ins-grid{grid-template-columns:repeat(3,1fr);}}
+  .ins-card{background:var(--panel);padding:30px 28px;display:flex;flex-direction:column;gap:12px;transition:background .2s ease;}
+  .ins-card:hover{background:#FFFDF8;}
+  .ins-card:hover h3{color:var(--blue-deep);}
+  .ins-card .itag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--gold-deep);letter-spacing:0.08em;text-transform:uppercase;}
+  .ins-card h3{font-size:21px;line-height:1.35;font-weight:400;transition:color .2s ease;}
+  .ins-card p{font-size:15px;color:var(--stone);line-height:1.6;flex-grow:1;}
+  .ins-card .imeta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--stone);}
 
-  .live-feed{padding:100px 6vw 80px;border-top:1px solid var(--line);}
-  .feed-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px;}
-  @media(min-width:860px){.feed-grid{grid-template-columns:repeat(3,1fr);}}
-  .feed-card{background:var(--panel);padding:26px 24px;text-decoration:none;color:var(--ink);display:block;transition:background .2s ease;}
-  .feed-card:hover{background:var(--paper-2);}
-  .feed-source{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
-  .feed-title{font-size:15.5px;line-height:1.45;color:var(--ink);}
-  .feed-loading{grid-column:1/-1;padding:40px;text-align:center;color:var(--stone);font-size:13px;background:var(--panel);}
-  .feed-updated{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone);text-align:right;}
-
-  .contact{padding:140px 6vw 90px;border-top:1px solid var(--line);background:var(--ink-bg);text-align:center;}
-  .contact .eyebrow{color:var(--gold-bright);justify-content:center;}
-  .contact .eyebrow::before{background:var(--gold-bright);}
-  .contact h2{font-size:clamp(28px,4vw,50px);font-weight:300;max-width:760px;margin:20px auto 40px;line-height:1.28;color:#FFFFFF;}
-  .contact .btn-primary{background:var(--gold-bright);color:var(--ink-bg);}
-  .contact .btn-primary:hover{background:#FFFFFF;}
-  footer{padding:32px 6vw;border-top:1px solid var(--line-on-dark);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone-on-dark);flex-wrap:wrap;gap:12px;background:var(--ink-bg);}
+  /* FECHO */
+  .closing-grid{display:grid;grid-template-columns:1fr;gap:56px;max-width:1180px;margin:0 auto;}
+  @media(min-width:960px){.closing-grid{grid-template-columns:1fr 1fr;gap:80px;align-items:start;}}
+  .closing h2{font-size:clamp(28px,3.8vw,46px);line-height:1.22;font-weight:300;margin:20px 0 32px;}
+  .closing .sig{margin-top:56px;max-width:360px;}
+  .closing .sig img{width:100%;height:auto;display:block;}
+  @media(max-width:559px){.closing .sig{max-width:280px;}}
 </style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<div id="topbar">
-  <a href="https://app.grandtalent.com.br/termometro" class="promo-strip">
-    <strong>🌡️ Teste grátis de 2 minutos:</strong>
-    <span class="promo-desc">descubra o nível de engajamento da sua empresa agora</span>
-    <span style="font-weight:600;text-decoration:underline;">Fazer o teste →</span>
-  </a>
-
-  <nav id="nav">
-    <div class="logo">Grand<span>Talent</span> Consulting</div>
-    <div class="navlinks">
+<!--GT:HEADER-->
+<a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+<header class="gt-header" id="gt-header">
+  <a href="index.html" class="gt-logo" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="(max-width:859px) 80px, 99px"><img src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent" width="197" height="128"></picture></a>
+  <nav class="gt-nav" aria-label="Principal">
     <a href="metodologia.html">Metodologia</a>
+    <a href="pacotes.html">Investimento</a>
     <a href="ferramentas.html">Ferramentas</a>
-    <a href="pacotes.html">Pacotes</a>
-    <a href="#setores">Setores</a>
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
-    <a href="contato.html">Contato</a>
-    <a href="https://app.grandtalent.com.br/cliente" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Área do Cliente</a> <a href="https://app.grandtalent.com.br" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Acesso do Consultor</a>
-  </div>
-  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    <a href="contato.html" class="gt-nav-cta">Contato</a>
   </nav>
+  <button class="gt-burger" id="gt-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="gt-menu"><span></span><span></span><span></span></button>
+</header>
+<div class="gt-menu" id="gt-menu">
+  <a href="index.html">Início</a>
+  <a href="metodologia.html">Metodologia</a>
+  <a href="pacotes.html">Investimento</a>
+  <a href="ferramentas.html">Ferramentas</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="insights.html">Insights</a>
+  <a href="contato.html">Contato</a>
+  <a href="contato.html" class="gt-menu-cta">Conversar sobre minha operação</a>
+  <a href="https://app.grandtalent.com.br/cliente" class="gt-menu-small">Área do cliente</a>
 </div>
-<div class="mobile-menu" id="mobile-menu">
-    <a href="metodologia.html">Metodologia</a>
-    <a href="ferramentas.html">Ferramentas</a>
-    <a href="pacotes.html">Pacotes</a>
-    <a href="#setores">Setores</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="insights.html">Insights</a>
-    <a href="contato.html">Contato</a>
-    <a href="https://app.grandtalent.com.br/cliente" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Área do Cliente</a>
-    <a href="https://app.grandtalent.com.br" class="btn-ghost" style="border:1px solid var(--line);padding:8px 16px;border-radius:2px;">Acesso do Consultor</a>
-  </div>
+<!--/GT:HEADER-->
 
+<main id="conteudo">
+
+<!-- 1. PROBLEMA -->
 <section class="hero">
   <div class="hero-grid">
-    <div class="hero-inner">
-      <div class="eyebrow">Liderança humanizada &amp; diagnóstico organizacional</div>
-      <h1>Transformamos liderança em um ativo mensurável de reputação e performance operacional.</h1>
-      <p class="lede">Sistema 4.0: cinco instrumentos validados academicamente para diagnosticar engajamento, desenvolver liderança, mapear talentos, conduzir mudança e sustentar resultado — num só ciclo integrado. Aplicado em operações industriais, logísticas e corporativas no Brasil e em Portugal. Não é percepção. É dado, com plano de ação e acompanhamento até o resultado aparecer.</p>
-      <div class="diff-line">Diferente de consultorias genéricas de RH: medimos com instrumentos validados academicamente, cruzamos engajamento com disposição para mudança, e acompanhamos até o resultado aparecer — da liderança de linha à diretoria.</div>
+    <div>
+      <div class="eyebrow">Pessoas · Diagnóstico · Alta Performance</div>
+      <h1>Você sabe onde sua liderança está custando performance à operação?</h1>
+      <p class="lead">A GrandTalent mede engajamento, liderança, talentos e prontidão para mudança para mostrar onde a operação está perdendo força e o que precisa ser corrigido primeiro.</p>
+      <p class="support">Diagnóstico baseado em dados. Intervenção direcionada. Acompanhamento do resultado.</p>
       <div class="cta-row">
-        <a href="contato.html" class="btn-primary">Agendar diagnóstico</a>
-        <a href="#metodologia" class="btn-ghost">Conhecer a metodologia</a>
+        <a href="https://app.grandtalent.com.br/termometro" class="btn-primary">Medir minha operação</a>
+        <a href="#sistema" class="btn-ghost">Conhecer o Sistema 4.0</a>
       </div>
-      <div style="margin-top:16px;font-size:12px;color:var(--stone);font-family:'IBM Plex Mono',monospace;">Conversa de 30 min, sem compromisso · resposta em até 24h</div>
+      <p class="cta-note">Primeira leitura gratuita em 2 minutos</p>
     </div>
-    <div class="hero-photo">
-      <img src="lideranca-escuta.jpg" alt="Liderança humanizada — supervisor em conversa próxima com colaborador no chão de fábrica">
-      <div class="hero-photo-caption">PLH-4.0 · liderança que escuta antes de decidir</div>
-    </div>
+    <figure class="hero-photo">
+      <img src="lideranca-escuta.jpg" alt="Supervisor em conversa próxima com colaborador no chão de fábrica" width="1408" height="768" fetchpriority="high">
+      <figcaption>Liderança que escuta antes de decidir</figcaption>
+    </figure>
   </div>
 </section>
 
-
-<section class="manifesto">
-  <div class="manifesto-inner">
+<!-- 2. A PERGUNTA -->
+<section class="sec sec-dark question">
+  <div class="wrap reveal">
     <div class="eyebrow">Uma pergunta antes de tudo</div>
-    <h2>Se um colaborador contasse hoje, sem filtro, como é trabalhar na sua empresa — <strong>o que ele diria</strong>? A maioria dos diretores de RH nunca ouviu essa resposta de verdade. Não porque falta pesquisa de clima. Porque falta método para transformar o que se ouve em algo que se mede, se acompanha e se corrige.</h2>
-    <div class="attribution">— É esse o vazio que o Grand Talent Consulting foi construído para preencher.</div>
+    <h2>Se um colaborador contasse hoje, sem filtro, como é trabalhar na sua empresa — <strong>o que ele diria?</strong></h2>
+    <p>Na maioria das operações, essa resposta já existe — em conversas de corredor, em pedidos de demissão, em indicadores que pioram sem explicação. O que costuma faltar não é pesquisa. É transformar o que as pessoas percebem e relatam em informação que possa ser:</p>
+    <div class="verbs" aria-label="medida, localizada, acompanhada, corrigida"><span>Medida</span><span>Localizada</span><span>Acompanhada</span><span>Corrigida</span></div>
   </div>
 </section>
 
-<section class="roi-teaser">
-  <div class="roi-teaser-inner">
-    <div class="eyebrow">Ferramenta gratuita</div>
-    <h2>Quanto a sua empresa pode estar perdendo com problemas de liderança?</h2>
-    <p>Estime em poucos minutos o custo anual de turnover, absenteísmo, retrabalho, acidentes e baixa produtividade — e veja qual poderia ser o impacto de uma intervenção estruturada.</p>
-    <a href="https://app.grandtalent.com.br/custo-oculto" class="btn-primary">Calcular o custo oculto da minha empresa →</a>
-  </div>
-</section>
-
-<section class="method" id="metodologia">
-  <div class="method-head">
-    <div class="eyebrow">O custo do engajamento invisível</div>
-    <h2>Todo board sabe o custo de uma parada de linha. Poucos sabem o custo de uma liderança que não sustenta engajamento.</h2>
-    <p style="max-width:660px;color:var(--stone);font-size:15px;line-height:1.7;margin-top:14px;">A Gallup estima que a queda global de engajamento já custa US$ 438 bilhões em produtividade perdida por ano. Apenas 21% dos profissionais no mundo se declaram genuinamente engajados — e cerca de 70% dessa variação vem diretamente da qualidade da liderança direta, não de política de RH ou benefício. Em manufatura e logística, isso se traduz em retrabalho, turnover de operação e decisões que não pegam. O Sistema 4.0 mede esse risco antes que ele apareça no resultado — com quatro instrumentos que se conectam num só diagnóstico.</p>
-  </div>
-  <div class="pillars">
-    <div class="pillar">
-      <img src="Fotos%20site/ibep-4-0.jpg" alt="IBEP-4.0 — Diagnóstico de engajamento">
-      <div class="pillar-text">
-        <div class="num">01 — Diagnóstico</div>
-        <h3>IBEP-4.0</h3>
-        <p>Mede engajamento real em seis dimensões, com rigor estatístico validado academicamente — não uma pesquisa de clima genérica.</p>
-      </div>
+<!-- 3. CUSTO — calculadora -->
+<section class="sec sec-tint calc" id="custo-oculto">
+  <div class="calc-grid reveal">
+    <div>
+      <div class="eyebrow">Ferramenta gratuita</div>
+      <h2>Quanto os problemas de pessoas podem estar custando à sua operação?</h2>
+      <p>Turnover, absenteísmo, retrabalho, acidentes e perda de produtividade deixam rastros financeiros. Faça uma estimativa inicial em poucos minutos.</p>
     </div>
-    <div class="pillar">
-      <img src="Fotos%20site/plh-4-0.jpg" alt="PLH-4.0 — Protocolo de liderança humanizada">
-      <div class="pillar-text">
-        <div class="num">02 — Desenvolvimento</div>
-        <h3>PLH-4.0</h3>
-        <p>Protocolo de liderança humanizada: acompanhamento mensal estruturado, que transforma dado em comportamento de liderança no chão de fábrica.</p>
-      </div>
-    </div>
-    <div class="pillar">
-      <img src="Fotos%20site/itc-4-0.jpg" alt="ITC-4.0 — Mapeamento de talentos">
-      <div class="pillar-text">
-        <div class="num">03 — Talento</div>
-        <h3>ITC-4.0</h3>
-        <p>Mapeia perfis colaborativos reais do seu time — quem executa, quem conecta, quem sustenta — para alocar liderança onde ela rende mais.</p>
-      </div>
-    </div>
-    <div class="pillar">
-      <img src="Fotos%20site/adm-4-0.jpg" alt="ADM-4.0 — Disposição para mudança">
-      <div class="pillar-text">
-        <div class="num">04 — Mudança</div>
-        <h3>ADM-4.0</h3>
-        <p>Mede a disposição real das pessoas diante de uma mudança específica em curso — e identifica exatamente em qual etapa ela está travando.</p>
-      </div>
-    </div>
-  </div>
-  <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-    <a href="metodologia.html" class="btn-ghost">Ver a metodologia completa (com CAP-4.0) →</a>
-    <a href="https://app.grandtalent.com.br/termometro" class="btn-primary">Sentir o pulso da sua empresa agora — teste grátis →</a>
-  </div>
-</section>
-
-<section class="live-feed" id="radar">
-  <div class="method-head">
-    <div class="eyebrow">Acontecendo agora</div>
-    <h2>O que o mundo está discutindo sobre engajamento e liderança</h2>
-  </div>
-  <div id="feed-container" class="feed-grid">
-    <div class="feed-loading">Carregando notícias mais recentes...</div>
-  </div>
-  <div id="feed-updated" class="feed-updated"></div>
-</section>
-
-<section class="segments" id="setores">
-  <div class="method-head" style="margin-bottom:0;">
-    <div class="eyebrow">Onde atuamos</div>
-    <h2>Da linha de produção à sala de reunião — a mesma disciplina de diagnóstico.</h2>
-  </div>
-  <div class="seg-groups">
-    <div class="seg-group">
-      <div class="glabel">Manufatura &amp; Indústria</div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l5 3v-3l5 3v-3l5 3v7"/><path d="M4 10V7l3-3 3 3"/></svg>
-        <span>Fábricas e linhas de produção</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg>
-        <span>Montagem industrial (automotivo, eletrônicos, bens de consumo)</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span>Metalurgia e siderurgia</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 20V9"/></svg>
-        <span>Indústria têxtil e calçadista</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 4-2 5-2 9h16c0-4-2-5-2-9Z"/><path d="M9 21h6"/></svg>
-        <span>Alimentos e bebidas (produção)</span>
-      </div>
-    </div>
-    <div class="seg-group">
-      <div class="glabel">Logística</div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l4 4v4h-8V8Z"/><circle cx="5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-        <span>Transporte e frotas</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg>
-        <span>Armazenagem e centros de distribuição</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c2-4 6-4 8 0M12 21c2-4 6-4 8 0"/><path d="M4 17c0-6 4-9 8-9s8 3 8 9"/></svg>
-        <span>Operações portuárias e cadeia de suprimentos</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13M11 6l6 6-6 6"/></svg>
-        <span>Última milha / distribuição</span>
-      </div>
-    </div>
-    <div class="seg-group">
-      <div class="glabel">Áreas de expansão</div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
-        <span>Construção civil (canteiro de obras)</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 3 4 6 4 9a4 4 0 0 1-8 0c0-3 1-6 4-9Z"/><path d="M12 15v7"/></svg>
-        <span>Agroindústria (produção e processamento)</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 11-13h-8l1-7Z"/></svg>
-        <span>Energia e utilities (operações de campo)</span>
-      </div>
-    </div>
-    <div class="seg-group">
-      <div class="glabel">Liderança administrativa &amp; corporativa</div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
-        <span>Escritórios administrativos dentro da própria operação industrial</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-        <span>Times de RH, qualidade, engenharia e supply chain</span>
-      </div>
-      <div class="seg-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span>Diretoria e liderança executiva da mesma empresa</span>
-      </div>
+    <div class="calc-box">
+      <ul>
+        <li>Turnover <span>custo de reposição</span></li>
+        <li>Absenteísmo <span>horas perdidas</span></li>
+        <li>Retrabalho <span>qualidade</span></li>
+        <li>Acidentes <span>segurança</span></li>
+        <li>Produtividade <span>ritmo da operação</span></li>
+      </ul>
+      <a href="https://app.grandtalent.com.br/custo-oculto" class="btn-primary">Calcular custo oculto</a>
+      <p class="cta-note">Uma estimativa. O diagnóstico mostra onde agir.</p>
     </div>
   </div>
 </section>
 
-<section class="about" id="sobre">
-  <div>
-    <div class="eyebrow">Quem assina o método</div>
-    <h2>Trinta anos de chão de fábrica. Uma pós-graduação para nomear o que já era prática.</h2>
-    <div class="about-photo">
-      <img src="eu-na-mb.jpg" alt="Anderson Carvalho no chão de fábrica, na produção de caminhões">
-      <div class="about-photo-caption">Anderson Carvalho · linha de produção</div>
+<!-- 4. A PONTE -->
+<section class="sec sec-dark cost">
+  <div class="cost-grid">
+    <div class="reveal">
+      <div class="eyebrow">O custo do engajamento invisível</div>
+      <h2>Todo board sabe o custo de uma parada de linha. <strong>Poucos sabem o custo de uma liderança que não sustenta engajamento.</strong></h2>
     </div>
-  </div>
-  <div class="about-body">
-    <p>O Grand Talent Consulting nasce de uma trajetória de 30 anos em ambientes industriais — incluindo passagem pela Mercedes-Benz do Brasil e pela Volkswagen do Brasil, em logística, qualidade, segurança e liderança — combinada a uma pós-graduação em <strong>Comunicação Estratégica para Marca e Reputação</strong> (PUCRS, TCC nota 10), que teve a própria Mercedes-Benz como estudo de caso.</p>
-    <p>Essa combinação é rara: <strong>quem já parou uma linha de montagem</strong> por um erro entende, na prática, por que segurança psicológica não é teoria de livro — é o que decide se alguém avisa a tempo ou esconde o problema até ele ficar caro.</p>
-    <p>Antes da indústria, veio o jornalismo — rádio, TV, apresentação, por mais de 10 anos. O tempo formou <strong>o faro para separar sinal de ruído</strong>, a habilidade de ouvir o que não foi dito e perguntar o que ninguém quis perguntar primeiro. É esse faro, não um questionário padrão, que sustenta cada diagnóstico aplicado.</p>
-    <p>Radicado em Portugal, com raízes brasileiras, o trabalho acontece hoje <strong>com os dois mercados vividos de dentro</strong> — não estudados de fora. Cultura organizacional, ritmo de decisão e expectativa de liderança mudam do Brasil para Portugal; poucos consultores atravessam essa fronteira com experiência real dos dois lados.</p>
-    <div class="credentials">
-      <div class="cred"><div class="val">30</div><div class="lbl">anos de experiência industrial e de liderança operacional</div></div>
-      <div class="cred"><div class="val">10/10</div><div class="lbl">nota na tese de pós-graduação (PUCRS)</div></div>
-      <div class="cred"><div class="val">Clifton Top 5</div><div class="lbl">especialista em CliftonStrengths</div></div>
-      <div class="cred"><div class="val">BR · PT</div><div class="lbl">jornalismo, rádio e TV, com vivência nos dois mercados</div></div>
-    </div>
-    <div style="margin-top:32px;">
-      <a href="sobre.html" class="btn-ghost">Ver trajetória completa →</a>
+    <div class="reveal">
+      <p class="then">O problema aparece no resultado. A causa costuma aparecer antes nas pessoas.</p>
+      <div class="signals" role="list" aria-label="Sinais que costumam aparecer antes do resultado">
+        <div class="signal" role="listitem"><span class="arr" aria-hidden="true">↑</span><span>Turnover</span></div>
+        <div class="signal" role="listitem"><span class="arr" aria-hidden="true">↑</span><span>Absenteísmo</span></div>
+        <div class="signal" role="listitem"><span class="arr" aria-hidden="true">↑</span><span>Retrabalho</span></div>
+        <div class="signal" role="listitem"><span class="arr" aria-hidden="true">↑</span><span>Resistência à mudança</span></div>
+        <div class="signal down" role="listitem"><span class="arr" aria-hidden="true">↓</span><span>Engajamento</span></div>
+      </div>
+      <p class="bridge">É aí que entra o <a href="#sistema">Sistema 4.0</a>.</p>
     </div>
   </div>
 </section>
 
-<section class="method" style="padding-top:0;">
-  <div style="max-width:640px;">
-    <div class="eyebrow">Caso de referência</div>
-    <h2 style="font-size:clamp(24px,3vw,34px);font-weight:300;margin-top:18px;">Mercedes-Benz do Brasil — estudo de caso acadêmico</h2>
-    <p style="font-size:15px;line-height:1.8;color:var(--stone);margin-top:18px;">A metodologia por trás do Grand Talent Consulting foi testada e validada academicamente (PUCRS, nota 10/10) usando a Mercedes-Benz do Brasil como estudo de caso de reputação corporativa. É a base sobre a qual o IBEP-4.0 e o PLH-4.0 foram construídos — o primeiro piloto comercial completo está em fase de prospecção.</p>
+<!-- 5. DIAGNÓSTICO / MÉTODO -->
+<section class="sec system" id="sistema">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Sistema 4.0</div>
+      <h2>Cinco instrumentos. Um único diagnóstico da operação.</h2>
+    </div>
+    <div class="instr-row reveal" role="list">
+      <div class="instr-chip" role="listitem" style="--c:var(--ibep)"><div class="icode"><i></i>IBEP-4.0</div><div class="iwhat">Engajamento e experiência</div></div>
+      <div class="instr-chip" role="listitem" style="--c:var(--itc)"><div class="icode"><i></i>ITC-4.0</div><div class="iwhat">Talentos e dinâmica da equipe</div></div>
+      <div class="instr-chip" role="listitem" style="--c:var(--plh)"><div class="icode"><i></i>PLH-4.0</div><div class="iwhat">Liderança e desenvolvimento</div></div>
+      <div class="instr-chip" role="listitem" style="--c:var(--cap)"><div class="icode"><i></i>CAP-4.0</div><div class="iwhat">Comunicação de Alta Performance</div></div>
+      <div class="instr-chip" role="listitem" style="--c:var(--adm)"><div class="icode"><i></i>ADM-4.0</div><div class="iwhat">Prontidão para mudança</div></div>
+    </div>
+    <div class="flow-wrap reveal">
+      <div class="flow-label">Como os instrumentos trabalham juntos</div>
+      <ol class="flow">
+        <li class="flow-step"><div class="fverb">Medir</div><div class="fwhat">Engajamento real da operação</div></li>
+        <li class="flow-step"><div class="fverb">Localizar</div><div class="fwhat">Área · turno · liderança · grupo</div></li>
+        <li class="flow-step"><div class="fverb">Compreender</div><div class="fwhat">Talentos, dinâmica e causa</div></li>
+        <li class="flow-step"><div class="fverb">Intervir</div><div class="fwhat">Liderança e comunicação, onde o dado aponta</div></li>
+        <li class="flow-step"><div class="fverb">Acompanhar</div><div class="fwhat">Adesão à mudança e reavaliação</div></li>
+      </ol>
+    </div>
+    <div class="system-note reveal">
+      <p><strong>Diagnóstico antes da intervenção.</strong> Nenhum treinamento é proposto antes de saber onde está o problema, qual sua dimensão e quais grupos são mais afetados.</p>
+      <p><strong>Complementa o que a empresa já tem.</strong> Pesquisas de clima, indicadores e avaliações existentes entram no diagnóstico. O objetivo é entender o que os dados atuais ainda não estão mostrando.</p>
+    </div>
+    <div class="cta-row reveal" style="margin-top:40px;">
+      <a href="metodologia.html" class="btn-primary">Conhecer o Sistema 4.0</a>
+      <a href="https://app.grandtalent.com.br/custo-oculto" class="btn-ghost">Calcular custo oculto</a>
+    </div>
   </div>
 </section>
 
-<section class="packages" id="pacotes">
-  <div class="method-head" style="margin-bottom:0;">
-    <div class="eyebrow">Como trabalhamos</div>
-    <h2>Três formas de começar.</h2>
-  </div>
-  <div class="pack-grid">
-    <div class="pack">
-      <div class="tier">Essencial</div>
-      <h3>Diagnóstico + Talento</h3>
-      <p>IBEP-4.0 e ITC-4.0 numa unidade ou área piloto, com devolutiva estruturada. O primeiro retrato real do engajamento e dos perfis do time — com dados, não com impressões.</p>
-      <div class="link">Ideal para o primeiro contato →</div>
+<!-- 6. ONDE ATUAMOS -->
+<section class="sec sec-dark" id="setores">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Onde atuamos</div>
+      <h2>Operações com muitas pessoas, turnos e níveis de liderança.</h2>
     </div>
-    <div class="pack feat">
-      <div class="tier">Completo</div>
-      <h3>Diagnóstico + Desenvolvimento</h3>
-      <p>Tudo do Essencial, seguido de ciclo PLH-4.0 mensal, Tarde CliftonStrengths com a liderança, e CAP-4.0 de sustentação.</p>
-      <div class="link">O mais escolhido em ciclo piloto →</div>
+    <div class="sectors-grid reveal">
+      <div class="sector"><div class="slabel">Indústria</div><p>Produção · Automotivo · Metalurgia · Alimentos · Calçados</p></div>
+      <div class="sector"><div class="slabel">Logística</div><p>Transporte · Frotas · Centros de Distribuição · Supply Chain · Última milha</p></div>
+      <div class="sector"><div class="slabel">Operações complexas</div><p>Construção · Agroindústria · Energia · Operações de campo</p></div>
     </div>
-    <div class="pack">
-      <div class="tier">Transformação</div>
-      <h3>Sistema completo</h3>
-      <p>Os cinco instrumentos integrados, com ADM-4.0 nas mudanças relevantes e retainer de acompanhamento contínuo ao longo de 12 meses.</p>
-      <div class="link">Para operações de grande porte →</div>
-    </div>
-  </div>
-  <div style="margin-top:36px;text-align:center;">
-    <a href="pacotes.html" class="btn-ghost">Ver comparativo completo e serviços avulsos →</a>
+    <p class="sectors-foot reveal">Do chão de fábrica à diretoria, o diagnóstico acompanha a estrutura real da operação.</p>
   </div>
 </section>
 
-<section class="insights" id="insights">
-  <div class="method-head">
-    <div class="eyebrow">Ponto de vista</div>
-    <h2>Insights sobre liderança, reputação e o chão de fábrica.</h2>
-  </div>
-  <div class="insight-grid">
-    <div class="insight-card">
-      <div class="itag">Reputação</div>
-      <h3>Por que reputação se constrói de dentro pra fora</h3>
-      <p>O que a tese sobre a Mercedes-Benz do Brasil revela sobre engajamento e imagem corporativa.</p>
+<!-- 7. AUTORIDADE -->
+<section class="sec author" id="sobre">
+  <div class="author-grid">
+    <div class="reveal">
+      <div class="eyebrow">Quem assina o método</div>
+      <h2>O método nasceu antes da consultoria.</h2>
+      <figure>
+        <img src="eu-na-mb.jpg" alt="Anderson Carvalho na linha de produção de caminhões" loading="lazy" width="1255" height="832">
+        <figcaption>Anderson Carvalho · fundador</figcaption>
+      </figure>
     </div>
-    <div class="insight-card">
-      <div class="itag">Liderança</div>
-      <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
-      <p>Segurança psicológica não é discurso motivacional — é o que decide se alguém avisa a tempo.</p>
+    <div class="reveal">
+      <p class="opening">Anos de chão de fábrica ensinaram uma coisa: o problema raramente começa quando o indicador fica vermelho. Ele começou antes — em uma informação que não subiu, uma liderança que não ouviu, um talento mal colocado ou uma mudança que ninguém compreendeu.</p>
+      <div class="axes">
+        <div class="axis"><div class="alabel">Indústria</div><p><strong>Volkswagen do Brasil e Mercedes-Benz do Brasil</strong>, de 2001 a 2014, em logística e abastecimento de linha.</p></div>
+        <div class="axis"><div class="alabel">Jornalismo</div><p>Formação em Jornalismo. <strong>TV, rádio e assessoria de imprensa</strong> no Brasil e em Portugal — a prática de ouvir antes de concluir.</p></div>
+        <div class="axis"><div class="alabel">Formação</div><p>Pós-graduação na <strong>PUCRS</strong>, trabalho avaliado com nota 10. Especialista em CliftonStrengths 34. Certificação em PNL.</p></div>
+        <div class="axis"><div class="alabel">Método</div><p>O <strong>Sistema 4.0</strong> organiza essa experiência em cinco instrumentos que medem antes de intervir.</p></div>
+      </div>
+      <p class="psafe">Quem já viu uma linha parar por um erro entende que segurança psicológica tem consequência operacional: decide se alguém avisa a tempo ou esconde o problema até ele ficar caro.</p>
+      <div style="margin-top:30px;"><a href="sobre.html" class="btn-ghost">Ver a trajetória</a></div>
     </div>
-    <div class="insight-card">
-      <div class="itag">Talento</div>
-      <h3>CliftonStrengths no chão de fábrica</h3>
-      <p>Como identificar quem executa, quem conecta e quem sustenta — antes de promover a pessoa errada.</p>
-    </div>
-  </div>
-  <div class="insight-note">Espaço reservado para os artigos e análises já em produção — a publicar na próxima fase.</div>
-  <div style="margin-top:24px;">
-    <a href="insights.html" class="btn-ghost">Ver todos os insights (6 em produção) →</a>
   </div>
 </section>
 
-<section class="contact" id="contato">
-  <div class="eyebrow" style="justify-content:center;">Comece pela pergunta certa</div>
-  <h2>O que a sua liderança está construindo — reputação, ou apenas resultado do mês?</h2>
-  <a href="contato.html" class="btn-primary">Agendar uma conversa</a>
-  <div style="margin-top:18px;font-size:12px;color:var(--stone-on-dark);font-family:'IBM Plex Mono',monospace;">30 minutos · sem compromisso · resposta em até 24h</div>
+<!-- 8. ORIGEM ACADÊMICA -->
+<section class="sec sec-tint origin">
+  <div class="origin-grid reveal">
+    <div>
+      <div class="eyebrow">Origem acadêmica</div>
+      <h2>Experiência prática <span>+</span> desenvolvimento acadêmico.</h2>
+      <p>A base conceitual do Sistema 4.0 foi desenvolvida em uma pós-graduação em Comunicação Estratégica e Gestão de Marca e Reputação pela PUCRS, tendo a Mercedes-Benz do Brasil como estudo de caso. O trabalho propôs o IBEP-4.0 e o PLH-4.0 como instrumentos.</p>
+    </div>
+    <div class="grade">
+      <div class="gval">10</div>
+      <div class="glbl">Trabalho avaliado com nota 10.</div>
+      <div class="gsub">TCC “Reputação Corporativa de Dentro para Fora” · PUCRS</div>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <div>Grand Talent Consulting © 2026</div>
-  <div>Brasil · Portugal</div>
+<!-- 9. INTERVENÇÃO / JORNADA -->
+<section class="sec" id="investimento">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Como começar</div>
+      <h2>Você não precisa contratar toda a jornada.</h2>
+      <p>Cada etapa existe para responder a uma pergunta diferente.</p>
+    </div>
+    <div class="journey reveal">
+      <div class="journey-step"><div class="jn">01</div><div class="jt">Discovery</div><div class="jq">Existe um problema que justifique investigação?</div></div>
+      <div class="journey-step"><div class="jn">02</div><div class="jt">Diagnóstico</div><div class="jq">Onde está o problema, qual sua dimensão e quais grupos são mais afetados?</div></div>
+      <div class="journey-step"><div class="jn">03</div><div class="jt">Transformação</div><div class="jq">O que precisa mudar em liderança, comunicação, talentos e comportamento?</div></div>
+      <div class="journey-step"><div class="jn">04</div><div class="jt">Partnership</div><div class="jq">Como sustentar o ganho e evitar regressão?</div></div>
+    </div>
+    <div class="reveal" style="margin-top:32px;"><a href="pacotes.html" class="btn-ghost">Ver o que cada etapa inclui</a></div>
+  </div>
+</section>
+
+<!-- 10. PONTO DE VISTA -->
+<section class="sec sec-tint" id="insights">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Ponto de vista</div>
+      <h2>O que o chão de fábrica ensina antes dos livros.</h2>
+    </div>
+    <div class="ins-grid reveal">
+      <a class="ins-card" href="artigo-tenerife-1977.html">
+        <div class="itag">Liderança</div>
+        <h3>Tenerife, 1977: o caso que todo líder de operação deveria estudar</h3>
+        <p>O maior acidente da aviação civil não foi causado por falha técnica, mas por silêncio hierárquico.</p>
+        <div class="imeta">3 min de leitura</div>
+      </a>
+      <a class="ins-card" href="artigo-reputacao-de-dentro-para-fora.html">
+        <div class="itag">Reputação</div>
+        <h3>Por que reputação se constrói de dentro pra fora</h3>
+        <p>O que o estudo sobre a Mercedes-Benz do Brasil mostra sobre engajamento interno e imagem corporativa.</p>
+        <div class="imeta">4 min de leitura</div>
+      </a>
+      <a class="ins-card" href="artigo-onde-a-mudanca-trava.html">
+        <div class="itag">Mudança</div>
+        <h3>Onde a mudança trava</h3>
+        <p>Consciência não é adesão, e adesão não é capacidade. Por que confundir essas etapas trava a mudança.</p>
+        <div class="imeta">2 min de leitura</div>
+      </a>
+    </div>
+    <div class="reveal" style="margin-top:28px;"><a href="insights.html" class="btn-ghost">Ver todos os artigos</a></div>
+  </div>
+</section>
+
+<!-- 11. CONVERSA -->
+<section class="sec sec-dark closing on-dark" id="contato">
+  <div class="closing-grid">
+    <div class="reveal">
+      <div class="eyebrow">O que acontece depois</div>
+      <h2>Uma conversa de 30 minutos para entender sua operação.</h2>
+      <div class="cta-row">
+        <a href="contato.html" class="btn-primary">Conversar sobre minha operação</a>
+        <a href="https://app.grandtalent.com.br/custo-oculto" class="btn-ghost">Calcular custo oculto</a>
+      </div>
+      <div class="sig">
+        <picture>
+          <source type="image/webp" srcset="assets/brand/grandtalent-assinatura-480.webp 480w, assets/brand/grandtalent-assinatura-960.webp 960w" sizes="360px">
+          <img src="assets/brand/grandtalent-assinatura-480.png" alt="GrandTalent — Pessoas | Diagnóstico | Alta Performance" width="480" height="301" loading="lazy">
+        </picture>
+      </div>
+    </div>
+    <ol class="steps3 stack reveal">
+      <li><strong>Entendemos o contexto.</strong><span>Resposta inicial em até 24 horas úteis.</span></li>
+      <li><strong>Conversamos por 30 minutos.</strong><span>Sem compromisso e sem apresentação comercial interminável.</span></li>
+      <li><strong>Definimos o próximo passo.</strong><span>Se houver aderência, você recebe uma proposta de diagnóstico adequada à operação.</span></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<!--GT:FOOTER-->
+<footer class="gt-footer on-dark">
+  <div class="ft-grid">
+    <a class="ft-logo" href="index.html" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="111px"><img loading="lazy" src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent — Pessoas, Diagnóstico, Alta Performance" width="197" height="128"></picture></a>
+    <div class="ft-links">
+      <a href="metodologia.html">Metodologia</a>
+      <a href="pacotes.html">Investimento</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="insights.html">Insights</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <div class="ft-contact">
+      <a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a>
+      <span>Brasil · Portugal</span>
+    </div>
+  </div>
+  <div class="ft-base">
+    <span>GrandTalent Consulting © 2026</span>
+    <span><a href="privacidade.html">Privacidade</a> · <a href="https://app.grandtalent.com.br/cliente">Área do cliente</a> · <a href="https://app.grandtalent.com.br">Acesso do consultor</a></span>
+  </div>
 </footer>
-
-<script>
-window.addEventListener('scroll', () => {
-  document.getElementById('topbar').classList.toggle('scrolled', window.scrollY > 40);
-});
-</script>
-<script>
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-  }
-</script>
-
-<script>
-  (function() {
-    var container = document.getElementById('feed-container');
-    var updatedEl = document.getElementById('feed-updated');
-    if (!container) return;
-
-    function tempoAtras(segundos) {
-      if (segundos < 60) return 'agora mesmo';
-      var min = Math.floor(segundos / 60);
-      if (min < 60) return 'há ' + min + ' min';
-      var h = Math.floor(min / 60);
-      return 'há ' + h + 'h';
-    }
-
-    var carregadoEm = null;
-
-    function carregar() {
-      fetch('/api/feed-noticias')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          if (!data.ok || !data.itens || data.itens.length === 0) throw new Error('vazio');
-          container.innerHTML = data.itens.map(function(item) {
-            return '<a class="feed-card" href="' + item.link + '" target="_blank" rel="noopener">' +
-              '<div class="feed-source">' + item.fonte + '</div>' +
-              '<div class="feed-title">' + item.titulo + '</div>' +
-              '</a>';
-          }).join('');
-          carregadoEm = Date.now();
-          atualizarTimestamp();
-        })
-        .catch(function() {
-          container.innerHTML = '<div class="feed-loading">Não foi possível carregar as notícias agora. <a href="https://news.google.com/search?q=engajamento%20de%20funcionários" target="_blank" rel="noopener">Ver no Google Notícias →</a></div>';
-        });
-    }
-
-    function atualizarTimestamp() {
-      if (!carregadoEm || !updatedEl) return;
-      updatedEl.textContent = 'Atualizado ' + tempoAtras(Math.floor((Date.now() - carregadoEm) / 1000));
-    }
-
-    carregar();
-    setInterval(atualizarTimestamp, 30000);
-    setInterval(carregar, 5 * 60 * 1000);
-  })();
-</script>
+<script src="assets/site.js" defer></script>
+<!--/GT:FOOTER-->
 </body>
 </html>

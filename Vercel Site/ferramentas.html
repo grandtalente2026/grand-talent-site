@@ -3,7 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ferramentas — Grand Talent Consulting</title>
+<title>Ferramentas — GrandTalent Consulting</title>
+<!--GT:HEAD-->
+<meta name="description" content="A GrandTalent entrega inteligência antes de vender consultoria. Use qualquer uma das ferramentas abaixo pra ter um primeiro retrato real da sua…">
+<link rel="canonical" href="https://grandtalent.com.br/ferramentas.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrandTalent Consulting">
+<meta property="og:title" content="Ferramentas — GrandTalent Consulting">
+<meta property="og:description" content="A GrandTalent entrega inteligência antes de vender consultoria. Use qualquer uma das ferramentas abaixo pra ter um primeiro retrato real da sua…">
+<meta property="og:url" content="https://grandtalent.com.br/ferramentas.html">
+<meta property="og:image" content="https://grandtalent.com.br/assets/brand/og-grandtalent.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1C1913">
+<!--/GT:HEAD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -162,36 +176,40 @@
   .avulso-card.cta p{color:var(--stone-on-dark);}
   .avulso-card.cta a{display:inline-block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);padding-bottom:3px;}
 </style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="logo">Grand<span>Talent</span> Consulting</a>
-  <div class="navlinks">
-    <a href="index.html#setores">Setores</a>
+<!--GT:HEADER-->
+<header class="gt-header" id="gt-header">
+  <a href="index.html" class="gt-logo" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="(max-width:859px) 80px, 99px"><img src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent" width="197" height="128"></picture></a>
+  <nav class="gt-nav" aria-label="Principal">
     <a href="metodologia.html">Metodologia</a>
-    <a href="ferramentas.html" class="active">Ferramentas</a>
-    <a href="pacotes.html" class="active">Pacotes</a>
+    <a href="pacotes.html">Investimento</a>
+    <a href="ferramentas.html" class="active" aria-current="page">Ferramentas</a>
     <a href="sobre.html">Sobre</a>
     <a href="insights.html">Insights</a>
-    <a href="contato.html">Contato</a>
-  </div>
-  <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#setores">Setores</a>
-    <a href="metodologia.html">Metodologia</a>
-    <a href="ferramentas.html" class="active">Ferramentas</a>
-    <a href="pacotes.html" class="active">Pacotes</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="insights.html">Insights</a>
-    <a href="contato.html">Contato</a>
-  </div>
+    <a href="contato.html" class="gt-nav-cta">Contato</a>
+  </nav>
+  <button class="gt-burger" id="gt-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="gt-menu"><span></span><span></span><span></span></button>
+</header>
+<div class="gt-menu" id="gt-menu">
+  <a href="index.html">Início</a>
+  <a href="metodologia.html">Metodologia</a>
+  <a href="pacotes.html">Investimento</a>
+  <a href="ferramentas.html" class="active" aria-current="page">Ferramentas</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="insights.html">Insights</a>
+  <a href="contato.html">Contato</a>
+  <a href="contato.html" class="gt-menu-cta">Conversar sobre minha operação</a>
+  <a href="https://app.grandtalent.com.br/cliente" class="gt-menu-small">Área do cliente</a>
+</div>
+<!--/GT:HEADER-->
 
 <section class="page-hero">
   <div class="eyebrow">Ferramentas</div>
   <h1>Antes de contratar, meça. As ferramentas abaixo são gratuitas.</h1>
-  <p>A Grand Talent entrega inteligência antes de vender consultoria. Use qualquer uma das ferramentas abaixo pra ter um primeiro retrato real da sua operação — sem compromisso.</p>
+  <p>A GrandTalent entrega inteligência antes de vender consultoria. Use qualquer uma das ferramentas abaixo pra ter um primeiro retrato real da sua operação — sem compromisso.</p>
 </section>
 
 <section class="pkg-section">
@@ -231,25 +249,29 @@
   <h2>Toda decisão fica mais fácil quando começa com um número, não com uma opinião.</h2>
 </section>
 
-<footer>
-  <div>Grand Talent Consulting © 2026</div>
-  <div>Brasil · Portugal</div>
+<!--GT:FOOTER-->
+<footer class="gt-footer on-dark">
+  <div class="ft-grid">
+    <a class="ft-logo" href="index.html" aria-label="GrandTalent — página inicial"><picture><source type="image/webp" srcset="assets/brand/grandtalent-logo-104.webp 160w, assets/brand/grandtalent-logo-128.webp 197w, assets/brand/grandtalent-logo-192.webp 295w" sizes="111px"><img loading="lazy" src="assets/brand/grandtalent-logo-128.png" alt="GrandTalent — Pessoas, Diagnóstico, Alta Performance" width="197" height="128"></picture></a>
+    <div class="ft-links">
+      <a href="metodologia.html">Metodologia</a>
+      <a href="pacotes.html">Investimento</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="insights.html">Insights</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <div class="ft-contact">
+      <a href="mailto:contato@grandtalent.com.br">contato@grandtalent.com.br</a>
+      <span>Brasil · Portugal</span>
+    </div>
+  </div>
+  <div class="ft-base">
+    <span>GrandTalent Consulting © 2026</span>
+    <span><a href="privacidade.html">Privacidade</a> · <a href="https://app.grandtalent.com.br/cliente">Área do cliente</a> · <a href="https://app.grandtalent.com.br">Acesso do consultor</a></span>
+  </div>
 </footer>
-<script>
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-  }
-</script>
+<script src="assets/site.js" defer></script>
+<!--/GT:FOOTER-->
 </body>
 </html>
