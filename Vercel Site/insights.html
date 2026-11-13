@@ -103,34 +103,38 @@
   .feed-updated{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--stone);text-align:right;}
   .subscribe p{font-size:16px !important;}
 
-  /* RADAR GRANDTALENT — faixa estilo GC */
-  .radar{margin:0 6vw 44px;background:var(--ink-bg);color:#fff;border-left:3px solid var(--gold-bright);display:grid;grid-template-columns:auto 1fr;align-items:stretch;}
-  .radar-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-bg);background:var(--gold-bright);padding:0 16px;display:flex;align-items:center;white-space:nowrap;font-weight:500;}
-  .radar-body{display:grid;grid-template-columns:auto 1fr;min-width:0;}
-  .radar-fx{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 20px;border-right:1px solid var(--line-on-dark);font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
-  .radar-fx .par{font-size:13.5px;color:#fff;}
-  .radar-fx .par b{font-weight:500;color:var(--gold-bright);margin-right:6px;}
-  .radar-fx .meta{font-size:10.5px;color:var(--stone-on-dark);letter-spacing:0.02em;}
-  .radar-news{padding:12px 20px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:4px;}
-  .radar-news .linha1{display:flex;gap:10px;align-items:baseline;min-width:0;}
-  .radar-pais{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-bright);border:1px solid rgba(212,179,106,.5);padding:2px 7px;white-space:nowrap;flex:none;}
-  .radar-chamada{font-size:14.5px;line-height:1.4;color:#fff;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
-  .radar-porque{font-size:12.5px;line-height:1.45;color:var(--stone-on-dark);}
-  .radar-fonte{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--stone-on-dark);letter-spacing:0.02em;}
+  /* RADAR GRANDTALENT — linha tipo GC acima do título; abre o quadro ao clicar */
+  .radar{background:var(--ink-bg);color:#fff;border-left:3px solid var(--gold-bright);margin:0 0 34px;max-width:1100px;}
+  .radar-bar{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:14px;padding:9px 14px 9px 0;cursor:pointer;min-height:44px;}
+  .radar-bar:focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px;}
+  .radar-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-bg);background:var(--gold-bright);padding:4px 10px;margin-left:-3px;font-weight:500;flex:none;}
+  .radar-fx{font-family:'IBM Plex Mono',monospace;font-size:12.5px;white-space:nowrap;flex:none;display:flex;gap:12px;color:#fff;}
+  .radar-fx b{font-weight:500;color:var(--gold-bright);margin-right:4px;}
+  .radar-sep{width:1px;align-self:stretch;background:var(--line-on-dark);flex:none;}
+  .radar-pais{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-bright);border:1px solid rgba(212,179,106,.5);padding:1px 6px;white-space:nowrap;flex:none;}
+  .radar-titulo{font-size:13.5px;line-height:1.35;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1;}
+  .radar-seta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-bright);white-space:nowrap;flex:none;display:flex;align-items:center;gap:6px;}
+  .radar-seta i{font-style:normal;display:inline-block;transition:transform .2s ease;}
+  .radar.aberto .radar-seta i{transform:rotate(180deg);}
+  .radar-painel{display:none;padding:4px 18px 16px 18px;border-top:1px solid var(--line-on-dark);}
+  .radar.aberto .radar-painel{display:block;}
+  .radar-chamada{display:block;font-size:16px;line-height:1.45;color:#fff;margin:12px 0 6px;font-weight:400;}
+  .radar-porque{font-size:13.5px;line-height:1.55;color:var(--stone-on-dark);max-width:80ch;}
+  .radar-fonte,.radar-fxmeta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stone-on-dark);margin-top:10px;letter-spacing:0.02em;}
   .radar-fonte a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:2px;}
   .radar-fonte a:hover{color:#fff;}
-  @media(min-width:1100px){.radar-chamada{white-space:normal;}}
+  .radar-fxmeta{margin-top:4px;}
   @media(max-width:859px){
-    .radar{grid-template-columns:1fr;margin:0 5vw 36px;}
-    .radar-tag{padding:8px 14px;}
-    .radar-body{grid-template-columns:1fr;}
-    .radar-fx{border-right:none;border-bottom:1px solid var(--line-on-dark);padding:12px 14px;white-space:normal;flex-direction:row;flex-wrap:wrap;column-gap:18px;row-gap:4px;}
-    .radar-fx .meta{flex-basis:100%;}
-    .radar-news{padding:12px 14px 14px;}
-    .radar-news .linha1{flex-direction:column;align-items:flex-start;gap:8px;}
-    .radar-chamada{white-space:normal;font-size:15px;}
+    .radar{margin:0 0 28px;}
+    .radar-bar{flex-wrap:wrap;row-gap:8px;padding:10px 12px 12px 0;align-items:flex-start;}
+    .radar-sep{display:none;}
+    .radar-fx{font-size:12px;}
+    .radar-pais{order:3;margin-left:12px;}
+    .radar-titulo{order:4;flex-basis:100%;white-space:normal;padding-left:12px;font-size:14.5px;}
+    .radar-seta{order:5;padding-left:12px;}
+    .radar-painel{padding:2px 14px 14px;}
+    .radar-chamada{display:none;}
   }
-  .page-hero{padding-bottom:36px;}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -170,27 +174,27 @@
 <!--/GT:HEADER-->
 
 <section class="page-hero">
+  <!-- RADAR GRANDTALENT: a notícia vem de radar.json (curadoria); as cotações de /api/cotacoes -->
+  <aside class="radar" id="radar" aria-label="Radar GrandTalent">
+    <button type="button" class="radar-bar" id="radar-bar" aria-expanded="false" aria-controls="radar-painel">
+      <span class="radar-tag">Radar</span>
+      <span class="radar-fx" aria-live="polite"><span><b>US$</b><span id="fx-usd">—</span></span><span><b>€</b><span id="fx-eur">—</span></span></span>
+      <span class="radar-sep" aria-hidden="true"></span>
+      <span class="radar-pais" id="rn-pais"></span>
+      <span class="radar-titulo" id="rn-titulo"></span>
+      <span class="radar-seta"><span id="rn-acao">Ler</span><i aria-hidden="true">▾</i></span>
+    </button>
+    <div class="radar-painel" id="radar-painel">
+      <a class="radar-chamada" id="rn-chamada" target="_blank" rel="noopener"></a>
+      <div class="radar-porque" id="rn-porque"></div>
+      <div class="radar-fonte" id="rn-fonte"></div>
+      <div class="radar-fxmeta" id="fx-meta">Carregando cotações…</div>
+    </div>
+  </aside>
   <div class="eyebrow">Ponto de vista</div>
   <h1>Liderança, reputação e o que o chão de fábrica ensina antes dos livros.</h1>
   <p>Análises curtas, embasadas e sem discurso motivacional — conectando pesquisa acadêmica a decisões reais de liderança industrial.</p>
 </section>
-
-<!-- RADAR GRANDTALENT: a notícia vem de radar.json (curadoria); as cotações de /api/cotacoes -->
-<aside class="radar" id="radar" aria-label="Radar GrandTalent">
-  <div class="radar-tag">Radar</div>
-  <div class="radar-body">
-    <div class="radar-fx" id="radar-fx" aria-live="polite">
-      <div class="par"><b>US$</b><span id="fx-usd">—</span></div>
-      <div class="par"><b>€</b><span id="fx-eur">—</span></div>
-      <div class="meta" id="fx-meta">Carregando cotações…</div>
-    </div>
-    <div class="radar-news" id="radar-news">
-      <div class="linha1"><span class="radar-pais" id="rn-pais"></span><a class="radar-chamada" id="rn-chamada" target="_blank" rel="noopener"></a></div>
-      <div class="radar-porque" id="rn-porque"></div>
-      <div class="radar-fonte" id="rn-fonte"></div>
-    </div>
-  </div>
-</aside>
 
 <div class="filters">
   <button type="button" class="ftag active" data-filter="Todos" aria-pressed="true">Todos</button>
@@ -342,12 +346,21 @@
   fetch('radar.json', { cache: 'no-cache' }).then(function (r) { return r.json() }).then(function (n) {
     var link = /^https:\/\//.test(n.link) ? n.link : null;
     $('rn-pais').textContent = n.pais || '';
+    $('rn-titulo').textContent = n.chamada || '';
     var c = $('rn-chamada'); c.textContent = n.chamada || '';
     if (link) { c.href = link; c.title = n.chamada } else { c.removeAttribute('href') }
     $('rn-porque').textContent = n.por_que_importa ? 'Por que importa: ' + n.por_que_importa : '';
     var f = $('rn-fonte'); f.textContent = (n.fonte || '') + (n.data ? ' · ' + dataBR(n.data) : '') + (link ? ' · ' : '');
     if (link) { var a = document.createElement('a'); a.href = link; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ler na fonte (abre o site original)'; f.appendChild(a) }
-  }).catch(function () { var r = $('radar-news'); if (r) r.style.display = 'none' });
+  }).catch(function () { $('rn-titulo').textContent = ''; $('rn-acao').textContent = 'Cotações' });
+
+  // Abre e fecha o quadro da notícia
+  var bar = $('radar-bar'), radar = $('radar');
+  bar.addEventListener('click', function () {
+    var aberto = radar.classList.toggle('aberto');
+    bar.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    $('rn-acao').textContent = aberto ? 'Fechar' : 'Ler';
+  });
 
   // Cotações (automáticas). Se falharem, mostra a última válida guardada neste navegador, com a data.
   var CHAVE = 'gt-radar-cotacao';
