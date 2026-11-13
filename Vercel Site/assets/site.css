@@ -260,3 +260,24 @@ main img{height:auto;max-width:100%;}
 @media(max-width:419px){.gt-header{padding:0 14px;}.gt-logo img{height:46px;}.gt-access-btn svg{display:none;}.gt-access-btn{padding:5px 8px;}.gt-burger{width:40px;padding:8px;}}
 .gt-menu-access{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:14px;}
 .gt-menu .gt-menu-access-btn{display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#FFFFFF;border:1px solid rgba(255,255,255,0.32);border-radius:2px;padding:14px 10px;}
+
+/* ---------- AMOSTRA DO DIAGNÓSTICO (página inicial, dados fictícios) ---------- */
+.amostra .amostra-flag{display:inline-block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--gold-deep);border:1px dashed var(--gold);padding:6px 10px;border-radius:2px;}
+.amostra-card{background:var(--panel);border:1px solid var(--line);border-radius:2px;padding:28px;max-width:980px;}
+.amostra-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-bottom:18px;}
+.amostra .alabel{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--stone);}
+.amostra-title{font-family:'Fraunces',serif;font-size:21px;color:var(--ink);margin-top:4px;}
+.amostra-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--stone);align-items:center;}
+.amostra-legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px;}
+.amostra-legend i.t1,.abar.t1{background:var(--gold);}
+.amostra-legend i.t3,.abar.t3{background:var(--ink);}
+.amostra-rows{display:flex;flex-direction:column;}
+.arow{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:8px 20px;align-items:center;padding:12px 0;border-top:1px solid var(--line);}
+.arow.hl .alab{color:var(--ink);font-weight:600;}
+.alab{font-size:14.5px;color:var(--stone);}
+.abars{display:flex;flex-direction:column;gap:5px;}
+.abar{display:flex;align-items:center;justify-content:flex-end;height:20px;border-radius:2px;min-width:44px;padding-right:8px;}
+.abar b{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:#FFFFFF;}
+.amostra-read{margin-top:20px;padding:18px 20px;background:var(--paper-2);border-left:3px solid var(--gold);}
+.amostra-read p{margin:6px 0 0;font-size:15.5px;line-height:1.6;color:var(--ink);max-width:70ch;}
+@media(max-width:640px){.amostra-card{padding:18px;}.arow{grid-template-columns:minmax(0,1fr);}}

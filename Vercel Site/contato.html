@@ -82,6 +82,12 @@
   .side-photo figcaption{margin-top:14px;}
   .side-photo figcaption strong{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:20px;color:var(--ink);}
   .side-photo figcaption span{display:block;font-size:14.5px;color:var(--stone);margin-top:4px;line-height:1.45;}
+  .who-answers{display:flex;align-items:center;gap:16px;padding:16px;margin-bottom:28px;background:var(--panel,#fff);border:1px solid var(--line);border-radius:2px;}
+  .who-answers picture{flex:none;display:block;width:72px;height:72px;}
+  .who-answers img{width:72px;height:72px;object-fit:cover;object-position:center 25%;border-radius:50%;display:block;flex:none;}
+  .who-answers .ilabel{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:4px;}
+  .who-answers strong{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:20px;color:var(--ink);}
+  .who-answers span{display:block;font-size:14px;color:var(--stone);line-height:1.4;}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -138,6 +144,11 @@
 </div>
 
 <div class="contact-wrap" id="contact-wrap">
+  <div class="contact-main">
+  <div class="who-answers">
+    <picture><source type="image/webp" srcset="fotos/yara-carvalho.webp"><img src="fotos/yara-carvalho.jpg" alt="Yara Carvalho, Gestora de Relacionamento e Experiência do Cliente da GrandTalent" width="1385" height="1136"></picture>
+    <div><div class="ilabel">Quem responde ao seu contato</div><strong>Yara Carvalho</strong><span>Gestora de Relacionamento e Experiência do Cliente</span></div>
+  </div>
   <form id="contact-form" action="https://formspree.io/f/xwvgleqn" method="POST" novalidate>
     <input type="hidden" name="_subject" value="Novo contato pelo site — GrandTalent">
     <div class="row2">
@@ -180,9 +191,9 @@
     <button type="submit" class="submit-btn">Quero conversar sobre minha operação</button>
     <p class="form-note">Os dados são usados apenas para responder a este contato. Ver a <a href="privacidade.html">política de privacidade</a>.</p>
   </form>
+  </div>
 
   <aside class="side" aria-label="Informações de contato">
-    <figure class="side-photo"><picture><source type="image/webp" srcset="fotos/yara-carvalho.webp"><img src="fotos/yara-carvalho.jpg" alt="Yara Carvalho, Gestora de Relacionamento e Experiência do Cliente da GrandTalent" width="1385" height="1136" loading="lazy"></picture><figcaption><strong>Yara Carvalho</strong><span>Gestora de Relacionamento e Experiência do Cliente</span></figcaption></figure>
     <div class="info-block">
       <div class="ilabel">E-mail direto</div>
       <div class="ival"><a href="mailto:hello.grandtalent@gmail.com">hello.grandtalent@gmail.com</a></div>

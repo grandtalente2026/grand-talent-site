@@ -78,3 +78,13 @@
     });
   });
 })();
+
+// PRÉVIA — remover antes de publicar. Só em endereços *.vercel.app, os links do app
+// apontam para a prévia dos painéis. Em grandtalent.com.br nada muda.
+(function () {
+  if (!/\.vercel\.app$/.test(location.hostname)) return;
+  var PREVIA_APP = 'https://grandtalent-app-git-previa-visual-paineis-grandtalent.vercel.app';
+  document.querySelectorAll('a[href^="https://app.grandtalent.com.br"]').forEach(function (a) {
+    a.href = a.getAttribute('href').replace('https://app.grandtalent.com.br', PREVIA_APP);
+  });
+})();
