@@ -102,6 +102,35 @@
   .feed-loading a{text-decoration:underline;}
   .feed-updated{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--stone);text-align:right;}
   .subscribe p{font-size:16px !important;}
+
+  /* RADAR GRANDTALENT — faixa estilo GC */
+  .radar{margin:0 6vw 44px;background:var(--ink-bg);color:#fff;border-left:3px solid var(--gold-bright);display:grid;grid-template-columns:auto 1fr;align-items:stretch;}
+  .radar-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-bg);background:var(--gold-bright);padding:0 16px;display:flex;align-items:center;white-space:nowrap;font-weight:500;}
+  .radar-body{display:grid;grid-template-columns:auto 1fr;min-width:0;}
+  .radar-fx{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 20px;border-right:1px solid var(--line-on-dark);font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
+  .radar-fx .par{font-size:13.5px;color:#fff;}
+  .radar-fx .par b{font-weight:500;color:var(--gold-bright);margin-right:6px;}
+  .radar-fx .meta{font-size:10.5px;color:var(--stone-on-dark);letter-spacing:0.02em;}
+  .radar-news{padding:12px 20px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+  .radar-news .linha1{display:flex;gap:10px;align-items:baseline;min-width:0;}
+  .radar-pais{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-bright);border:1px solid rgba(212,179,106,.5);padding:2px 7px;white-space:nowrap;flex:none;}
+  .radar-chamada{font-size:14.5px;line-height:1.4;color:#fff;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
+  .radar-porque{font-size:12.5px;line-height:1.45;color:var(--stone-on-dark);}
+  .radar-fonte{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--stone-on-dark);letter-spacing:0.02em;}
+  .radar-fonte a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:2px;}
+  .radar-fonte a:hover{color:#fff;}
+  @media(min-width:1100px){.radar-chamada{white-space:normal;}}
+  @media(max-width:859px){
+    .radar{grid-template-columns:1fr;margin:0 5vw 36px;}
+    .radar-tag{padding:8px 14px;}
+    .radar-body{grid-template-columns:1fr;}
+    .radar-fx{border-right:none;border-bottom:1px solid var(--line-on-dark);padding:12px 14px;white-space:normal;flex-direction:row;flex-wrap:wrap;column-gap:18px;row-gap:4px;}
+    .radar-fx .meta{flex-basis:100%;}
+    .radar-news{padding:12px 14px 14px;}
+    .radar-news .linha1{flex-direction:column;align-items:flex-start;gap:8px;}
+    .radar-chamada{white-space:normal;font-size:15px;}
+  }
+  .page-hero{padding-bottom:36px;}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -145,6 +174,23 @@
   <h1>Liderança, reputação e o que o chão de fábrica ensina antes dos livros.</h1>
   <p>Análises curtas, embasadas e sem discurso motivacional — conectando pesquisa acadêmica a decisões reais de liderança industrial.</p>
 </section>
+
+<!-- RADAR GRANDTALENT: a notícia vem de radar.json (curadoria); as cotações de /api/cotacoes -->
+<aside class="radar" id="radar" aria-label="Radar GrandTalent">
+  <div class="radar-tag">Radar</div>
+  <div class="radar-body">
+    <div class="radar-fx" id="radar-fx" aria-live="polite">
+      <div class="par"><b>US$</b><span id="fx-usd">—</span></div>
+      <div class="par"><b>€</b><span id="fx-eur">—</span></div>
+      <div class="meta" id="fx-meta">Carregando cotações…</div>
+    </div>
+    <div class="radar-news" id="radar-news">
+      <div class="linha1"><span class="radar-pais" id="rn-pais"></span><a class="radar-chamada" id="rn-chamada" target="_blank" rel="noopener"></a></div>
+      <div class="radar-porque" id="rn-porque"></div>
+      <div class="radar-fonte" id="rn-fonte"></div>
+    </div>
+  </div>
+</aside>
 
 <div class="filters">
   <button type="button" class="ftag active" data-filter="Todos" aria-pressed="true">Todos</button>
@@ -218,17 +264,6 @@
   </div>
 </section>
 
-<section class="sec" id="radar" style="border-top:1px solid var(--line);">
-  <div class="wrap">
-    <div class="sec-head" style="margin-bottom:28px;">
-      <div class="eyebrow">Radar</div>
-      <h2>O que está sendo discutido sobre engajamento e liderança</h2>
-      <p>Notícias recentes de fontes externas, atualizadas automaticamente.</p>
-    </div>
-    <div id="feed-container" class="feed-grid"><div class="feed-loading">Carregando notícias recentes…</div></div>
-    <div id="feed-updated" class="feed-updated"></div>
-  </div>
-</section>
 
 <section class="subscribe">
   <div class="eyebrow">Da leitura à operação</div>
@@ -296,26 +331,48 @@
 </script>
 <script>
 (function () {
-  var container = document.getElementById('feed-container');
-  var updatedEl = document.getElementById('feed-updated');
-  if (!container) return;
-  function esc(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
-  function tempoAtras(seg) { if (seg < 60) return 'agora mesmo'; var m = Math.floor(seg / 60); if (m < 60) return 'há ' + m + ' min'; return 'há ' + Math.floor(m / 60) + 'h'; }
-  var carregadoEm = null;
+  var MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  function $(id) { return document.getElementById(id) }
+  function dataBR(iso) { var p = String(iso).slice(0, 10).split('-'); return p.length === 3 ? (p[2] + ' ' + MESES[Number(p[1]) - 1] + ' ' + p[0]) : '' }
+  function hora(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' }) }
+  function dia(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'America/Sao_Paulo' }) }
+  function brl(v) { return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 4, maximumFractionDigits: 4 }) }
+
+  // Notícia (curadoria em radar.json)
+  fetch('radar.json', { cache: 'no-cache' }).then(function (r) { return r.json() }).then(function (n) {
+    var link = /^https:\/\//.test(n.link) ? n.link : null;
+    $('rn-pais').textContent = n.pais || '';
+    var c = $('rn-chamada'); c.textContent = n.chamada || '';
+    if (link) { c.href = link; c.title = n.chamada } else { c.removeAttribute('href') }
+    $('rn-porque').textContent = n.por_que_importa ? 'Por que importa: ' + n.por_que_importa : '';
+    var f = $('rn-fonte'); f.textContent = (n.fonte || '') + (n.data ? ' · ' + dataBR(n.data) : '') + (link ? ' · ' : '');
+    if (link) { var a = document.createElement('a'); a.href = link; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ler na fonte (abre o site original)'; f.appendChild(a) }
+  }).catch(function () { var r = $('radar-news'); if (r) r.style.display = 'none' });
+
+  // Cotações (automáticas). Se falharem, mostra a última válida guardada neste navegador, com a data.
+  var CHAVE = 'gt-radar-cotacao';
+  function mostrar(d, guardada) {
+    $('fx-usd').textContent = brl(d.usd.valor);
+    $('fx-eur').textContent = brl(d.eur.valor);
+    var quando = d.usd.quando;
+    var txt;
+    if (guardada) txt = 'Última cotação válida · ' + dia(quando) + ' ' + hora(quando) + ' · ' + d.fonte;
+    else if (d.tipo === 'ptax') txt = 'Fechamento de ' + dia(quando) + ' · ' + d.fonte;
+    else txt = 'Atualizado às ' + hora(quando) + ' (Brasília) · ' + d.fonte;
+    $('fx-meta').textContent = txt;
+  }
   function carregar() {
-    fetch('/api/feed-noticias').then(function (r) { return r.json(); }).then(function (data) {
-      if (!data.ok || !data.itens || !data.itens.length) throw new Error('vazio');
-      container.innerHTML = data.itens.map(function (item) {
-        var href = /^https?:\/\//.test(item.link) ? item.link : '#';
-        return '<a class="feed-card" href="' + esc(href) + '" target="_blank" rel="noopener"><div class="feed-source">' + esc(item.fonte) + '</div><div class="feed-title">' + esc(item.titulo) + '</div></a>';
-      }).join('');
-      carregadoEm = Date.now(); atualizar();
+    fetch('/api/cotacoes', { cache: 'no-store' }).then(function (r) { return r.json() }).then(function (d) {
+      if (!d.ok) throw new Error('indisponível');
+      mostrar(d, false);
+      try { localStorage.setItem(CHAVE, JSON.stringify(d)) } catch (e) {}
     }).catch(function () {
-      container.innerHTML = '<div class="feed-loading">Não foi possível carregar as notícias agora. <a href="https://news.google.com/search?q=engajamento%20de%20funcion%C3%A1rios" target="_blank" rel="noopener">Ver no Google Notícias</a></div>';
+      var g = null; try { g = JSON.parse(localStorage.getItem(CHAVE) || 'null') } catch (e) {}
+      if (g && g.usd) mostrar(g, true);
+      else { $('fx-usd').textContent = '—'; $('fx-eur').textContent = '—'; $('fx-meta').textContent = 'Cotação indisponível no momento' }
     });
   }
-  function atualizar() { if (carregadoEm && updatedEl) updatedEl.textContent = 'Atualizado ' + tempoAtras(Math.floor((Date.now() - carregadoEm) / 1000)); }
-  carregar(); setInterval(atualizar, 30000); setInterval(carregar, 5 * 60 * 1000);
+  carregar(); setInterval(carregar, 60 * 1000);
 })();
 </script>
 </body>
